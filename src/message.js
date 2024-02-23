@@ -6,52 +6,85 @@
 //     });
 // };
 
+const { connectToDatabase } = require("./config/connect.js");
 
-const { connectToDatabase } = require('./config/connect.js');
+module.exports = function (client) {
+    client.on("message", async (message) => {
+      const mongoose = await connectToDatabase();
+  
+      let MessageModel;
 
+    // verifica se tem uma collection chamadada "Message", se não houver faça uma nova collection
+    if (mongoose.models.Message) {
+        MessageModel = mongoose.model("Message");
+      } else {
+        MessageModel = mongoose.model(
+          "Message",
+          new mongoose.Schema(
+            {
+              phoneNumber: String,
+              question: String,
+              answer: String,
+              isNewUser: { type: Boolean, default: true },
+            },
+            { collection: "Message" }
+          )
+        );
+      }
+    
 
-module.exports = function(client) {
-    client.on('message', async (message) => {
-        const mongoose = await connectToDatabase();
-        const db = mongoose.connection.db;
+    // Verificar se o usuário é novo
+    const userMessage = await MessageModel.findOne({ phoneNumber: message.from });
 
-        // Supondo que você tenha um modelo Message definido
-        const Message = mongoose.model('Message', new mongoose.Schema({
-            pergunta: String,
-            resposta: String
-        }, { collection: 'Message' })); // Especificando o nome da coleção
+    if (userMessage) {
+      // Enviar mensagem de boas-vindas
+      userMessage.isNewUser = false;
+      await userMessage.save();
+    }else {
+        // O usuário é novo, crie um novo documento
+        const newUserMessage = new MessageModel({
+            phoneNumber: message.from,
+            // Preencha os outros campos conforme necessário
+            // Por exemplo, você pode inicializar pergunta e resposta como strings vazias
+            question: "",
+            answer: "",
+            // O campo isNewUser já está definido como true por padrão no esquema
+        });
+        await newUserMessage.save();
+        await client.sendMessage(message.from, 'Olá! Bem-vindo ao nosso serviço. Como posso ajudá-lo hoje?');
+    }
+    // Extrair informações da mensagem
+    const text = message.body;
 
+    // Processar a mensagem e determinar se é uma pergunta
+    const is_question = text.startsWith("Pergunta:");
+    if (is_question) {
+      // Remover o prefixo 'Pergunta:'
+      const question_text = text.substring(9);
 
-        // Extrair informações da mensagem
-        const texto = message.body;
+      // Consultar o banco de dados para encontrar a resposta correspondente
+      const answer_message = await MessageModel.findOne({ question: question_text });
 
+      // Verificar se a pergunta foi extraída corretamente
+      console.log(`Pergunta recebida: ${question_text}`);
 
-        // Processar a mensagem e determinar se é uma pergunta
-        const isPergunta = texto.startsWith('Pergunta:');
-        if (isPergunta) {
-            // Remover o prefixo 'Pergunta:'
-            const question = texto.substring(9);
+      // Verificar se a consulta ao banco de dados retornou uma resposta
+      console.log(
+        `Resposta do banco de dados: ${
+          answer_message ? answer_message.answer : "Nenhuma resposta encontrada"
+        }`
+      );
 
-
-            // Consultar o banco de dados para encontrar a resposta correspondente
-            const answer = await Message.findOne({ pergunta: question });
-
-
-            // Verificar se a pergunta foi extraída corretamente
-            console.log(`Pergunta recebida: ${question}`);
-
-
-            // Verificar se a consulta ao banco de dados retornou uma resposta
-            console.log(`Resposta do banco de dados: ${answer ? answer.resposta : 'Nenhuma resposta encontrada'}`);
-
-
-            // Se a resposta for encontrada, enviar a resposta
-            if (answer) {
-                await client.sendMessage(message.from, answer.resposta);
-            } else {
-                // Se a resposta não for encontrada, enviar uma mensagem padrão
-                await client.sendMessage(message.from, 'Desculpe, não tenho uma resposta para essa pergunta.');
-            }
-        }
-    });
+      // Se a resposta for encontrada, enviar a resposta
+      if (answer_message) {
+        await client.sendMessage(message.from, answer_message.answer);
+      } else {
+        // Se a resposta não for encontrada, enviar uma mensagem padrão
+        await client.sendMessage(
+          message.from,
+          "Desculpe, não tenho uma resposta para essa pergunta."
+        );
+      }
+    }
+  });
 };
