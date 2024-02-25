@@ -1,90 +1,50 @@
-// module.exports = function(client) {
-//     client.on('message', async (message) => {
-//         if (message.body === '!ping') {
-//             await client.sendMessage(message.from, 'pong');
-//         }
-//     });
-// };
+const { connectToDatabase } = require("./config/connect");
+const ClientModel = require("./models/client_model");
+const MenuModel = require("./models/menu_model");
 
-const { connectToDatabase } = require("./config/connect.js");
+module.exports = async (client) => {
+  await connectToDatabase();
 
-module.exports = function (client) {
-    client.on("message", async (message) => {
-      const mongoose = await connectToDatabase();
-  
-      let MessageModel;
+  // Adicione uma variável para armazenar o estado de espera pelo nome
+  let waitingForName = false;
 
-    // verifica se tem uma collection chamadada "Message", se não houver faça uma nova collection
-    if (mongoose.models.Message) {
-        MessageModel = mongoose.model("Message");
-      } else {
-        MessageModel = mongoose.model(
-          "Message",
-          new mongoose.Schema(
-            {
-              phoneNumber: String,
-              question: String,
-              answer: String,
-              isNewUser: { type: Boolean, default: true },
-            },
-            { collection: "Message" }
-          )
-        );
-      }
-    
+  client.on("message", async (message) => {
+    const phoneNumber = message.from;
 
-    // Verificar se o usuário é novo
-    const userMessage = await MessageModel.findOne({ phoneNumber: message.from });
-
-    if (userMessage) {
-      // Enviar mensagem de boas-vindas
-      userMessage.isNewUser = false;
-      await userMessage.save();
-    }else {
-        // O usuário é novo, crie um novo documento
-        const newUserMessage = new MessageModel({
-            phoneNumber: message.from,
-            // Preencha os outros campos conforme necessário
-            // Por exemplo, você pode inicializar pergunta e resposta como strings vazias
-            question: "",
-            answer: "",
-            // O campo isNewUser já está definido como true por padrão no esquema
-        });
-        await newUserMessage.save();
-        await client.sendMessage(message.from, 'Olá! Bem-vindo ao nosso serviço. Como posso ajudá-lo hoje?');
+    // Verificar se o usuário já tem um nome registrado
+    let clientData = await ClientModel.findOne({ phoneNumber });
+    if (!clientData) {
+      // O usuário é novo, crie um novo documento com nome vazio
+      clientData = new ClientModel({
+        name: "",
+        phoneNumber,
+      });
+      await clientData.save();
     }
-    // Extrair informações da mensagem
-    const text = message.body;
 
-    // Processar a mensagem e determinar se é uma pergunta
-    const is_question = text.startsWith("Pergunta:");
-    if (is_question) {
-      // Remover o prefixo 'Pergunta:'
-      const question_text = text.substring(9);
-
-      // Consultar o banco de dados para encontrar a resposta correspondente
-      const answer_message = await MessageModel.findOne({ question: question_text });
-
-      // Verificar se a pergunta foi extraída corretamente
-      console.log(`Pergunta recebida: ${question_text}`);
-
-      // Verificar se a consulta ao banco de dados retornou uma resposta
-      console.log(
-        `Resposta do banco de dados: ${
-          answer_message ? answer_message.answer : "Nenhuma resposta encontrada"
-        }`
+    // Se o bot está aguardando o nome do usuário, salve o nome no banco de dados
+    if (waitingForName) {
+      clientData.name = message.body;
+      await clientData.save(); // Salva o nome no banco de dados
+      await client.sendMessage(
+        phoneNumber,
+        `Olá, ${clientData.name}! Como posso ajudá-lo hoje?`
       );
-
-      // Se a resposta for encontrada, enviar a resposta
-      if (answer_message) {
-        await client.sendMessage(message.from, answer_message.answer);
-      } else {
-        // Se a resposta não for encontrada, enviar uma mensagem padrão
-        await client.sendMessage(
-          message.from,
-          "Desculpe, não tenho uma resposta para essa pergunta."
-        );
-      }
+      // Exibir menu de opções
+      const menuOptions = await MenuModel.find({});
+      let menuText = "Por favor, escolha uma opção:\n";
+      menuOptions.forEach((option) => {
+        menuText += `${option.optionNumber} - ${option.description}\n`;
+      });
+      await client.sendMessage(phoneNumber, menuText);
+      waitingForName = false; // Redefine o estado para não aguardar mais o nome
+    } else {
+      // Se não está aguardando o nome, solicite o nome
+      await client.sendMessage(
+        phoneNumber,
+        "Olá! Seja bem-vindo ao nosso sistema de chat automatizado, para prosseguirmos por favor, me informe o seu nome.😊"
+      );
+      waitingForName = true; // Define o estado para aguardar o nome
     }
   });
 };
