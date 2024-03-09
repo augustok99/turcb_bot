@@ -15,49 +15,67 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
 
+    <script src="script.js"></script>
+
     <title>Document</title>
   </head>
   <body class="bg-slate-gray">
     <div>
       <!-- Começo da header -->
       <header class="mt-7 ml-6">
-        <div class="flex justify-between gap-5 mx-4 items-baseline">
-          <h2 class="text-white text-3xl">BOTZAP-CB</h2>
+        <div
+          class="flex justify-between gap-5 lg:mx-28 md:mx-15 items-baseline"
+        >
+          <h2 class="text-white text-3xl md:text-3xl lg:text-4xl">BOTZAP-CB</h2>
 
           <div class="mr-auto -ml-3">
-            <i class="fa fa-whatsapp text-white" style="font-size: 30px"></i>
+            <i class="fa fa-whatsapp text-white" style="font-size: 32px"></i>
           </div>
 
-          <div class="hidden md:flex max-md:w-1/2 gap-7 mr-16 lg:mr-46">
-            <a href="#" class="text-white text-xl lg:text-2xl">INICIO</a>
-            <a href="#" class="text-white text-xl lg:text-2xl">SOBRE O SITE</a>
-            <a href="#" class="text-white text-xl lg:text-2xl"
+          <div
+            class="hidden md:flex md:mr-12 md:justify-end md:w-8/12 gap-7 lg:justify-end lg:w-8/12"
+          >
+            <a href="#" class="text-white text-xl lg:text-xl">INICIO</a>
+
+            <a href="#" class="text-white text-xl lg:text-xl">SOBRE O SITE</a>
+            <a href="#" class="text-white text-xl lg:text-xl"
               >PRINCIPAIS DESTAQUES</a
             >
-            <a href="#" class="text-white text-xl lg:text-2xl">FALE CONOSCO</a>
+            <a href="#" class="text-white text-xl lg:text-xl">FALE CONOSCO</a>
           </div>
 
-          <div class="md:hidden lg:hidden">
+          <div class="md:hidden lg:hidden mr-6">
             <i class="fa fa-bars text-white ml-32" style="font-size: 25px"></i>
           </div>
         </div>
       </header>
 
       <!-- Fim do header -->
-
-      <main>
-        <div>
-          <img
-            src="/src/img/fish.png"
-            alt="peixe pulando fora da agua"
-            class="mx-4 lg:w-5/12 md:w-9/12"
-          />
-
-          <div>
-            <i class="fa fa-whatsapp text-white" style="font-size: 29px"></i>
-          </div>
-        </div>
-      </main>
     </div>
+
+    <main>
+      <div
+        class="flex flex-col lg:flex-row md:flex-row items-center md:justify-center lg:justify-items-center mt-3 mx-4"
+      >
+        <img
+          src="/src/img/fish.png"
+          alt="peixe pulando fora da agua"
+          class="block mx-10 md:mr-2 2xl:mr-72 w-4/5 max-w-[612px] md:mr-26 md:w-3/4 p-2"
+        />
+
+        <!-- carousel -->
+
+        <!-- Fim carousel -->
+
+        <span class="w-[172px] 2xl:w-96 ml-10 mt-5 mr-25 mx-4">
+          <h1 class="text-white text-2xl md:text-5xl">
+            VENHA CONHECER A NOSSA CIDADE
+          </h1>
+          <div class="text-center">
+            <h1 class="text-green-500 text-5xl font-medium mr-16">&lt;/&gt;</h1>
+          </div>
+        </span>
+      </div>
+    </main>
   </body>
 </html>
