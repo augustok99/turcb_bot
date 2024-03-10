@@ -8,6 +8,11 @@ module.exports = {
     extend: {
       colors: {
         "slate-gray": "#1E1E1E",
+        "green-lite": "#369830",
+        "blue-bold": "#2D0D38",
+      },
+      backgroundImage: {
+        "img-pantanal": "url('/src/img/pantanal.jpg')",
       },
     },
   },
