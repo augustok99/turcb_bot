@@ -1,7 +1,11 @@
-const botoes = document.getElementsByClassName('btn');
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
 
-for (const botao of botoes) {
-  botao.addEventListener('click', () => {
-    botao.classList.remove('focus:bg-blue-bold');
-  });
-}
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+});
