@@ -10,7 +10,7 @@ client.on("qr", (qr) => {
 });
 
 client.on("ready", () => {
-  console.log("Client is ready!");
+  console.log("Bot esta pronto para receber mensagem!");
 });
 
 import message from "./message.js";

@@ -1,1 +1,0 @@
-declare module 'whatsapp-web.js/src/structures/Contact';

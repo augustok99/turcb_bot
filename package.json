@@ -1,7 +1,7 @@
 {
   "name": "bot-zap",
   "version": "1.0.0",
-    "type": "module",
+  "type": "module",
   "main": "src/index.js",
   "scripts": {
     "start": "nodemon src/index.js",
@@ -12,14 +12,12 @@
   "license": "ISC",
   "dependencies": {
     "dotenv": "^16.4.5",
+    "libphonenumber-js": "^1.10.58",
     "mongodb": "^6.3.0",
     "mongoose": "^8.2.0",
     "nodemon": "^3.1.0",
     "qrcode-terminal": "^0.12.0",
     "whatsapp-web.js": "^1.23.0",
     "wwebjs-mongo": "^1.1.0"
-  },
-  "devDependencies": {
-    "tailwindcss": "^3.4.1"
   }
 }

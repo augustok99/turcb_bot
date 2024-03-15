@@ -1,6 +1,7 @@
 import { connectToDatabase } from "./config/connect.js";
 import ClientModel from "./models/client_model.js";
 import MenuModel from "./models/menu_model.js";
+import { parsePhoneNumberFromString } from "libphonenumber-js";
 
 const handleMessage = async (client) => {
   await connectToDatabase();
@@ -8,28 +9,30 @@ const handleMessage = async (client) => {
   client.on("message", async (message) => {
     const phoneNumber = message.from;
 
-    let user;
-
     const contact = await message.getContact();
-    user = contact.pushname;
 
-    console.log(user);
+    const user = contact.pushname;
+    const number = contact.number;
+
+    const convert = parsePhoneNumberFromString(number, "BR");
+    const formattedNumber = convert.formatInternational();
 
     // Verificar se o usuário já tem um nome registrado
-    let clientData = await ClientModel.findOne({ phoneNumber });
+    let clientData = await ClientModel.findOne({ formattedNumber });
     if (!clientData) {
       // O usuário é novo, crie um novo documento com nome vazio
       clientData = new ClientModel({
         name: user, // Salva o nome do contato no banco de dados
-        phoneNumber,
+        phoneNumber: formattedNumber,
       });
       await clientData.save();
-
-      await client.sendMessage(
-        phoneNumber,
-        `Olá, ${user}! Seja bem-vindo ao nosso sistema de chat automatizado. Eu sou o botzap, seu guia turístico. Irei te auxiliar a escolher hotéis, restaurantes ou pontos turísticos da cidade.`
-      );
     }
+
+    // Enviar mensagem de boas-vindas
+    await client.sendMessage(
+      phoneNumber,
+      `Olá, ${user}! Seja bem-vindo ao nosso sistema de chat automatizado. Eu sou o botzap, seu guia turístico. Irei te auxiliar a escolher hotéis, restaurantes ou pontos turísticos da cidade.`
+    );
 
     // Exibir menu de opções
     const menuOptions = await MenuModel.find({});
