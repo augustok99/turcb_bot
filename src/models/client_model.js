@@ -1,8 +1,13 @@
-const mongoose = require('mongoose');
+import mongoose from "mongoose";
 
-const ClientSchema = new mongoose.Schema({
-  name: String,
-  phoneNumber: String,
-}, { collection: "Client" });
+const clientSchema = new mongoose.Schema(
+  {
+    name: String,
+    phoneNumber: String,
+  },
+  { collection: "Client" }
+);
 
-module.exports = mongoose.models.Client || mongoose.model('Client', ClientSchema);
+const ClientModel = mongoose.model("Client", clientSchema);
+
+export default ClientModel;

@@ -1,9 +1,14 @@
-const mongoose = require('mongoose');
+import mongoose from "mongoose";
 
-const MenuSchema = new mongoose.Schema({
-  optionNumber: Number,
-  description: String,
-  action: String,
-}, { collection: "Menu" });
+const menuSchema = new mongoose.Schema(
+  {
+    optionNumber: Number,
+    description: String,
+    action: String,
+  },
+  { collection: "Menu" }
+);
 
-module.exports = mongoose.models.Menu || mongoose.model('Menu', MenuSchema);
+const MenuModel = mongoose.model("Menu", menuSchema);
+
+export default MenuModel;
