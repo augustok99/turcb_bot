@@ -34,13 +34,15 @@ const handleMessage = async (client) => {
       `Olá, ${user}! Seja bem-vindo ao nosso sistema de chat automatizado. Eu sou o botzap, seu guia turístico. Irei te auxiliar a escolher hotéis, restaurantes ou pontos turísticos da cidade.`
     );
 
-    // Exibir menu de opções
-    const menuOptions = await MenuModel.find({});
-    let menuText = "Por favor, escolha uma opção:\n";
-    menuOptions.forEach((option) => {
-      menuText += `${option.optionNumber} - ${option.description}\n`;
-    });
-    await client.sendMessage(phoneNumber, menuText);
+    // Exibir menu de opções após um atraso de 2 segundos
+    setTimeout(async () => {
+      const menuOptions = await MenuModel.find({});
+      let menuText = "Por favor, escolha uma opção:\n";
+      menuOptions.forEach((option) => {
+        menuText += `${option.optionNumber} - ${option.description}\n`;
+      });
+      await client.sendMessage(phoneNumber, menuText);
+    }, 2000);
   });
 };
 

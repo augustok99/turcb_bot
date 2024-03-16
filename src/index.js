@@ -3,6 +3,10 @@ const { Client, LocalAuth } = pkg;
 
 const client = new Client({
   authStrategy: new LocalAuth(),
+
+  puppeteer: {
+    headless: false,
+  },
 });
 
 client.on("qr", (qr) => {
