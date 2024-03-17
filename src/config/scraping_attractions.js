@@ -1,7 +1,10 @@
 import puppeteer from "puppeteer-extra";
 import stealth from "puppeteer-extra-plugin-stealth";
+import fs from "fs/promises";
 
 puppeteer.use(stealth());
+
+const attractions = [];
 
 const scraping_attractions = async () => {
   const browser = await puppeteer.launch({
@@ -31,7 +34,7 @@ const scraping_attractions = async () => {
       await attractionsElements[i].click();
 
       // Aguardar um breve período para carregar as informações
-      await delay(2000);
+      await delay(3000);
 
       // Extrair informações de atrações turisticas apenas se estiverem presentes
       const titleAttractions = await page
@@ -43,14 +46,41 @@ const scraping_attractions = async () => {
         .catch(() => null);
 
       await page.waitForSelector(".aoRNLd.kn2E5e.NMjTrf.lvtCsd > img", {
-        timeout: 300,
+        timeout: 500,
       });
-      const imgUrl = await page.evaluate(() => {
-        const imgElement = document.querySelector(
-          ".aoRNLd.kn2E5e.NMjTrf.lvtCsd > img"
-        );
-        return imgElement ? imgElement.src : null;
-      });
+
+      // Imagens demoram a carregar, necessario implementar uma logica separada
+      let imgUrl;
+      try {
+        await page.waitForSelector(".aoRNLd.kn2E5e.NMjTrf.lvtCsd > img", {
+          timeout: 500,
+        });
+        imgUrl = await page.evaluate(() => {
+          const imgElement = document.querySelector(
+            ".aoRNLd.kn2E5e.NMjTrf.lvtCsd > img"
+          );
+          return imgElement ? imgElement.src : null;
+        });
+      } catch (error) {
+        console.error("Erro ao aguardar ou avaliar o seletor:", error);
+        console.log("Tentando novamente uma vez...");
+        // Tente novamente após um curto período de tempo
+        await delay(1000); // Aguarde 1 segundo antes de tentar novamente
+        try {
+          await page.waitForSelector(".aoRNLd.kn2E5e.NMjTrf.lvtCsd > img", {
+            timeout: 500,
+          });
+          imgUrl = await page.evaluate(() => {
+            const imgElement = document.querySelector(
+              ".aoRNLd.kn2E5e.NMjTrf.lvtCsd > img"
+            );
+            return imgElement ? imgElement.src : null;
+          });
+        } catch (error) {
+          console.error("Erro ao tentar novamente:", error);
+          imgUrl = "N/A";
+        }
+      }
 
       const addressAttractions = await page
         .waitForSelector(".Io6YTe.fontBodyMedium.kR99db", { timeout: 300 })
@@ -83,14 +113,7 @@ const scraping_attractions = async () => {
         : "N/A";
 
       // Exibir informações de atrações turisticas no console
-      console.log(
-        "\nTitulo Ponto Turistico: " + title,
-        "\nAvaliação do Ponto Turistico: " + evaluation,
-        "\nEndereço do Ponto Turistico: " + address,
-        "\nImagem do Ponto Turistico: " + imgUrl,
-        "\nStatus do Ponto Turistico: " + status,
-        "\nTelefone do Ponto Turistico: " + phone
-      );
+      attractions.push({ title, evaluation, address, imgUrl, status, phone });
 
       // Fechar a janela de atrações turisticas
       const buttonClose = await page.waitForSelector(
@@ -107,6 +130,17 @@ const scraping_attractions = async () => {
   await getInformations(10);
 
   await browser.close();
+
+  // Escrever os dados em um arquivo JSON
+  try {
+    await fs.writeFile(
+      "../data/attractions_data.json",
+      JSON.stringify(attractions, null, 2)
+    );
+    console.log("Dados salvos com sucesso em attractions_data.json");
+  } catch (error) {
+    console.error("Erro ao salvar os dados:", error);
+  }
 };
 
 // Função de atraso personalizada usando setTimeout

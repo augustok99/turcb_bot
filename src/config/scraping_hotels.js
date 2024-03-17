@@ -1,11 +1,14 @@
 import puppeteer from "puppeteer-extra";
 import stealth from "puppeteer-extra-plugin-stealth";
+import fs from "fs/promises";
 
 puppeteer.use(stealth());
 
+const hotels = [];
+
 const scraping_hotels = async () => {
   const browser = await puppeteer.launch({
-    headless: true,
+    headless: false,
   });
 
   const page = await browser.newPage();
@@ -33,7 +36,7 @@ const scraping_hotels = async () => {
       await hotelElements[i].click();
 
       // Aguardar um breve período para carregar as informações
-      await delay(2000);
+      await delay(3000);
 
       // Extrair informações do hotel apenas se estiverem presentes
       const titleHotel = await page
@@ -43,11 +46,37 @@ const scraping_hotels = async () => {
         .waitForSelector(".KFi5wf.lA0BZ", { timeout: 300 })
         .catch(() => null);
 
-      await page.waitForSelector(".pb2I5.SV2nb.XGzk1b> img");
-      const imgUrl = await page.evaluate(() => {
-        const imgElement = document.querySelector(".pb2I5.SV2nb.XGzk1b> img");
-        return imgElement ? imgElement.src : null;
-      });
+      // Imagens demoram a carregar, necessario implementar uma logica separada
+
+      let imgUrl;
+      try {
+        await page.waitForSelector(".pb2I5.SV2nb.XGzk1b> img", {
+          timeout: 500,
+        });
+        imgUrl = await page.evaluate(() => {
+          const imgElement = document.querySelector(".pb2I5.SV2nb.XGzk1b> img");
+          return imgElement ? imgElement.src : null;
+        });
+      } catch (error) {
+        console.error("Erro ao aguardar ou avaliar o seletor:", error);
+        console.log("Tentando novamente uma vez...");
+        // Tente novamente após um curto período de tempo
+        await delay(1000); // Aguarde 1 segundo antes de tentar novamente
+        try {
+          await page.waitForSelector(".pb2I5.SV2nb.XGzk1b> img", {
+            timeout: 500,
+          });
+          imgUrl = await page.evaluate(() => {
+            const imgElement = document.querySelector(
+              ".pb2I5.SV2nb.XGzk1b> img"
+            );
+            return imgElement ? imgElement.src : null;
+          });
+        } catch (error) {
+          console.error("Erro ao tentar novamente:", error);
+          imgUrl = "N/A";
+        }
+      }
 
       const priceHotel = await page
         .waitForSelector(".qQOQpe.prxS3d", { timeout: 300 })
@@ -83,16 +112,19 @@ const scraping_hotels = async () => {
         ? await phoneHotel.evaluate((el) => el.textContent.trim())
         : "N/A";
 
+      // Exibir informações de atrações turisticas no console
+      hotels.push({
+        title,
+        price,
+        evaluation,
+        classification,
+        address,
+        imgUrl,
+        phone,
+      });
+
       // Exibir informações do hotel no console
-      console.log(
-        "\nTitulo do Hotel: " + title,
-        "\nAvaliação do Hotel: " + evaluation,
-        "\nImagem do Hotel: " + imgUrl,
-        "\nPreço diaria do Hotel: " + price,
-        "\nClassisificação do Hotel: " + classification,
-        "\nEndereço do Hotel: " + address,
-        "\nTelefone do Hotel: " + phone
-      );
+      console.log(hotels);
 
       // Fechar a janela de informações do hotel
       const buttonClose = await page.waitForSelector(".Z2RjOe.ZfVo8d.sd2Eaf");
@@ -107,6 +139,17 @@ const scraping_hotels = async () => {
   await getInformations(10);
 
   await browser.close();
+
+  // Escrever os dados em um arquivo JSON
+  try {
+    await fs.writeFile(
+      "../data/hotels_data.json",
+      JSON.stringify(hotels, null, 2)
+    );
+    console.log("Dados salvos com sucesso em hotels_data.json");
+  } catch (error) {
+    console.error("Erro ao salvar os dados:", error);
+  }
 };
 
 // Função de atraso personalizada usando setTimeout

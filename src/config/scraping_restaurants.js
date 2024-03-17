@@ -1,7 +1,10 @@
 import puppeteer from "puppeteer-extra";
 import stealth from "puppeteer-extra-plugin-stealth";
+import fs from "fs/promises";
 
 puppeteer.use(stealth());
+
+const restaurants = [];
 
 const scraping_restaurants = async () => {
   const browser = await puppeteer.launch({
@@ -17,7 +20,7 @@ const scraping_restaurants = async () => {
   );
 
   const getInformations = async (iterationLimit = null) => {
-    const restaurantElements = await page.$$(".hfpxzc");
+    const restaurantElements = await page.$$(".Nv2PK.THOPZb.CpccDe > a");
 
     // Determinar o número de iterações com base no limite fornecido ou de elementos ou passado via parametro
     const limit =
@@ -31,7 +34,7 @@ const scraping_restaurants = async () => {
       await restaurantElements[i].click();
 
       // Aguardar um breve período para carregar as informações
-      await delay(2000);
+      await delay(3000);
 
       // Extrair informações de atrações turisticas apenas se estiverem presentes
       const titleRestaurant = await page
@@ -42,15 +45,37 @@ const scraping_restaurants = async () => {
         .waitForSelector(".F7nice > span", { timeout: 300 })
         .catch(() => null);
 
-      await page.waitForSelector(".aoRNLd.kn2E5e.NMjTrf.lvtCsd > img", {
-        timeout: 300,
-      });
-      const imgUrl = await page.evaluate(() => {
-        const imgElement = document.querySelector(
-          ".aoRNLd.kn2E5e.NMjTrf.lvtCsd > img"
-        );
-        return imgElement ? imgElement.src : null;
-      });
+      let imgUrl;
+      try {
+        await page.waitForSelector(".aoRNLd.kn2E5e.NMjTrf.lvtCsd > img", {
+          timeout: 500,
+        });
+        imgUrl = await page.evaluate(() => {
+          const imgElement = document.querySelector(
+            ".aoRNLd.kn2E5e.NMjTrf.lvtCsd > img"
+          );
+          return imgElement ? imgElement.src : null;
+        });
+      } catch (error) {
+        console.error("Erro ao aguardar ou avaliar o seletor:", error);
+        console.log("Tentando novamente uma vez...");
+        // Tente novamente após um curto período de tempo
+        await delay(1000); // Aguarde 1 segundo antes de tentar novamente
+        try {
+          await page.waitForSelector(".aoRNLd.kn2E5e.NMjTrf.lvtCsd > img", {
+            timeout: 500,
+          });
+          imgUrl = await page.evaluate(() => {
+            const imgElement = document.querySelector(
+              ".aoRNLd.kn2E5e.NMjTrf.lvtCsd > img"
+            );
+            return imgElement ? imgElement.src : null;
+          });
+        } catch (error) {
+          console.error("Erro ao tentar novamente:", error);
+          imgUrl = "N/A";
+        }
+      }
 
       const addressRestaurant = await page
         .waitForSelector(".Io6YTe.fontBodyMedium.kR99db", { timeout: 300 })
@@ -59,10 +84,7 @@ const scraping_restaurants = async () => {
         .waitForSelector(".ZDu9vd > span", { timeout: 300 }) //.ZDu9vd
         .catch(() => null);
       const phoneRestaurant = await page
-        .waitForSelector(
-          " div:nth-child(8) > button div.rogA2c > div.Io6YTe.fontBodyMedium.kR99db",
-          { timeout: 300 }
-        )
+        .waitForSelector(".rogA2c  > div", { timeout: 300 })
         .catch(() => null);
 
       // Extrair informações apenas se os elementos estiverem presentes
@@ -83,14 +105,17 @@ const scraping_restaurants = async () => {
         : "N/A";
 
       // Exibir informações de atrações turisticas no console
-      console.log(
-        "\nTitulo Restaurante: " + title,
-        "\nAvaliação do Restaurante: " + evaluation,
-        "\nEndereço do Restaurante: " + address,
-        "\nImagem do Restaurante: " + imgUrl,
-        "\nStatus do Restaurante: " + status,
-        "\nTelefone do Restaurante: " + phone
-      );
+      restaurants.push({
+        title,
+        status,
+        evaluation,
+        address,
+        imgUrl,
+        phone,
+      });
+
+      // Exibir informações de atrações turisticas no console
+      console.log(restaurants);
 
       // Fechar a janela de atrações turisticas
       const buttonClose = await page.waitForSelector(
@@ -107,6 +132,17 @@ const scraping_restaurants = async () => {
   await getInformations(10);
 
   await browser.close();
+
+  // Escrever os dados em um arquivo JSON
+  try {
+    await fs.writeFile(
+      "../data/restaurants_data.json",
+      JSON.stringify(restaurants, null, 2)
+    );
+    console.log("Dados salvos com sucesso em restaurants_data.json");
+  } catch (error) {
+    console.error("Erro ao salvar os dados:", error);
+  }
 };
 
 // Função de atraso personalizada usando setTimeout
