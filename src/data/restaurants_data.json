@@ -1,0 +1,50 @@
+[
+  {
+    "title": "Restaurante e Churrascaria Laço de Ouro",
+    "status": "Aberto ⋅ Fecha à 00:00",
+    "evaluation": "4,6",
+    "address": "R. Frei Mariano, 534 - Centro, Corumbá - MS, 79300-002",
+    "imgUrl": "https://lh5.googleusercontent.com/p/AF1QipO_ZMYD2SFayE-3mxVczPUFzx1efAg0u1SSUEsL=w427-h240-k-no",
+    "phone": "R. Frei Mariano, 534 - Centro, Corumbá - MS, 79300-002"
+  },
+  {
+    "title": "Restaurante Caipirão",
+    "status": "Aberto ⋅ Fecha à 00:30",
+    "evaluation": "4,5",
+    "address": "R. Edu Rocha, 1386 - Aeroporto, Corumbá - MS, 79331-090",
+    "imgUrl": "https://lh5.googleusercontent.com/p/AF1QipM1Osoj-wILTX4UEOxIisfgTi8ctxckgVZAEbXP=w408-h544-k-no",
+    "phone": "R. Edu Rocha, 1386 - Aeroporto, Corumbá - MS, 79331-090"
+  },
+  {
+    "title": "Restaurante Espeto De Ouro",
+    "status": "Aberto ⋅ Fecha à 01:00",
+    "evaluation": "4,4",
+    "address": "Av. Rio Branco, 121 - Centro, Corumbá - MS, 79304-220",
+    "imgUrl": "https://lh5.googleusercontent.com/p/AF1QipMOx8nn-IGTQ5CwwgzlopAYsbPIstvDP19sKk1c=w426-h240-k-no",
+    "phone": "Av. Rio Branco, 121 - Centro, Corumbá - MS, 79304-220"
+  },
+  {
+    "title": "Restaurante Glória Grill",
+    "status": "Aberto ⋅ Fecha às 23:00",
+    "evaluation": "4,5",
+    "address": "R. Cabral, 1628 - Centro, Corumbá - MS, 79332-030",
+    "imgUrl": "https://lh5.googleusercontent.com/p/AF1QipOG7fX6McsnWOjGD6cwkvO-wfemrynDjmy9Wc_z=w426-h240-k-no",
+    "phone": "R. Cabral, 1628 - Centro, Corumbá - MS, 79332-030"
+  },
+  {
+    "title": "Brazão Culinária",
+    "status": "Aberto ⋅ Fecha às 23:00",
+    "evaluation": "4,2",
+    "address": "R. Gen. Rondon, 1073 - Centro, Corumbá - MS, 79330-020",
+    "imgUrl": "https://lh5.googleusercontent.com/p/AF1QipPmm59pgR2XvMmQWxvAUdf-_UWB1Z-VHWnQEZ4q=w408-h725-k-no",
+    "phone": "R. Gen. Rondon, 1073 - Centro, Corumbá - MS, 79330-020"
+  },
+  {
+    "title": "Dolce Café, Corumbá",
+    "status": "Aberto ⋅ Fecha à 00:00",
+    "evaluation": "4,5",
+    "address": "R. Frei Mariano, 572 - Centro, Corumbá - MS, 79300-004",
+    "imgUrl": "https://lh5.googleusercontent.com/p/AF1QipNjCgHtQpqkOmFHTQ-PcwHD_sJoAjalOzfb5BGx=w408-h306-k-no",
+    "phone": "R. Frei Mariano, 572 - Centro, Corumbá - MS, 79300-004"
+  }
+]

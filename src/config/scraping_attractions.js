@@ -53,7 +53,8 @@ const scraping_attractions = async () => {
       let imgUrl;
       try {
         await page.waitForSelector(".aoRNLd.kn2E5e.NMjTrf.lvtCsd > img", {
-          timeout: 500,
+          timeout: 1000,
+          visible: true, // Esperar até que o elemento seja visível
         });
         imgUrl = await page.evaluate(() => {
           const imgElement = document.querySelector(

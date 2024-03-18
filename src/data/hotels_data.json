@@ -1,0 +1,553 @@
+{
+  "kind": "customsearch#search",
+  "url": {
+    "type": "application/json",
+    "template": "https://www.googleapis.com/customsearch/v1?q={searchTerms}&num={count?}&start={startIndex?}&lr={language?}&safe={safe?}&cx={cx?}&sort={sort?}&filter={filter?}&gl={gl?}&cr={cr?}&googlehost={googleHost?}&c2coff={disableCnTwTranslation?}&hq={hq?}&hl={hl?}&siteSearch={siteSearch?}&siteSearchFilter={siteSearchFilter?}&exactTerms={exactTerms?}&excludeTerms={excludeTerms?}&linkSite={linkSite?}&orTerms={orTerms?}&dateRestrict={dateRestrict?}&lowRange={lowRange?}&highRange={highRange?}&searchType={searchType}&fileType={fileType?}&rights={rights?}&imgSize={imgSize?}&imgType={imgType?}&imgColorType={imgColorType?}&imgDominantColor={imgDominantColor?}&alt=json"
+  },
+  "queries": {
+    "request": [
+      {
+        "title": "Google Custom Search - Hotéis Corumbá MS",
+        "totalResults": "2080",
+        "searchTerms": "Hotéis Corumbá MS",
+        "count": 10,
+        "startIndex": 1,
+        "language": "lang_pt",
+        "inputEncoding": "utf8",
+        "outputEncoding": "utf8",
+        "safe": "off",
+        "cx": "937916f27e0ec468c",
+        "hl": "pt-BR",
+        "siteSearch": "https://www.tripadvisor.com.br/",
+        "siteSearchFilter": "i"
+      }
+    ],
+    "nextPage": [
+      {
+        "title": "Google Custom Search - Hotéis Corumbá MS",
+        "totalResults": "2080",
+        "searchTerms": "Hotéis Corumbá MS",
+        "count": 10,
+        "startIndex": 11,
+        "language": "lang_pt",
+        "inputEncoding": "utf8",
+        "outputEncoding": "utf8",
+        "safe": "off",
+        "cx": "937916f27e0ec468c",
+        "hl": "pt-BR",
+        "siteSearch": "https://www.tripadvisor.com.br/",
+        "siteSearchFilter": "i"
+      }
+    ]
+  },
+  "context": {
+    "title": "botzap"
+  },
+  "searchInformation": {
+    "searchTime": 0.433622,
+    "formattedSearchTime": "0.43",
+    "totalResults": "2080",
+    "formattedTotalResults": "2,080"
+  },
+  "items": [
+    {
+      "kind": "customsearch#result",
+      "title": "OS 10 MELHORES Hotéis em Corumbá 2024 (a partir de R$ 110)",
+      "htmlTitle": "OS 10 MELHORES <b>Hotéis</b> em <b>Corumbá</b> 2024 (a partir de R$ 110)",
+      "link": "https://www.tripadvisor.com.br/Hotels-g675025-Corumba_State_of_Mato_Grosso_do_Sul-Hotels.html",
+      "displayLink": "www.tripadvisor.com.br",
+      "snippet": "Hotéis em alta em Corumbá · 30. Fazenda 4 Cantos · 29. Corumba Center Hostel · 28. Pousada Anhuma · 27. Eco Hotel Pantanal · 26. Hotel Porto Morrinho · 25. Hotel ...",
+      "htmlSnippet": "<b>Hotéis</b> em alta em <b>Corumbá</b> &middot; 30. Fazenda 4 Cantos &middot; 29. Corumba Center Hostel &middot; 28. Pousada Anhuma &middot; 27. Eco Hotel Pantanal &middot; 26. Hotel Porto Morrinho &middot; 25. Hotel&nbsp;...",
+      "cacheId": "lFX5Elr_vXsJ",
+      "formattedUrl": "https://www.tripadvisor.com.br/Hotels-g675025-Corumba_State_of_Mato_...",
+      "htmlFormattedUrl": "https://www.tripadvisor.com.br/Hotels-g675025-Corumba_State_of_Mato_...",
+      "pagemap": {
+        "cse_thumbnail": [
+          {
+            "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRekWMCtPeK6jKqRIzQNJOpJpD99CdXM9w6y_pggKWuVQcSC9w6bAZXC4c&s",
+            "width": "275",
+            "height": "183"
+          }
+        ],
+        "metatags": [
+          {
+            "twitter:app:url:iphone": "tripadvisor://www.tripadvisor.com.br/Hotels-g675025-Corumba_State_of_Mato_Grosso_do_Sul-Hotels.html?m=33762",
+            "apple-itunes-app": "app-id=284876795, app-argument=https://www.tripadvisor.com.br/Hotels-g675025-Corumba_State_of_Mato_Grosso_do_Sul-Hotels.html",
+            "og:image": "https://media-cdn.tripadvisor.com/media/photo-s/09/1c/9f/69/corumba.jpg",
+            "theme-color": "#34e0a1",
+            "og:type": "website",
+            "og:image:width": "550",
+            "og:site_name": "Tripadvisor",
+            "al:ios:app_name": "TripAdvisor",
+            "twitter:app:url:ipad": "tripadvisor://www.tripadvisor.com.br/Hotels-g675025-Corumba_State_of_Mato_Grosso_do_Sul-Hotels.html?m=33762",
+            "og:title": "OS 10 MELHORES Hotéis em Corumbá 2024 (a partir de R$ 110)",
+            "twitter:app:id:ipad": "284876795",
+            "og:image:height": "367",
+            "twitter:app:id:iphone": "284876795",
+            "al:ios:url": "tripadvisor://www.tripadvisor.com.br/Hotels-g675025-Corumba_State_of_Mato_Grosso_do_Sul-Hotels.html?m=33762",
+            "al:ios:app_store_id": "284876795",
+            "twitter:image": "https://media-cdn.tripadvisor.com/media/photo-s/09/1c/9f/69/corumba.jpg",
+            "viewport": "width=device-width, initial-scale=1.0, viewport-fit=cover",
+            "og:locale": "pt-BR",
+            "og:url": "https://www.tripadvisor.com.br/Hotels-g675025-Corumba_State_of_Mato_Grosso_do_Sul-Hotels.html",
+            "format-detection": "telephone=no"
+          }
+        ],
+        "cse_image": [
+          {
+            "src": "https://media-cdn.tripadvisor.com/media/photo-s/09/1c/9f/69/corumba.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "customsearch#result",
+      "title": "Os melhores hotéis baratos em Corumbá 2024 (com preços ...",
+      "htmlTitle": "Os melhores <b>hotéis</b> baratos em <b>Corumbá</b> 2024 (com preços ...",
+      "link": "https://www.tripadvisor.com.br/HotelsList-Corumba-Hotel-Barato-zfp8390448.html",
+      "displayLink": "www.tripadvisor.com.br",
+      "snippet": "Os melhores hotéis baratos em Corumbá: Encontre 524 avaliações de viagens, fotos e hotel barato em Corumbá com as melhores classificações no Tripadvisor.",
+      "htmlSnippet": "Os melhores <b>hotéis</b> baratos em <b>Corumbá</b>: Encontre 524 avaliações de viagens, fotos e <b>hotel</b> barato em <b>Corumbá</b> com as melhores classificações no Tripadvisor.",
+      "cacheId": "_SFmdUGXJtUJ",
+      "formattedUrl": "https://www.tripadvisor.com.br/HotelsList-Corumba-Hotel-Barato-zfp8390...",
+      "htmlFormattedUrl": "https://www.tripadvisor.com.br/HotelsList-Corumba-Hotel-Barato-zfp8390...",
+      "pagemap": {
+        "cse_thumbnail": [
+          {
+            "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRekWMCtPeK6jKqRIzQNJOpJpD99CdXM9w6y_pggKWuVQcSC9w6bAZXC4c&s",
+            "width": "275",
+            "height": "183"
+          }
+        ],
+        "metatags": [
+          {
+            "apple-itunes-app": "app-id=284876795, app-argument=https://www.tripadvisor.com.br/HotelsList-Corumba-Hotel-Barato-zfp8390448.html",
+            "og:image": "https://media-cdn.tripadvisor.com/media/photo-s/09/1c/9f/69/corumba.jpg",
+            "theme-color": "#34e0a1",
+            "og:type": "website",
+            "og:image:width": "550",
+            "og:site_name": "Tripadvisor",
+            "og:title": "Os  melhores hotéis baratos em Corumbá 2024 (com preços) - Tripadvisor",
+            "og:image:height": "367",
+            "og:description": "Os melhores hotéis baratos em Corumbá: Encontre 524 avaliações de viagens, fotos e hotel barato em Corumbá com as melhores classificações no Tripadvisor.",
+            "twitter:image": "https://media-cdn.tripadvisor.com/media/photo-s/09/1c/9f/69/corumba.jpg",
+            "viewport": "width=device-width, initial-scale=1.0, viewport-fit=cover",
+            "og:locale": "pt-BR",
+            "og:url": "https://www.tripadvisor.com.br/HotelsList-Corumba-Hotel-Barato-zfp8390448.html",
+            "format-detection": "telephone=no"
+          }
+        ],
+        "cse_image": [
+          {
+            "src": "https://media-cdn.tripadvisor.com/media/photo-s/09/1c/9f/69/corumba.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "customsearch#result",
+      "title": "NACIONAL PALACE HOTEL (CORUMBÁ): 118 fotos e 259 ...",
+      "htmlTitle": "NACIONAL PALACE <b>HOTEL</b> (<b>CORUMBÁ</b>): 118 fotos e 259 ...",
+      "link": "https://www.tripadvisor.com.br/Hotel_Review-g675025-d2009453-Reviews-Nacional_Palace_Hotel-Corumba_State_of_Mato_Grosso_do_Sul.html",
+      "displayLink": "www.tripadvisor.com.br",
+      "snippet": "... hotéis em Corumbá e com pontuação 4 de 5 no Tripadvisor ... Hotéis: Corumbá · Corumbá · Mato Grosso do Sul (MS) · Brasil · América do Sul; Corumbá.",
+      "htmlSnippet": "... <b>hotéis</b> em <b>Corumbá</b> e com pontuação 4 de 5 no Tripadvisor ... <b>Hotéis</b>: <b>Corumbá</b> &middot; <b>Corumbá</b> &middot; Mato Grosso do Sul (<b>MS</b>) &middot; Brasil &middot; América do Sul; <b>Corumbá</b>.",
+      "cacheId": "FwDJ_85kAIUJ",
+      "formattedUrl": "https://www.tripadvisor.com.br/Hotel_Review-g675025-d2009453-Review...",
+      "htmlFormattedUrl": "https://www.tripadvisor.com.br/Hotel_Review-g675025-d2009453-Review...",
+      "pagemap": {
+        "cse_thumbnail": [
+          {
+            "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmWtcFZI6WFzcfWOC8YQIaikK76mhmCHgPWqnXdulVV4rS5iPO0kx_5nli&s",
+            "width": "194",
+            "height": "259"
+          }
+        ],
+        "metatags": [
+          {
+            "twitter:app:url:iphone": "tripadvisor://www.tripadvisor.com.br/Hotel_Review-g675025-d2009453-Reviews-Nacional_Palace_Hotel-Corumba_State_of_Mato_Grosso_do_Sul.html?m=33762",
+            "og:image": "https://media-cdn.tripadvisor.com/media/photo-s/0c/cf/7b/e9/nacional-palace-hotel.jpg",
+            "apple-itunes-app": "app-id=284876795",
+            "theme-color": "#34e0a1",
+            "og:image:width": "338",
+            "og:type": "hotel",
+            "og:site_name": "Tripadvisor",
+            "al:ios:app_name": "TripAdvisor",
+            "twitter:app:url:ipad": "tripadvisor://www.tripadvisor.com.br/Hotel_Review-g675025-d2009453-Reviews-Nacional_Palace_Hotel-Corumba_State_of_Mato_Grosso_do_Sul.html?m=33762",
+            "og:title": "NACIONAL PALACE HOTEL (CORUMBÁ): 118 fotos e 259 avaliações - Tripadvisor",
+            "twitter:app:id:ipad": "284876795",
+            "og:image:height": "450",
+            "twitter:app:id:iphone": "284876795",
+            "al:ios:url": "tripadvisor://www.tripadvisor.com.br/Hotel_Review-g675025-d2009453-Reviews-Nacional_Palace_Hotel-Corumba_State_of_Mato_Grosso_do_Sul.html?m=33762",
+            "og:description": "Nacional Palace Hotel, Corumbá: Veja 287 avaliações, 118 fotos e ótimas promoções para Nacional Palace Hotel, classificado como nº 1 de 6 hotéis em Corumbá e com pontuação 4 de 5 no Tripadvisor.",
+            "al:ios:app_store_id": "284876795",
+            "twitter:image": "//static.tacdn.com/img2/brand_refresh/application_icons/post-image-550x550.png",
+            "fb:app_id": "162729813767876",
+            "viewport": "width=device-width, initial-scale=1.0, user-scalable=no",
+            "fb:admins": "100000982334629",
+            "og:url": "http://www.tripadvisor.com.br/Hotel_Review-g675025-d2009453-Reviews-Nacional_Palace_Hotel-Corumba_State_of_Mato_Grosso_do_Sul.html",
+            "format-detection": "telephone=no"
+          }
+        ],
+        "cse_image": [
+          {
+            "src": "https://media-cdn.tripadvisor.com/media/photo-s/0c/cf/7b/e9/nacional-palace-hotel.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "customsearch#result",
+      "title": "SANTA MÔNICA PALACE HOTEL (CORUMBÁ): 28 fotos ...",
+      "htmlTitle": "SANTA MÔNICA PALACE <b>HOTEL</b> (<b>CORUMBÁ</b>): 28 fotos ...",
+      "link": "https://www.tripadvisor.com.br/Hotel_Review-g675025-d2009452-Reviews-Santa_Monica_Palace_Hotel-Corumba_State_of_Mato_Grosso_do_Sul.html",
+      "displayLink": "www.tripadvisor.com.br",
+      "snippet": "... hotéis em Corumbá e com pontuação 3,5 de 5 no Tripadvisor ... Campo Grande, MS2 contribuições. \"um bom banho e ... SANTA MÔNICA PALACE HOTEL (CORUMBÁ): 28 fotos, ...",
+      "htmlSnippet": "... <b>hotéis</b> em <b>Corumbá</b> e com pontuação 3,5 de 5 no Tripadvisor ... Campo Grande, <b>MS</b>2 contribuições. &quot;um bom banho e ... SANTA MÔNICA PALACE <b>HOTEL</b> (<b>CORUMBÁ</b>): 28 fotos,&nbsp;...",
+      "cacheId": "r3OICKYvUEMJ",
+      "formattedUrl": "https://www.tripadvisor.com.br/Hotel_Review-g675025-d2009452-Review...",
+      "htmlFormattedUrl": "https://www.tripadvisor.com.br/Hotel_Review-g675025-d2009452-Review...",
+      "pagemap": {
+        "cse_thumbnail": [
+          {
+            "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqzW0eF0ZsZgvchO7IwLyB10i4vooWTvOglcNBg06guup1k33r5Q6uN85C&s",
+            "width": "259",
+            "height": "194"
+          }
+        ],
+        "metatags": [
+          {
+            "twitter:app:url:iphone": "tripadvisor://www.tripadvisor.com.br/Hotel_Review-g675025-d2009452-Reviews-Santa_Monica_Palace_Hotel-Corumba_State_of_Mato_Grosso_do_Sul.html?m=33762",
+            "og:image": "https://media-cdn.tripadvisor.com/media/photo-s/0d/47/20/e5/apartamento-familiar.jpg",
+            "apple-itunes-app": "app-id=284876795",
+            "theme-color": "#34e0a1",
+            "og:image:width": "550",
+            "og:type": "hotel",
+            "og:site_name": "Tripadvisor",
+            "al:ios:app_name": "TripAdvisor",
+            "twitter:app:url:ipad": "tripadvisor://www.tripadvisor.com.br/Hotel_Review-g675025-d2009452-Reviews-Santa_Monica_Palace_Hotel-Corumba_State_of_Mato_Grosso_do_Sul.html?m=33762",
+            "og:title": "SANTA MÔNICA PALACE HOTEL (CORUMBÁ): 28 fotos, comparação de preços e 88 avaliações - Tripadvisor",
+            "twitter:app:id:ipad": "284876795",
+            "og:image:height": "413",
+            "twitter:app:id:iphone": "284876795",
+            "al:ios:url": "tripadvisor://www.tripadvisor.com.br/Hotel_Review-g675025-d2009452-Reviews-Santa_Monica_Palace_Hotel-Corumba_State_of_Mato_Grosso_do_Sul.html?m=33762",
+            "og:description": "Santa Mônica Palace Hotel, Corumbá: Veja 103 avaliações, 28 fotos e ótimas promoções para Santa Mônica Palace Hotel, classificado como nº 2 de 6 hotéis em Corumbá e com pontuação 3,5 de 5 no Tripadvisor.",
+            "al:ios:app_store_id": "284876795",
+            "twitter:image": "//static.tacdn.com/img2/brand_refresh/application_icons/post-image-550x550.png",
+            "fb:app_id": "162729813767876",
+            "viewport": "width=device-width, initial-scale=1.0, user-scalable=no",
+            "fb:admins": "100000982334629",
+            "og:url": "http://www.tripadvisor.com.br/Hotel_Review-g675025-d2009452-Reviews-Santa_Monica_Palace_Hotel-Corumba_State_of_Mato_Grosso_do_Sul.html",
+            "format-detection": "telephone=no"
+          }
+        ],
+        "cse_image": [
+          {
+            "src": "https://media-cdn.tripadvisor.com/media/photo-s/0d/47/20/e5/apartamento-familiar.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "customsearch#result",
+      "title": "AS 10 MELHORES pousadas: Corumbá 2024 (com fotos) - Tripadvisor",
+      "htmlTitle": "AS 10 MELHORES pousadas: <b>Corumbá</b> 2024 (com fotos) - Tripadvisor",
+      "link": "https://www.tripadvisor.com.br/Hotels-g675025-c2-Corumba_State_of_Mato_Grosso_do_Sul-Hotels.html",
+      "displayLink": "www.tripadvisor.com.br",
+      "snippet": "Pousadas: Corumbá · 1. Pousada São João Ecotur. Pousada (Inn) · 2. Pousada Beija-Flor. Casa de hóspedes · 3. Hotel Laura Vicuna. Hotel de pequeno porte · 4. Pousada ...",
+      "htmlSnippet": "Pousadas: <b>Corumbá</b> &middot; 1. Pousada São João Ecotur. Pousada (Inn) &middot; 2. Pousada Beija-Flor. Casa de hóspedes &middot; 3. <b>Hotel</b> Laura Vicuna. <b>Hotel</b> de pequeno porte &middot; 4. Pousada&nbsp;...",
+      "cacheId": "CDdNlNkwMtUJ",
+      "formattedUrl": "https://www.tripadvisor.com.br/Hotels-g675025-c2-Corumba_State_of_Ma...",
+      "htmlFormattedUrl": "https://www.tripadvisor.com.br/Hotels-g675025-c2-Corumba_State_of_Ma...",
+      "pagemap": {
+        "cse_thumbnail": [
+          {
+            "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRekWMCtPeK6jKqRIzQNJOpJpD99CdXM9w6y_pggKWuVQcSC9w6bAZXC4c&s",
+            "width": "275",
+            "height": "183"
+          }
+        ],
+        "metatags": [
+          {
+            "twitter:app:url:iphone": "tripadvisor://www.tripadvisor.com.br/Hotels-g675025-c2-Corumba_State_of_Mato_Grosso_do_Sul-Hotels.html?m=33762",
+            "apple-itunes-app": "app-id=284876795, app-argument=https://www.tripadvisor.com.br/Hotels-g675025-c2-Corumba_State_of_Mato_Grosso_do_Sul-Hotels.html",
+            "og:image": "https://media-cdn.tripadvisor.com/media/photo-s/09/1c/9f/69/corumba.jpg",
+            "theme-color": "#34e0a1",
+            "og:type": "website",
+            "og:image:width": "550",
+            "og:site_name": "Tripadvisor",
+            "al:ios:app_name": "TripAdvisor",
+            "twitter:app:url:ipad": "tripadvisor://www.tripadvisor.com.br/Hotels-g675025-c2-Corumba_State_of_Mato_Grosso_do_Sul-Hotels.html?m=33762",
+            "og:title": "AS 10 MELHORES pousadas: Corumbá 2024 (com fotos) - Tripadvisor",
+            "twitter:app:id:ipad": "284876795",
+            "og:image:height": "367",
+            "twitter:app:id:iphone": "284876795",
+            "al:ios:url": "tripadvisor://www.tripadvisor.com.br/Hotels-g675025-c2-Corumba_State_of_Mato_Grosso_do_Sul-Hotels.html?m=33762",
+            "og:description": "Melhores pousadas: Corumbá no Tripadvisor: veja 226 dicas e avaliações,  fotos e ótimas ofertas e preços para 22 B&B: Corumbá, Mato Grosso do Sul, Brasil.",
+            "al:ios:app_store_id": "284876795",
+            "twitter:image": "https://media-cdn.tripadvisor.com/media/photo-s/09/1c/9f/69/corumba.jpg",
+            "viewport": "width=device-width, initial-scale=1.0, viewport-fit=cover",
+            "og:locale": "pt-BR",
+            "og:url": "https://www.tripadvisor.com.br/Hotels-g675025-c2-Corumba_State_of_Mato_Grosso_do_Sul-Hotels.html",
+            "format-detection": "telephone=no"
+          }
+        ],
+        "cse_image": [
+          {
+            "src": "https://media-cdn.tripadvisor.com/media/photo-s/09/1c/9f/69/corumba.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "customsearch#result",
+      "title": "As 10 melhores promoções para hotéis: Corumbá 2024 - ofertas ...",
+      "htmlTitle": "As 10 melhores promoções para <b>hotéis</b>: <b>Corumbá</b> 2024 - ofertas ...",
+      "link": "https://www.tripadvisor.com.br/SmartDeals-g675025-Corumba_State_of_Mato_Grosso_do_Sul-Hotel-Deals.html",
+      "displayLink": "www.tripadvisor.com.br",
+      "snippet": "Corumbá, MS: Ofertas de hotéis · 1. Pantanal Jungle Lodge. Acomodação · 2. Dom Alberto Hostel. Albergue · 3. Santa Mônica Palace Hotel · 103 avaliações · 4. Hotel ...",
+      "htmlSnippet": "<b>Corumbá</b>, <b>MS</b>: Ofertas de <b>hotéis</b> &middot; 1. Pantanal Jungle Lodge. Acomodação &middot; 2. Dom Alberto Hostel. Albergue &middot; 3. Santa Mônica Palace <b>Hotel</b> &middot; 103 avaliações &middot; 4. <b>Hotel</b>&nbsp;...",
+      "cacheId": "b6JqHTrJl9YJ",
+      "formattedUrl": "https://www.tripadvisor.com.br/SmartDeals-g675025-Corumba_State_of_...",
+      "htmlFormattedUrl": "https://www.tripadvisor.com.br/SmartDeals-g675025-Corumba_State_of_...",
+      "pagemap": {
+        "cse_thumbnail": [
+          {
+            "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRekWMCtPeK6jKqRIzQNJOpJpD99CdXM9w6y_pggKWuVQcSC9w6bAZXC4c&s",
+            "width": "275",
+            "height": "183"
+          }
+        ],
+        "metatags": [
+          {
+            "apple-itunes-app": "app-id=284876795, app-argument=https://www.tripadvisor.com.br/SmartDeals-g675025-Corumba_State_of_Mato_Grosso_do_Sul-Hotel-Deals.html",
+            "og:image": "https://media-cdn.tripadvisor.com/media/photo-s/09/1c/9f/69/corumba.jpg",
+            "theme-color": "#34e0a1",
+            "og:type": "website",
+            "og:image:width": "550",
+            "og:site_name": "Tripadvisor",
+            "og:title": "As 10  melhores promoções para hotéis: Corumbá 2024 - ofertas especiais - Tripadvisor",
+            "og:image:height": "367",
+            "og:description": "Ofertas e promoções em Corumbá: encontre promoções de hotéis em centenas de sites, e reserve o hotel ideal lendo as 2.451 dicas e avaliações do Tripadvisor para hotéis em Corumbá.",
+            "twitter:image": "https://media-cdn.tripadvisor.com/media/photo-s/09/1c/9f/69/corumba.jpg",
+            "viewport": "width=device-width, initial-scale=1.0, viewport-fit=cover",
+            "og:locale": "pt-BR",
+            "og:url": "https://www.tripadvisor.com.br/SmartDeals-g675025-Corumba_State_of_Mato_Grosso_do_Sul-Hotel-Deals.html",
+            "format-detection": "telephone=no"
+          }
+        ],
+        "cse_image": [
+          {
+            "src": "https://media-cdn.tripadvisor.com/media/photo-s/09/1c/9f/69/corumba.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "customsearch#result",
+      "title": "OS 10 MELHORES hotéis que aceitam cachorros: Corumbá 2024 ...",
+      "htmlTitle": "OS 10 MELHORES <b>hotéis</b> que aceitam cachorros: <b>Corumbá</b> 2024 ...",
+      "link": "https://www.tripadvisor.com.br/Hotels-g675025-zfa9-Corumba_State_of_Mato_Grosso_do_Sul-Hotels.html",
+      "displayLink": "www.tripadvisor.com.br",
+      "snippet": "Melhores hotéis que aceitam animais: Corumbá no Tripadvisor: veja 666 dicas e avaliações, fotos e ótimas ofertas e preços para 11 hotéis: Corumbá, ...",
+      "htmlSnippet": "Melhores <b>hotéis</b> que aceitam animais: <b>Corumbá</b> no Tripadvisor: veja 666 dicas e avaliações, fotos e ótimas ofertas e preços para 11 <b>hotéis</b>: <b>Corumbá</b>,&nbsp;...",
+      "cacheId": "53SD4yUS_AAJ",
+      "formattedUrl": "https://www.tripadvisor.com.br/Hotels-g675025-zfa9-Corumba_State_of_...",
+      "htmlFormattedUrl": "https://www.tripadvisor.com.br/Hotels-g675025-zfa9-Corumba_State_of_...",
+      "pagemap": {
+        "cse_thumbnail": [
+          {
+            "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRekWMCtPeK6jKqRIzQNJOpJpD99CdXM9w6y_pggKWuVQcSC9w6bAZXC4c&s",
+            "width": "275",
+            "height": "183"
+          }
+        ],
+        "metatags": [
+          {
+            "twitter:app:url:iphone": "tripadvisor://www.tripadvisor.com.br/Hotels-g675025-zfa9-Corumba_State_of_Mato_Grosso_do_Sul-Hotels.html?m=33762",
+            "apple-itunes-app": "app-id=284876795, app-argument=https://www.tripadvisor.com.br/Hotels-g675025-zfa9-Corumba_State_of_Mato_Grosso_do_Sul-Hotels.html",
+            "og:image": "https://media-cdn.tripadvisor.com/media/photo-s/09/1c/9f/69/corumba.jpg",
+            "theme-color": "#34e0a1",
+            "og:type": "website",
+            "og:image:width": "550",
+            "og:site_name": "Tripadvisor",
+            "al:ios:app_name": "TripAdvisor",
+            "twitter:app:url:ipad": "tripadvisor://www.tripadvisor.com.br/Hotels-g675025-zfa9-Corumba_State_of_Mato_Grosso_do_Sul-Hotels.html?m=33762",
+            "og:title": "OS 10 MELHORES hotéis que aceitam cachorros: Corumbá 2024 (com fotos) - Tripadvisor",
+            "twitter:app:id:ipad": "284876795",
+            "og:image:height": "367",
+            "twitter:app:id:iphone": "284876795",
+            "al:ios:url": "tripadvisor://www.tripadvisor.com.br/Hotels-g675025-zfa9-Corumba_State_of_Mato_Grosso_do_Sul-Hotels.html?m=33762",
+            "og:description": "Melhores hotéis que aceitam animais: Corumbá no Tripadvisor: veja 666 dicas e avaliações,  fotos e ótimas ofertas e preços para 11 hotéis: Corumbá, Mato Grosso do Sul, Brasil.",
+            "al:ios:app_store_id": "284876795",
+            "twitter:image": "https://media-cdn.tripadvisor.com/media/photo-s/09/1c/9f/69/corumba.jpg",
+            "viewport": "width=device-width, initial-scale=1.0, viewport-fit=cover",
+            "og:locale": "pt-BR",
+            "og:url": "https://www.tripadvisor.com.br/Hotels-g675025-zfa9-Corumba_State_of_Mato_Grosso_do_Sul-Hotels.html",
+            "format-detection": "telephone=no"
+          }
+        ],
+        "cse_image": [
+          {
+            "src": "https://media-cdn.tripadvisor.com/media/photo-s/09/1c/9f/69/corumba.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "customsearch#result",
+      "title": "HOTEL LAURA VICUNA (CORUMBÁ): 34 fotos e 34 avaliações ...",
+      "htmlTitle": "<b>HOTEL</b> LAURA VICUNA (<b>CORUMBÁ</b>): 34 fotos e 34 avaliações ...",
+      "link": "https://www.tripadvisor.com.br/Hotel_Review-g675025-d2691220-Reviews-Hotel_Laura_Vicuna-Corumba_State_of_Mato_Grosso_do_Sul.html",
+      "displayLink": "www.tripadvisor.com.br",
+      "snippet": "Hotel Laura Vicuna, Corumbá: Veja 41 avaliações, 34 fotos e ótimas promoções para Hotel Laura Vicuna, classificada como nº 3 de 22 pousadas em Corumbá e com ...",
+      "htmlSnippet": "<b>Hotel</b> Laura Vicuna, <b>Corumbá</b>: Veja 41 avaliações, 34 fotos e ótimas promoções para <b>Hotel</b> Laura Vicuna, classificada como nº 3 de 22 pousadas em <b>Corumbá</b> e com&nbsp;...",
+      "cacheId": "ykxtQF9Vf2QJ",
+      "formattedUrl": "https://www.tripadvisor.com.br/Hotel_Review-g675025-d2691220-Review...",
+      "htmlFormattedUrl": "https://www.tripadvisor.com.br/Hotel_Review-g675025-d2691220-Review...",
+      "pagemap": {
+        "cse_thumbnail": [
+          {
+            "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdt7Dq3xYbqkD0AB51C6qco8WoD0UXUs5tdQsX2ds0xS1dOlVWFkdGTmaq&s",
+            "width": "259",
+            "height": "194"
+          }
+        ],
+        "metatags": [
+          {
+            "twitter:app:url:iphone": "tripadvisor://www.tripadvisor.com.br/Hotel_Review-g675025-d2691220-Reviews-Hotel_Laura_Vicuna-Corumba_State_of_Mato_Grosso_do_Sul.html?m=33762",
+            "og:image": "https://media-cdn.tripadvisor.com/media/photo-s/05/39/71/cc/recepcao-do-hotel.jpg",
+            "apple-itunes-app": "app-id=284876795",
+            "theme-color": "#34e0a1",
+            "og:image:width": "550",
+            "og:type": "hotel",
+            "og:site_name": "Tripadvisor",
+            "al:ios:app_name": "TripAdvisor",
+            "twitter:app:url:ipad": "tripadvisor://www.tripadvisor.com.br/Hotel_Review-g675025-d2691220-Reviews-Hotel_Laura_Vicuna-Corumba_State_of_Mato_Grosso_do_Sul.html?m=33762",
+            "og:title": "HOTEL LAURA VICUNA (CORUMBÁ): 34 fotos e 34 avaliações - Tripadvisor",
+            "twitter:app:id:ipad": "284876795",
+            "og:image:height": "412",
+            "twitter:app:id:iphone": "284876795",
+            "al:ios:url": "tripadvisor://www.tripadvisor.com.br/Hotel_Review-g675025-d2691220-Reviews-Hotel_Laura_Vicuna-Corumba_State_of_Mato_Grosso_do_Sul.html?m=33762",
+            "og:description": "Hotel Laura Vicuna, Corumbá: Veja 41 avaliações, 34 fotos e ótimas promoções para Hotel Laura Vicuna, classificada como nº 3 de 22 pousadas em Corumbá e com pontuação 3,5 de 5 no Tripadvisor.",
+            "al:ios:app_store_id": "284876795",
+            "twitter:image": "//static.tacdn.com/img2/brand_refresh/application_icons/post-image-550x550.png",
+            "fb:app_id": "162729813767876",
+            "viewport": "width=device-width, initial-scale=1.0, user-scalable=no",
+            "fb:admins": "100000982334629",
+            "og:url": "http://www.tripadvisor.com.br/Hotel_Review-g675025-d2691220-Reviews-Hotel_Laura_Vicuna-Corumba_State_of_Mato_Grosso_do_Sul.html",
+            "format-detection": "telephone=no"
+          }
+        ],
+        "cse_image": [
+          {
+            "src": "https://media-cdn.tripadvisor.com/media/photo-s/05/39/71/cc/recepcao-do-hotel.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "customsearch#result",
+      "title": "HOTEL VIRGINIA (CORUMBÁ): 31 fotos e 15 avaliações - Tripadvisor",
+      "htmlTitle": "<b>HOTEL</b> VIRGINIA (<b>CORUMBÁ</b>): 31 fotos e 15 avaliações - Tripadvisor",
+      "link": "https://www.tripadvisor.com.br/Hotel_Review-g675025-d8082077-Reviews-Hotel_Virginia-Corumba_State_of_Mato_Grosso_do_Sul.html",
+      "displayLink": "www.tripadvisor.com.br",
+      "snippet": "... hotéis especializados em Corumbá e com pontuação 3,5 de 5 no Tripadvisor ... Campo Grande, MS27 contribuições. \"Todo o ambiente ... HOTEL VIRGINIA (CORUMBÁ): 31 ...",
+      "htmlSnippet": "... <b>hotéis</b> especializados em <b>Corumbá</b> e com pontuação 3,5 de 5 no Tripadvisor ... Campo Grande, <b>MS</b>27 contribuições. &quot;Todo o ambiente ... <b>HOTEL</b> VIRGINIA (<b>CORUMBÁ</b>): 31&nbsp;...",
+      "cacheId": "Cnh6t6A4nWkJ",
+      "formattedUrl": "https://www.tripadvisor.com.br/Hotel_Review-g675025-d8082077-Review...",
+      "htmlFormattedUrl": "https://www.tripadvisor.com.br/Hotel_Review-g675025-d8082077-Review...",
+      "pagemap": {
+        "cse_thumbnail": [
+          {
+            "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeTVh1shyTdNg2hfZx9SryTvVd3Du9pezmTV3PnTq3ujLrONJAEz89KC0&s",
+            "width": "275",
+            "height": "183"
+          }
+        ],
+        "metatags": [
+          {
+            "twitter:app:url:iphone": "tripadvisor://www.tripadvisor.com.br/Hotel_Review-g675025-d8082077-Reviews-Hotel_Virginia-Corumba_State_of_Mato_Grosso_do_Sul.html?m=33762",
+            "og:image": "https://media-cdn.tripadvisor.com/media/photo-s/26/b5/9f/e7/hotel-virginia.jpg",
+            "apple-itunes-app": "app-id=284876795",
+            "theme-color": "#34e0a1",
+            "og:image:width": "550",
+            "og:type": "hotel",
+            "og:site_name": "Tripadvisor",
+            "al:ios:app_name": "TripAdvisor",
+            "twitter:app:url:ipad": "tripadvisor://www.tripadvisor.com.br/Hotel_Review-g675025-d8082077-Reviews-Hotel_Virginia-Corumba_State_of_Mato_Grosso_do_Sul.html?m=33762",
+            "og:title": "HOTEL VIRGINIA (CORUMBÁ): 31 fotos e 15 avaliações - Tripadvisor",
+            "twitter:app:id:ipad": "284876795",
+            "og:image:height": "367",
+            "twitter:app:id:iphone": "284876795",
+            "al:ios:url": "tripadvisor://www.tripadvisor.com.br/Hotel_Review-g675025-d8082077-Reviews-Hotel_Virginia-Corumba_State_of_Mato_Grosso_do_Sul.html?m=33762",
+            "og:description": "Hotel Virginia, Corumbá: Veja 15 avaliações, 31 fotos e ótimas promoções para Hotel Virginia, classificado como nº 8 de 49 hotéis especializados em Corumbá e com pontuação 3,5 de 5 no Tripadvisor.",
+            "al:ios:app_store_id": "284876795",
+            "twitter:image": "//static.tacdn.com/img2/brand_refresh/application_icons/post-image-550x550.png",
+            "fb:app_id": "162729813767876",
+            "viewport": "width=device-width, initial-scale=1.0, user-scalable=no",
+            "fb:admins": "100000982334629",
+            "og:url": "http://www.tripadvisor.com.br/Hotel_Review-g675025-d8082077-Reviews-Hotel_Virginia-Corumba_State_of_Mato_Grosso_do_Sul.html",
+            "format-detection": "telephone=no"
+          }
+        ],
+        "cse_image": [
+          {
+            "src": "https://media-cdn.tripadvisor.com/media/photo-s/26/b5/9f/e7/hotel-virginia.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "customsearch#result",
+      "title": "OS 5 MELHORES hotéis 3 estrelas: Corumbá 2024 (com fotos ...",
+      "htmlTitle": "OS 5 MELHORES <b>hotéis</b> 3 estrelas: <b>Corumbá</b> 2024 (com fotos ...",
+      "link": "https://www.tripadvisor.com.br/Hotels-g675025-zfc3-Corumba_State_of_Mato_Grosso_do_Sul-Hotels.html",
+      "displayLink": "www.tripadvisor.com.br",
+      "snippet": "Melhores hotéis 3 estrelas: Corumbá no Tripadvisor: veja 670 dicas e avaliações, fotos e ótimas ofertas e preços para 6 hotéis: Corumbá, Mato Grosso do Sul, ...",
+      "htmlSnippet": "Melhores <b>hotéis</b> 3 estrelas: <b>Corumbá</b> no Tripadvisor: veja 670 dicas e avaliações, fotos e ótimas ofertas e preços para 6 <b>hotéis</b>: <b>Corumbá</b>, Mato Grosso do Sul,&nbsp;...",
+      "cacheId": "f8Y1dGrwf5gJ",
+      "formattedUrl": "https://www.tripadvisor.com.br/Hotels-g675025-zfc3-Corumba_State_of_...",
+      "htmlFormattedUrl": "https://www.tripadvisor.com.br/Hotels-g675025-zfc3-Corumba_State_of_...",
+      "pagemap": {
+        "cse_thumbnail": [
+          {
+            "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRekWMCtPeK6jKqRIzQNJOpJpD99CdXM9w6y_pggKWuVQcSC9w6bAZXC4c&s",
+            "width": "275",
+            "height": "183"
+          }
+        ],
+        "metatags": [
+          {
+            "twitter:app:url:iphone": "tripadvisor://www.tripadvisor.com.br/Hotels-g675025-zfc3-Corumba_State_of_Mato_Grosso_do_Sul-Hotels.html?m=33762",
+            "apple-itunes-app": "app-id=284876795, app-argument=https://www.tripadvisor.com.br/Hotels-g675025-zfc3-Corumba_State_of_Mato_Grosso_do_Sul-Hotels.html",
+            "og:image": "https://media-cdn.tripadvisor.com/media/photo-s/09/1c/9f/69/corumba.jpg",
+            "theme-color": "#34e0a1",
+            "og:type": "website",
+            "og:image:width": "550",
+            "og:site_name": "Tripadvisor",
+            "al:ios:app_name": "TripAdvisor",
+            "twitter:app:url:ipad": "tripadvisor://www.tripadvisor.com.br/Hotels-g675025-zfc3-Corumba_State_of_Mato_Grosso_do_Sul-Hotels.html?m=33762",
+            "og:title": "OS 5 MELHORES hotéis 3 estrelas: Corumbá 2024 (com fotos) - Tripadvisor",
+            "twitter:app:id:ipad": "284876795",
+            "og:image:height": "367",
+            "twitter:app:id:iphone": "284876795",
+            "al:ios:url": "tripadvisor://www.tripadvisor.com.br/Hotels-g675025-zfc3-Corumba_State_of_Mato_Grosso_do_Sul-Hotels.html?m=33762",
+            "og:description": "Melhores hotéis 3 estrelas: Corumbá no Tripadvisor: veja 670 dicas e avaliações,  fotos e ótimas ofertas e preços para 6 hotéis: Corumbá, Mato Grosso do Sul, Brasil.",
+            "al:ios:app_store_id": "284876795",
+            "twitter:image": "https://media-cdn.tripadvisor.com/media/photo-s/09/1c/9f/69/corumba.jpg",
+            "viewport": "width=device-width, initial-scale=1.0, viewport-fit=cover",
+            "og:locale": "pt-BR",
+            "og:url": "https://www.tripadvisor.com.br/Hotels-g675025-zfc3-Corumba_State_of_Mato_Grosso_do_Sul-Hotels.html",
+            "format-detection": "telephone=no"
+          }
+        ],
+        "cse_image": [
+          {
+            "src": "https://media-cdn.tripadvisor.com/media/photo-s/09/1c/9f/69/corumba.jpg"
+          }
+        ]
+      }
+    }
+  ]
+}
