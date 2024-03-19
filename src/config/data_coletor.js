@@ -3,48 +3,93 @@ import dotenv from "dotenv";
 import { writeFile } from "fs/promises";
 dotenv.config({ path: "../../.env" });
 
-const searchGoogleCSE = async (query, filename) => {
+async function searchHotelsInCorumba() {
   const apiKey = process.env.GOOGLE_API;
-  const cx = process.env.SEARCH_ENG;
-  const lr = "lang_pt";
-  const hl = "pt-BR";
-  const siteSearchFilter = "i";
-  const siteSearch = "https://www.tripadvisor.com.br/";
-  const url = `https://www.googleapis.com/customsearch/v1?key=${apiKey}&cx=${cx}&q=${query}&lr=${lr}&hl=${hl}&siteSearch=${siteSearch}&siteSearchFilter=${siteSearchFilter}`;
+  const query = "Hotéis em Corumbá MS";
+  const url = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${encodeURIComponent(
+    query
+  )}&key=${apiKey}`;
 
   try {
     const response = await axios.get(url);
-    const searchData = response.data;
+    const data = response.data;
 
-    try {
-      // Salva os dados brutos em um arquivo JSON na pasta data
-      await writeFile(
-        `../data/${filename}`,
-        JSON.stringify(searchData, null, 2)
+    if (data.status === "OK" && data.results.length > 0) {
+      const hotels = await Promise.all(
+        data.results.map(async (result) => {
+          const placeDetails = await getPlaceDetails(result.place_id);
+          const photos = placeDetails
+            ? placeDetails.photos
+                .slice(0, 2)
+                .map((photo) => getPhotoUrl(photo.photo_reference))
+            : [];
+          const phoneNumber =
+            placeDetails && placeDetails.formatted_phone_number
+              ? placeDetails.formatted_phone_number
+              : "Número de telefone não disponível";
+
+          return {
+            name: result.name,
+            address: result.formatted_address,
+            phone_number: phoneNumber,
+            rating: result.rating,
+            user_ratings_total: result.user_ratings_total,
+            coordinates: result.geometry.location,
+            photos: photos,
+          };
+        })
       );
 
-      console.log("Arquivo salvo com sucesso:", filename);
-    } catch (error) {
-      console.error("Erro ao salvar o arquivo:", error);
+      return hotels;
+    } else {
+      console.error("Erro ao buscar hotéis:", data.error_message);
+      return null;
     }
-
-    return searchData;
   } catch (error) {
-    console.error(
-      "Erro ao consultar a API do Google Custom Search Engine:",
-      error
-    );
+    console.error("Erro de conexão:", error);
     return null;
   }
-};
+}
 
-// Exemplo de uso:
-const query = "Hotéis Corumbá MS";
-const filename = "hotels_data.json";
-searchGoogleCSE(query, filename)
-  .then((data) => {
-    console.log("Resultados da pesquisa:", data);
-  })
-  .catch((error) => {
-    console.error("Erro ao pesquisar no Google CSE:", error);
-  });
+async function getPlaceDetails(placeId) {
+  const apiKey = process.env.GOOGLE_API;
+  const url = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&fields=name,formatted_address,formatted_phone_number,opening_hours,rating,user_ratings_total,photos&key=${apiKey}`;
+
+  try {
+    const response = await axios.get(url);
+    const data = response.data;
+
+    if (data.status === "OK" && data.result) {
+      return data.result;
+    } else {
+      console.error("Erro ao obter os detalhes do local:", data.error_message);
+      return null;
+    }
+  } catch (error) {
+    console.error("Erro de conexão:", error);
+    return null;
+  }
+}
+
+async function main() {
+  const hotels = await searchHotelsInCorumba();
+
+  if (hotels) {
+    try {
+      const filePath = "../data/hotels_data.json";
+      await writeFile(filePath, JSON.stringify(hotels, null, 2));
+      console.log(`Dados dos hotéis salvos com sucesso em '${filePath}'.`);
+    } catch (error) {
+      console.error("Erro ao salvar os dados dos hotéis:", error);
+    }
+  } else {
+    console.log("Falha ao buscar hotéis em Corumbá.");
+  }
+}
+
+function getPhotoUrl(photoReference) {
+  const apiKey = process.env.GOOGLE_API;
+  return `https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=${photoReference}&key=${apiKey}`;
+}
+
+main();
