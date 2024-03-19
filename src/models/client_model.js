@@ -5,9 +5,9 @@ const clientSchema = new mongoose.Schema(
     name: String,
     phoneNumber: String,
   },
-  { collection: "Client" }
+  { collection: "Clients" }
 );
 
-const ClientModel = mongoose.model("Client", clientSchema);
+const ClientModel = mongoose.model("Clients", clientSchema);
 
 export default ClientModel;

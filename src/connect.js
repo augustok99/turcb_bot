@@ -1,7 +1,7 @@
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 
-dotenv.config({ path: "../../.env" });
+dotenv.config({ path: ".env" });
 
 const uri = process.env.MONGODB_URI;
 
@@ -18,4 +18,4 @@ async function connectToDatabase() {
   }
 }
 
-export { connectToDatabase };
+export default connectToDatabase;

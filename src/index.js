@@ -1,20 +1,18 @@
 import pkg from "whatsapp-web.js";
 const { Client, LocalAuth } = pkg;
+import qrcode from "qrcode-terminal";
+import cluster from "cluster";
 
 const client = new Client({
   authStrategy: new LocalAuth(),
-
-  puppeteer: {
-    headless: false,
-  },
 });
 
 client.on("qr", (qr) => {
-  generate(qr, { small: true });
+  qrcode.generate(qr, { small: true }); // Usando a função importada qrcode
 });
 
 client.on("ready", () => {
-  console.log("Bot esta pronto para receber mensagem!");
+  console.log("Bot está pronto para receber mensagens!");
 });
 
 import message from "./message.js";
