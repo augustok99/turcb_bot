@@ -1,10 +1,10 @@
 import pkg from "whatsapp-web.js";
 const { Client, LocalAuth } = pkg;
 import qrcode from "qrcode-terminal";
-import cluster from "cluster";
 
 const client = new Client({
-  authStrategy: new LocalAuth(),
+  authStrategy: new LocalAuth({
+  }),
 });
 
 client.on("qr", (qr) => {
