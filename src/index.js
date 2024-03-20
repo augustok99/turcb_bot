@@ -1,14 +1,15 @@
-import pkg from "whatsapp-web.js";
-const { Client, LocalAuth } = pkg;
+import pkg from 'whatsapp-web.js';
+const { NoAuth } = pkg;
+const { Client } = pkg;
 import qrcode from "qrcode-terminal";
 
 const client = new Client({
-  authStrategy: new LocalAuth({
+  authStrategy: new NoAuth({
   }),
 });
 
 client.on("qr", (qr) => {
-  qrcode.generate(qr, { small: true }); // Usando a função importada qrcode
+  qrcode.generate(qr, { small: true });
 });
 
 client.on("ready", () => {
