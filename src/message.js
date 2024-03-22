@@ -50,164 +50,18 @@ const handleMessage = async (client) => {
           `Olá, ${user}! Seja bem-vindo ao nosso sistema de chat automatizado. Eu sou o botzap, seu guia turístico. Irei te auxiliar a escolher hotéis, restaurantes ou pontos turísticos da cidade.`
         );
 
-        // Exibir menu de opções após um atraso de 2 segundos
-        setTimeout(async () => {
-          const menuOptions = await MenuModel.find({});
-          let menuText = "Por favor, escolha uma opção:\n";
-          menuOptions.forEach((option) => {
-            menuText += `${option.optionNumber} - ${option.description}\n`;
-          });
-          await client.sendMessage(phoneNumber, menuText);
-          if (!userState[phoneNumber]) {
-            userState[phoneNumber] = {};
-          }
-          userState[phoneNumber].state = "AWAITING_CHOICE";
-        }, 2000);
+        sendMainMenu(client, phoneNumber, userState);
       }
 
       // Verifica se o estado do usuário indica que estamos aguardando uma escolha de opção
       if (userState[phoneNumber] && userState[phoneNumber].state === "AWAITING_CHOICE") {
         const userChoice = parseInt(message.body.trim());
         // Executa a lógica com base na escolha do usuário
+        await handleUserChoice(client, phoneNumber, userChoice, userState);
 
-
-        // Verifica a escolha do usuário e executa a ação correspondente
-        switch (userChoice) {
-          case 1:
-            await sendHotelList(client, message.from, userState);
-            break;
-          case 2:
-            await sendRestaurantList(client, message.from, userState);
-            break;
-          case 3:
-            await sendAttractionList(client, message.from, userState);
-            break;
-          case 4:
-            await client.sendMessage(
-              message.from,
-              "Atendimento encerrado. Obrigado!"
-            ); // Encerra o atendimento
-            userState[phoneNumber].state = null;
-            break;
-          default:
-            await client.sendMessage(
-              message.from,
-              "Opção inválida. Por favor, escolha uma opção válida."
-            );
-        }
-
-      } else if (userState[phoneNumber] && userState[phoneNumber].state === "AWAITING_HOTEL_SELECTION") {
-        // Caso o usuário tenha escolhido um hotel
-        const userChoice = parseInt(message.body.trim()); // Escolha do usuário
-
-        try {
-          const hotels = await getHotels(); // Obter a lista de hotéis disponíveis
-
-          // Verificar se o número da escolha está dentro dos limites da lista de hotéis
-          if (userChoice >= 1 && userChoice <= hotels.length) {
-            const selectedHotel = hotels[userChoice - 1]; // Hotel selecionado
-            // Enviar os detalhes do hotel para o usuário
-            const hotelDetails = `Nome: ${selectedHotel.name}\nEndereço: ${selectedHotel.address}\nAvaliação: ${selectedHotel.rating}\nAvaliações Totais: ${selectedHotel.user_ratings_total}\nCoordenadas: ${selectedHotel.coordinates}\nFotos: ${selectedHotel.photos}`;
-            await client.sendMessage(phoneNumber, hotelDetails);
-            // const instruction = `Para voltar ao Menu anterior escreva 0`
-            // await client.sendMessage(instruction);
-
-            // const userResponse = message.body.trim();
-            // console.log(userResponse, typeof (userResponse));
-
-          } else {
-            // Caso o número da escolha esteja fora dos limites, enviar uma mensagem de erro
-            await client.sendMessage(
-              phoneNumber,
-              "Opção inválida. Por favor, escolha uma opção válida."
-            );
-          }
-        } catch (error) {
-          console.error("Erro ao buscar hotéis:", error);
-          await client.sendMessage(
-            phoneNumber,
-            "Ocorreu um erro ao buscar hotéis. Por favor, tente novamente mais tarde."
-          );
-        }
-
-        // Coloca o estado do usuário como esperar selecao de hotel após processar a seleção do hotel
-        userState[phoneNumber].state = "AWAITING_HOTEL_SELECTION";
-
-      } else if (userState[phoneNumber] && userState[phoneNumber] === "AWAITING_RESTAURANT_SELECTION") {
-        // Caso o usuário tenha escolhido um restaurante
+      } else if (userState[phoneNumber] && ["AWAITING_HOTEL_SELECTION", "AWAITING_RESTAURANT_SELECTION", "AWAITING_ATTRACTION_SELECTION"].includes(userState[phoneNumber].state)) {
         const userChoice = parseInt(message.body.trim());
-
-        try {
-          const restaurants = await getRestaurants(); // Obter a lista de restaurantes disponíveis
-
-          // Verificar se o número da escolha está dentro dos limites da lista de hotéis
-          if (userChoice >= 1 && userChoice <= restaurants.length) {
-            const selectedRestaurant = restaurants[userChoice - 1]; // Hotel selecionado
-            // Enviar os detalhes do hotel para o usuário
-            const restaurantsDetails = `Nome: ${selectedRestaurant.name}\nEndereço: ${selectedRestaurant.address}\nAvaliação: ${selectedRestaurant.rating}\nAvaliações Totais: ${selectedRestaurant.user_ratings_total}\nCoordenadas: ${selectedRestaurant.coordinates}\nFotos: ${selectedRestaurant.photos}`;
-            await client.sendMessage(phoneNumber, restaurantsDetails);
-            // const instruction = `Para voltar ao Menu anterior escreva 0`
-            // await client.sendMessage(instruction);
-
-            // const userResponse = message.body.trim();
-            // console.log(userResponse, typeof (userResponse));
-
-          } else {
-            // Caso o número da escolha esteja fora dos limites, enviar uma mensagem de erro
-            await client.sendMessage(
-              phoneNumber,
-              "Opção inválida. Por favor, escolha uma opção válida."
-            );
-          }
-        } catch (error) {
-          console.error("Erro ao buscar restaurantes:", error);
-          await client.sendMessage(
-            phoneNumber,
-            "Ocorreu um erro ao buscar restaurantes. Por favor, tente novamente mais tarde."
-          );
-        }
-
-
-
-        // Coloca o estado do usuário em espera de selecao após processar a seleção do restaurante
-        userState[phoneNumber].state = "AWAITING_RESTAURANT_SELECTION";
-
-      }
-      else if (userState[phoneNumber] && userState[phoneNumber] === "AWAITING_ATTRACTION_SELECTION") {
-        // Caso o usuário tenha escolhido uma atração
-        const userChoice = parseInt(message.body.trim());
-        console.log(userResponse, typeof (userResponse));
-
-        try {
-          const atrractions = await getAttractions(); // Obter a lista de atrações turisticas disponíveis
-
-          // Verificar se o número da escolha está dentro dos limites da lista de hotéis
-          if (userChoice >= 1 && userChoice <= atrractions.length) {
-            const selectedAttraction = atrractions[userChoice - 1]; // Hotel selecionado
-            // Enviar os detalhes do hotel para o usuário
-            const atrractionsDetails = `Nome: ${selectedAttraction.name}\nEndereço: ${selectedAttraction.address}\nAvaliação: ${selectedAttraction.rating}\nAvaliações Totais: ${selectedAttraction.user_ratings_total}\nCoordenadas: ${selectedAttraction.coordinates}\nFotos: ${selectedAttraction.photos}`;
-            await client.sendMessage(phoneNumber, atrractionsDetails);
-            // const instruction = `Para voltar ao Menu anterior escreva 0`
-            // await client.sendMessage(instruction);
-
-            // const userResponse = message.body.trim();
-            // console.log(userResponse, typeof (userResponse));
-          } else {
-            // Caso o número da escolha esteja fora dos limites, enviar uma mensagem de erro
-            await client.sendMessage(
-              phoneNumber,
-              "Opção inválida. Por favor, escolha uma opção válida."
-            );
-          }
-        } catch (error) {
-          console.error("Erro ao buscar restaurantes:", error);
-          await client.sendMessage(
-            phoneNumber,
-            "Ocorreu um erro ao buscar restaurantes. Por favor, tente novamente mais tarde."
-          );
-        }
-        // Coloca o estado do usuário em espera de selecao após processar a seleção do restaurante
-        userState[phoneNumber].state = "AWAITING_RESTAURANT_SELECTION";
+        await sendDetails(client, phoneNumber, userState, userChoice);
       }
     } catch (error) {
       console.error("Erro ao processar mensagem:", error);
@@ -215,6 +69,137 @@ const handleMessage = async (client) => {
   });
 };
 
+const sendMainMenu = async (client, phoneNumber, userState) => {
+  setTimeout(async () => {
+    const menuOptions = await MenuModel.find({});
+    let menuText = "Por favor, escolha uma opção:\n";
+    menuOptions.forEach((option) => {
+      menuText += `${option.optionNumber} - ${option.description}\n`;
+    });
+    await client.sendMessage(phoneNumber, menuText);
+    if (!userState[phoneNumber]) {
+      userState[phoneNumber] = {};
+    }
+    userState[phoneNumber].state = "AWAITING_CHOICE";
+  }, 2000);
+};
+
+const handleUserChoice = async (client, phoneNumber, userChoice, userState) => {
+  switch (userChoice) {
+    case 1:
+      await sendList(client, phoneNumber, "hotel", userState);
+      break;
+    case 2:
+      await sendList(client, phoneNumber, "restaurant", userState);
+      break;
+    case 3:
+      await sendList(client, phoneNumber, "attraction", userState);
+      break;
+    case 4:
+      await client.sendMessage(
+        phoneNumber,
+        "Atendimento encerrado. Obrigado!"
+      ); // Encerra o atendimento
+      userState[phoneNumber].state = null;
+      break;
+    default:
+      await client.sendMessage(
+        phoneNumber,
+        "Opção inválida. Por favor, escolha uma opção válida."
+      );
+  }
+};
+
+
+const sendList = async (client, phoneNumber, userChoice, userState) => {
+  try {
+    let listGetter;
+    let itemType;
+    switch (userChoice) {
+      case 1:
+        listGetter = getHotels();
+        itemType = "hotel";
+        break;
+      case 2:
+        listGetter = getRestaurants();
+        itemType = "restaurant";
+        break;
+      case 3:
+        listGetter = getAttractions();
+        itemType = "attraction";
+        break;
+      default:
+        await client.sendMessage(
+          phoneNumber,
+          "Opção inválida. Por favor, escolha uma opção válida."
+        );
+        return;
+    }
+
+    const items = await listGetter();
+    if (items.length > 0) {
+      let itemList = `Escolha um ${itemType} disponível para mais detalhes:\n`;
+      for (let i = 0; i < Math.min(items.length, 5); i++) {
+        itemList += `${i + 1}. ${items[i].name}\n`;
+      }
+      await client.sendMessage(phoneNumber, itemList);
+      userState[phoneNumber].state = `AWAITING_${itemType.toUpperCase()}_SELECTION`;
+    } else {
+      await client.sendMessage(
+        phoneNumber,
+        `Não há ${itemType}s disponíveis no momento.`
+      );
+    }
+  } catch (error) {
+    console.error(`Erro ao buscar ${itemType}s:`, error);
+    await client.sendMessage(
+      phoneNumber,
+      `Ocorreu um erro ao buscar ${itemType}s. Por favor, tente novamente mais tarde.`
+    );
+  }
+};
+
+const sendDetails = async (client, phoneNumber, userState, userChoice) => {
+  let listGetter;
+  let itemType;
+  try {
+    switch (userState[phoneNumber].state) {
+      case "AWAITING_HOTEL_SELECTION":
+        listGetter = getHotels(); // Chamando a função para obter a lista de hotéis
+        itemType = "hotel";
+        break;
+      case "AWAITING_RESTAURANT_SELECTION":
+        listGetter = getRestaurants(); // Chamando a função para obter a lista de restaurantes
+        itemType = "restaurant";
+        break;
+      case "AWAITING_ATTRACTION_SELECTION":
+        listGetter = getAttractions(); // Chamando a função para obter a lista de atrações
+        itemType = "attraction";
+        break;
+    }
+
+    const items = await listGetter; // Chamando a função para obter os itens
+    if (userChoice === 0) {
+      sendMainMenu(client, phoneNumber, userState);
+    } else if (userChoice >= 1 && userChoice <= items.length) {
+      const selectedItem = items[userChoice - 1];
+      const itemDetails = `Nome: ${selectedItem.name}\nEndereço: ${selectedItem.address}\nAvaliação: ${selectedItem.rating}\nAvaliações Totais: ${selectedItem.user_ratings_total}\nCoordenadas: ${selectedItem.coordinates}\nFotos: ${selectedItem.photos}\nPara voltar ao menu anterior, digite 0`;
+      await client.sendMessage(phoneNumber, itemDetails);
+    } else {
+      // Caso o número da escolha esteja fora dos limites, enviar uma mensagem de erro
+      await client.sendMessage(
+        phoneNumber,
+        "Opção inválida. Por favor, escolha uma opção válida."
+      );
+    }
+  } catch (error) {
+    console.error(`Erro ao buscar ${itemType}s:`, error);
+    await client.sendMessage(
+      phoneNumber,
+      `Ocorreu um erro ao buscar ${itemType}s. Por favor, tente novamente mais tarde.`
+    );
+  }
+};
 
 const getHotels = async () => {
   try {
@@ -248,87 +233,6 @@ const getAttractions = async () => {
   } catch (error) {
     console.error("Erro ao buscar atrações:", error);
     throw error;
-  }
-};
-
-
-const sendHotelList = async (client, phoneNumber, userState) => {
-  try {
-    const hotels = await getHotels();
-    if (hotels.length > 0) {
-      let hotelList = "Escolha um hotel disponível para mais detalhes:\n";
-      for (let i = 0; i < Math.min(hotels.length, 5); i++) {
-        hotelList += `${i + 1}. ${hotels[i].name}\n`;
-      }
-      await client.sendMessage(phoneNumber, hotelList);
-
-      // Definir o estado do usuário para indicar que está aguardando uma escolha
-      if (!userState[phoneNumber]) {
-        userState[phoneNumber] = {};
-      }
-      userState[phoneNumber] = { state: "AWAITING_HOTEL_SELECTION" };
-    } else {
-      await client.sendMessage(
-        phoneNumber,
-        "Não há hotéis disponíveis no momento."
-      );
-    }
-  } catch (error) {
-    console.error("Erro ao buscar hotéis:", error);
-    await client.sendMessage(
-      phoneNumber,
-      "Ocorreu um erro ao buscar hotéis. Por favor, tente novamente mais tarde."
-    );
-  }
-};
-
-const sendRestaurantList = async (client, phoneNumber, userState) => {
-  try {
-    const restaurants = await getRestaurants();
-    if (restaurants.length > 0) {
-      let restaurantList = "Escolha um restaurante disponível para mais detalhes:\n";
-      for (let i = 0; i < Math.min(restaurants.length, 5); i++) {
-        restaurantList += `${i + 1}. ${restaurants[i].name}\n`;
-      }
-      await client.sendMessage(phoneNumber, restaurantList);
-      userState[phoneNumber] = { state: "AWAITING_RESTAURANT_SELECTION" };
-    } else {
-      await client.sendMessage(
-        phoneNumber,
-        "Não há restaurantes disponíveis no momento."
-      );
-    }
-  } catch (error) {
-    console.error("Erro ao buscar restaurantes:", error);
-    await client.sendMessage(
-      phoneNumber,
-      "Ocorreu um erro ao buscar restaurantes. Por favor, tente novamente mais tarde."
-    );
-  }
-};
-
-const sendAttractionList = async (client, phoneNumber, userState) => {
-  try {
-    const attractions = await getAttractions();
-    if (attractions.length > 0) {
-      let attractionList = "Escolha uma atração turística disponível para mais detalhes:\n";
-      for (let i = 0; i < Math.min(attractions.length, 5); i++) {
-        attractionList += `${i + 1}. ${attractions[i].name}\n`;
-      }
-      await client.sendMessage(phoneNumber, attractionList);
-      userState[phoneNumber] = { state: "AWAITING_ATTRACTION_SELECTION" };
-    } else {
-      await client.sendMessage(
-        phoneNumber,
-        "Não há atrações disponíveis no momento."
-      );
-    }
-  } catch (error) {
-    console.error("Erro ao buscar atrações:", error);
-    await client.sendMessage(
-      phoneNumber,
-      "Ocorreu um erro ao buscar atrações. Por favor, tente novamente mais tarde."
-    );
   }
 };
 
