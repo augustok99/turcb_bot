@@ -5,17 +5,18 @@ import { parsePhoneNumberFromString } from "libphonenumber-js";
 import HotelModel from "./models/hotel_model.js";
 import RestaurantModel from "./models/restaurant_model.js";
 import AttractionModel from "./models/attraction_model.js";
+import pkg from 'whatsapp-web.js';
+const { MessageMedia } = pkg;
 
 const handleMessage = async (client) => {
   try {
-    // Estabelecer conexão com o banco de dados antes de lidar com mensagens
     await connectToDatabase();
   } catch (error) {
     console.error("Erro ao conectar ao banco de dados:", error);
-    return; // Encerrar a função se ocorrer um erro na conexão
+    return;
   }
 
-  const userState = {}; // Objeto para rastrear o estado do usuário
+  const userState = {};
 
   client.on("message", async (message) => {
     const phoneNumber = message.from;
@@ -29,39 +30,37 @@ const handleMessage = async (client) => {
     const formattedNumber = convertNumber.formatInternational();
 
     try {
-      // Verificar se o usuário já tem um nome registrado
       let clientData = await ClientModel.findOne({
         phoneNumber: formattedNumber,
       });
       if (!clientData) {
-        // O usuário é novo, crie um novo documento com nome vazio
         clientData = new ClientModel({
-          name: user, // Salva o nome do contato no banco de dados
+          name: user,
           phoneNumber: formattedNumber,
         });
         await clientData.save();
       }
 
-      // Verificar se o usuário já recebeu a mensagem de boas-vindas e o menu
       if (!userState[phoneNumber]) {
-        // Enviar mensagem de boas-vindas
         await client.sendMessage(
           phoneNumber,
           `Olá, ${user}! Seja bem-vindo ao nosso sistema de chat automatizado. Eu sou o botzap, seu guia turístico. Irei te auxiliar a escolher hotéis, restaurantes ou pontos turísticos da cidade.`
         );
 
+
+        userState[phoneNumber] = {};
+
+
         sendMainMenu(client, phoneNumber, userState);
       }
 
-      // Verifica se o estado do usuário indica que estamos aguardando uma escolha de opção
       if (userState[phoneNumber] && userState[phoneNumber].state === "AWAITING_CHOICE") {
         const userChoice = parseInt(message.body.trim());
-        // Executa a lógica com base na escolha do usuário
         await handleUserChoice(client, phoneNumber, userChoice, userState);
 
       } else if (userState[phoneNumber] && ["AWAITING_HOTEL_SELECTION", "AWAITING_RESTAURANT_SELECTION", "AWAITING_ATTRACTION_SELECTION"].includes(userState[phoneNumber].state)) {
         const userChoice = parseInt(message.body.trim());
-        await sendDetails(client, phoneNumber, userState, userChoice);
+        await sendDetails(client, phoneNumber, message, userState, userChoice);
       }
     } catch (error) {
       console.error("Erro ao processar mensagem:", error);
@@ -99,7 +98,7 @@ const handleUserChoice = async (client, phoneNumber, userChoice, userState) => {
       await client.sendMessage(
         phoneNumber,
         "Atendimento encerrado. Obrigado!"
-      ); // Encerra o atendimento
+      );
       userState[phoneNumber].state = null;
       break;
     default:
@@ -109,7 +108,6 @@ const handleUserChoice = async (client, phoneNumber, userChoice, userState) => {
       );
   }
 };
-
 
 
 const sendList = async (client, phoneNumber, userChoice, userState) => {
@@ -161,33 +159,57 @@ const sendList = async (client, phoneNumber, userChoice, userState) => {
 };
 
 const sendDetails = async (client, phoneNumber, userState, userChoice) => {
-  let listGetter;
   let itemType;
   try {
+
+    if (!userState[phoneNumber]) {
+      userState[phoneNumber] = {};
+    }
+
+    let listGetter;
+
     switch (userState[phoneNumber].state) {
       case "AWAITING_HOTEL_SELECTION":
-        listGetter = getHotels();
+        listGetter = getHotels;
         itemType = "hotel";
         break;
       case "AWAITING_RESTAURANT_SELECTION":
-        listGetter = getRestaurants();
+        listGetter = getRestaurants;
         itemType = "restaurant";
         break;
       case "AWAITING_ATTRACTION_SELECTION":
-        listGetter = getAttractions();
+        listGetter = getAttractions;
         itemType = "attraction";
         break;
+      default:
+        console.error(`Estado desconhecido: ${userState[phoneNumber].state}`);
+        return;
     }
 
-    const items = await listGetter;
+    const items = await listGetter();
+
     if (userChoice === 0) {
       sendMainMenu(client, phoneNumber, userState);
     } else if (userChoice >= 1 && userChoice <= items.length) {
       const selectedItem = items[userChoice - 1];
-      const itemDetails = `Nome: ${selectedItem.name}\nEndereço: ${selectedItem.address}\nAvaliação: ${selectedItem.rating}\nAvaliações Totais: ${selectedItem.user_ratings_total}\nCoordenadas: ${selectedItem.coordinates}\nFotos: ${selectedItem.photos}\nPara voltar ao menu anterior, digite 0`;
+      const location = `https://maps.google.com/maps?q=${selectedItem.coordinates.lat},${selectedItem.coordinates.lng}&z=17&hl=br`;
+      const itemDetails = `Nome: ${selectedItem.name}\nEndereço: ${selectedItem.address}\nAvaliação: ${selectedItem.rating}\nAvaliações Totais: ${selectedItem.user_ratings_total}`;
+
       await client.sendMessage(phoneNumber, itemDetails);
+      await client.sendMessage(phoneNumber, `Localização: ${location}`);
+
+      for (let i = 0; i < selectedItem.photos.length; i++) {
+        try {
+          const media = await MessageMedia.fromUrl(selectedItem.photos[i], { unsafeMime: true });
+          await client.sendMessage(phoneNumber, media, { caption: `Imagem ${i + 1}` });
+        } catch (error) {
+          console.error('Erro ao enviar imagem:', error);
+        }
+      }
+
+      await client.sendMessage(phoneNumber, "Para voltar ao menu anterior digite 0");
+
     } else {
-      // Caso o número da escolha esteja fora dos limites, enviar uma mensagem de erro
       await client.sendMessage(
         phoneNumber,
         "Opção inválida. Por favor, escolha uma opção válida."
@@ -202,9 +224,9 @@ const sendDetails = async (client, phoneNumber, userState, userChoice) => {
   }
 };
 
+
 const getHotels = async () => {
   try {
-    // Buscar todos os hotéis na coleção de hotéis
     const hotels = await HotelModel.find({}, { name: 1, address: 1, rating: 1, user_ratings_total: 1, coordinates: 1, photos: 1 }).limit(5);
     return hotels;
   } catch (error) {
@@ -213,10 +235,8 @@ const getHotels = async () => {
   }
 };
 
-// Função para buscar restaurantes no MongoDB
 const getRestaurants = async () => {
   try {
-    // Buscar todos os restaurantes na coleção de restaurantes
     const restaurants = await RestaurantModel.find({}, { name: 1, address: 1, rating: 1, user_ratings_total: 1, coordinates: 1, photos: 1 }).limit(5);
     return restaurants;
   } catch (error) {
@@ -225,10 +245,9 @@ const getRestaurants = async () => {
   }
 };
 
-// Função para buscar atrações no MongoDB
 const getAttractions = async () => {
   try {
-    // Buscar todas as atrações na coleção de atrações
+
     const attractions = await AttractionModel.find({}, { name: 1, address: 1, rating: 1, user_ratings_total: 1, coordinates: 1, photos: 1 }).limit(5);
     return attractions;
   } catch (error) {
