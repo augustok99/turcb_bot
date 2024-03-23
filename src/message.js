@@ -87,13 +87,13 @@ const sendMainMenu = async (client, phoneNumber, userState) => {
 const handleUserChoice = async (client, phoneNumber, userChoice, userState) => {
   switch (userChoice) {
     case 1:
-      await sendList(client, phoneNumber, "hotel", userState);
+      await sendList(client, phoneNumber, 1, userState);
       break;
     case 2:
-      await sendList(client, phoneNumber, "restaurant", userState);
+      await sendList(client, phoneNumber, 2, userState);
       break;
     case 3:
-      await sendList(client, phoneNumber, "attraction", userState);
+      await sendList(client, phoneNumber, 3, userState);
       break;
     case 4:
       await client.sendMessage(
@@ -111,21 +111,22 @@ const handleUserChoice = async (client, phoneNumber, userChoice, userState) => {
 };
 
 
+
 const sendList = async (client, phoneNumber, userChoice, userState) => {
+  let itemType = ""
   try {
     let listGetter;
-    let itemType;
     switch (userChoice) {
       case 1:
-        listGetter = getHotels();
+        listGetter = getHotels;
         itemType = "hotel";
         break;
       case 2:
-        listGetter = getRestaurants();
+        listGetter = getRestaurants;
         itemType = "restaurant";
         break;
       case 3:
-        listGetter = getAttractions();
+        listGetter = getAttractions;
         itemType = "attraction";
         break;
       default:
@@ -165,20 +166,20 @@ const sendDetails = async (client, phoneNumber, userState, userChoice) => {
   try {
     switch (userState[phoneNumber].state) {
       case "AWAITING_HOTEL_SELECTION":
-        listGetter = getHotels(); // Chamando a função para obter a lista de hotéis
+        listGetter = getHotels();
         itemType = "hotel";
         break;
       case "AWAITING_RESTAURANT_SELECTION":
-        listGetter = getRestaurants(); // Chamando a função para obter a lista de restaurantes
+        listGetter = getRestaurants();
         itemType = "restaurant";
         break;
       case "AWAITING_ATTRACTION_SELECTION":
-        listGetter = getAttractions(); // Chamando a função para obter a lista de atrações
+        listGetter = getAttractions();
         itemType = "attraction";
         break;
     }
 
-    const items = await listGetter; // Chamando a função para obter os itens
+    const items = await listGetter;
     if (userChoice === 0) {
       sendMainMenu(client, phoneNumber, userState);
     } else if (userChoice >= 1 && userChoice <= items.length) {
