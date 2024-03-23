@@ -8,7 +8,11 @@ import AttractionModel from "./models/attraction_model.js";
 import pkg from 'whatsapp-web.js';
 const { MessageMedia } = pkg;
 
+
+
 const handleMessage = async (client) => {
+
+
   try {
     await connectToDatabase();
   } catch (error) {
@@ -47,9 +51,7 @@ const handleMessage = async (client) => {
           `Olá, ${user}! Seja bem-vindo ao nosso sistema de chat automatizado. Eu sou o botzap, seu guia turístico. Irei te auxiliar a escolher hotéis, restaurantes ou pontos turísticos da cidade.`
         );
 
-
         userState[phoneNumber] = {};
-
 
         sendMainMenu(client, phoneNumber, userState);
       }
@@ -58,9 +60,9 @@ const handleMessage = async (client) => {
         const userChoice = parseInt(message.body.trim());
         await handleUserChoice(client, phoneNumber, userChoice, userState);
 
-      } else if (userState[phoneNumber] && ["AWAITING_HOTEL_SELECTION", "AWAITING_RESTAURANT_SELECTION", "AWAITING_ATTRACTION_SELECTION"].includes(userState[phoneNumber].state)) {
+      } else if (userState[phoneNumber] && ["AWAITING_HOTEL_SELECTION", "AWAITING_RESTAURANT_SELECTION", "AWAITING_ATTRACTION_SELECTION", "AWAITING_MORE_ITEMS"].includes(userState[phoneNumber].state)) {
         const userChoice = parseInt(message.body.trim());
-        await sendDetails(client, phoneNumber, message, userState, userChoice);
+        await sendDetails(client, phoneNumber, userState, userChoice);
       }
     } catch (error) {
       console.error("Erro ao processar mensagem:", error);
@@ -110,22 +112,26 @@ const handleUserChoice = async (client, phoneNumber, userChoice, userState) => {
 };
 
 
-const sendList = async (client, phoneNumber, userChoice, userState) => {
-  let itemType = ""
+const sendList = async (client, phoneNumber, lastUserChoice, userState, startIndex = 0) => {
+  let itemType = "";
+  let awaitingState;
   try {
     let listGetter;
-    switch (userChoice) {
+    switch (lastUserChoice) {
       case 1:
         listGetter = getHotels;
         itemType = "hotel";
+        awaitingState = `AWAITING_${itemType.toUpperCase()}_SELECTION`;
         break;
       case 2:
         listGetter = getRestaurants;
         itemType = "restaurant";
+        awaitingState = `AWAITING_${itemType.toUpperCase()}_SELECTION`;
         break;
       case 3:
         listGetter = getAttractions;
         itemType = "attraction";
+        awaitingState = `AWAITING_${itemType.toUpperCase()}_SELECTION`;
         break;
       default:
         await client.sendMessage(
@@ -135,14 +141,20 @@ const sendList = async (client, phoneNumber, userChoice, userState) => {
         return;
     }
 
-    const items = await listGetter();
+    const items = await listGetter(startIndex, 5);
     if (items.length > 0) {
       let itemList = `Escolha um ${itemType} disponível para mais detalhes:\n`;
-      for (let i = 0; i < Math.min(items.length, 5); i++) {
+      for (let i = 0; i < items.length; i++) {
         itemList += `${i + 1}. ${items[i].name}\n`;
       }
+
+      itemList += "6. Ver mais itens\n"; // Adiciona uma opção para ver mais itens
+      itemList += "0. Voltar ao menu anterior\n";
       await client.sendMessage(phoneNumber, itemList);
-      userState[phoneNumber].state = `AWAITING_${itemType.toUpperCase()}_SELECTION`;
+      // Atualiza o estado do usuário para aguardar mais itens
+      userState[phoneNumber].state = awaitingState;
+      userState[phoneNumber].lastUserChoice = lastUserChoice;
+      userState[phoneNumber].startIndex = startIndex;
     } else {
       await client.sendMessage(
         phoneNumber,
@@ -158,10 +170,13 @@ const sendList = async (client, phoneNumber, userChoice, userState) => {
   }
 };
 
+
+
+
 const sendDetails = async (client, phoneNumber, userState, userChoice) => {
+  let itemsPerPage = 5;
   let itemType;
   try {
-
     if (!userState[phoneNumber]) {
       userState[phoneNumber] = {};
     }
@@ -186,11 +201,10 @@ const sendDetails = async (client, phoneNumber, userState, userChoice) => {
         return;
     }
 
-    const items = await listGetter();
-
     if (userChoice === 0) {
       sendMainMenu(client, phoneNumber, userState);
-    } else if (userChoice >= 1 && userChoice <= items.length) {
+    } else if (userChoice >= 1 && userChoice <= itemsPerPage) {
+      const items = await listGetter(userState[phoneNumber].startIndex, itemsPerPage); // Utilizando listGetter para obter os itens
       const selectedItem = items[userChoice - 1];
       const location = `https://maps.google.com/maps?q=${selectedItem.coordinates.lat},${selectedItem.coordinates.lng}&z=17&hl=br`;
       const itemDetails = `Nome: ${selectedItem.name}\nEndereço: ${selectedItem.address}\nAvaliação: ${selectedItem.rating}\nAvaliações Totais: ${selectedItem.user_ratings_total}`;
@@ -209,6 +223,10 @@ const sendDetails = async (client, phoneNumber, userState, userChoice) => {
 
       await client.sendMessage(phoneNumber, "Para voltar ao menu anterior digite 0");
 
+    } else if (userChoice === 6) {
+      const startIndex = userState[phoneNumber].startIndex + itemsPerPage;
+      const lastUserChoice = userState[phoneNumber].lastUserChoice || 1;
+      await sendList(client, phoneNumber, lastUserChoice, userState, startIndex);
     } else {
       await client.sendMessage(
         phoneNumber,
@@ -225,9 +243,10 @@ const sendDetails = async (client, phoneNumber, userState, userChoice) => {
 };
 
 
-const getHotels = async () => {
+
+const getHotels = async (startIndex = 0, itemsPerPage = 5) => {
   try {
-    const hotels = await HotelModel.find({}, { name: 1, address: 1, rating: 1, user_ratings_total: 1, coordinates: 1, photos: 1 }).limit(5);
+    const hotels = await HotelModel.find({}, { name: 1, address: 1, rating: 1, user_ratings_total: 1, coordinates: 1, photos: 1 }).skip(startIndex).limit(itemsPerPage);
     return hotels;
   } catch (error) {
     console.error("Erro ao buscar hotéis:", error);
@@ -235,9 +254,9 @@ const getHotels = async () => {
   }
 };
 
-const getRestaurants = async () => {
+const getRestaurants = async (startIndex = 0, itemsPerPage = 5) => {
   try {
-    const restaurants = await RestaurantModel.find({}, { name: 1, address: 1, rating: 1, user_ratings_total: 1, coordinates: 1, photos: 1 }).limit(5);
+    const restaurants = await RestaurantModel.find({}, { name: 1, address: 1, rating: 1, user_ratings_total: 1, coordinates: 1, photos: 1 }).skip(startIndex).limit(itemsPerPage);
     return restaurants;
   } catch (error) {
     console.error("Erro ao buscar restaurantes:", error);
@@ -245,10 +264,9 @@ const getRestaurants = async () => {
   }
 };
 
-const getAttractions = async () => {
+const getAttractions = async (startIndex = 0, itemsPerPage = 5) => {
   try {
-
-    const attractions = await AttractionModel.find({}, { name: 1, address: 1, rating: 1, user_ratings_total: 1, coordinates: 1, photos: 1 }).limit(5);
+    const attractions = await AttractionModel.find({}, { name: 1, address: 1, rating: 1, user_ratings_total: 1, coordinates: 1, photos: 1 }).skip(startIndex).limit(itemsPerPage);
     return attractions;
   } catch (error) {
     console.error("Erro ao buscar atrações:", error);
