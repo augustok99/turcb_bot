@@ -6,6 +6,7 @@ import HotelModel from "./models/hotel_model.js";
 import RestaurantModel from "./models/restaurant_model.js";
 import AttractionModel from "./models/attraction_model.js";
 import pkg from 'whatsapp-web.js';
+import EvaluationModel from './models/evaluation_model.js';
 const { MessageMedia } = pkg;
 
 
@@ -58,7 +59,7 @@ const handleMessage = async (client) => {
 
       if (userState[phoneNumber] && userState[phoneNumber].state === "AWAITING_CHOICE") {
         const userChoice = parseInt(message.body.trim());
-        await handleUserChoice(client, phoneNumber, userChoice, userState);
+        await handleUserChoice(client, phoneNumber, userChoice, userState, user, message);
 
       } else if (userState[phoneNumber] && ["AWAITING_HOTEL_SELECTION", "AWAITING_RESTAURANT_SELECTION", "AWAITING_ATTRACTION_SELECTION", "AWAITING_MORE_ITEMS"].includes(userState[phoneNumber].state)) {
         const userChoice = parseInt(message.body.trim());
@@ -73,7 +74,7 @@ const handleMessage = async (client) => {
 const sendMainMenu = async (client, phoneNumber, userState) => {
   setTimeout(async () => {
     const menuOptions = await MenuModel.find({});
-    let menuText = "Por favor, escolha uma opção:\n";
+    let menuText = "Por favor, escolha uma opção:\n\n";
     menuOptions.forEach((option) => {
       menuText += `${option.optionNumber} - ${option.description}\n`;
     });
@@ -85,7 +86,7 @@ const sendMainMenu = async (client, phoneNumber, userState) => {
   }, 2000);
 };
 
-const handleUserChoice = async (client, phoneNumber, userChoice, userState) => {
+const handleUserChoice = async (client, phoneNumber, userChoice, userState, user) => {
   switch (userChoice) {
     case 1:
       await sendList(client, phoneNumber, 1, userState);
@@ -97,11 +98,10 @@ const handleUserChoice = async (client, phoneNumber, userChoice, userState) => {
       await sendList(client, phoneNumber, 3, userState);
       break;
     case 4:
-      await client.sendMessage(
-        phoneNumber,
-        "Atendimento encerrado. Obrigado!"
-      );
-      userState[phoneNumber].state = null;
+      // Definir o estado como "COLLECTING_FEEDBACK"
+      userState[phoneNumber].state = "COLLECTING_FEEDBACK";
+      // Chamar diretamente a função collectFeedback
+      collectFeedback(client, phoneNumber, userState, user);
       break;
     default:
       await client.sendMessage(
@@ -143,7 +143,7 @@ const sendList = async (client, phoneNumber, lastUserChoice, userState, startInd
 
     const items = await listGetter(startIndex, 5);
     if (items.length > 0) {
-      let itemList = `Escolha um ${itemType} disponível para mais detalhes:\n`;
+      let itemList = `Escolha um ${translateItemType(itemType)} disponível para mais detalhes:\n\n`;
       for (let i = 0; i < items.length; i++) {
         itemList += `${i + 1}. ${items[i].name}\n`;
       }
@@ -158,14 +158,14 @@ const sendList = async (client, phoneNumber, lastUserChoice, userState, startInd
     } else {
       await client.sendMessage(
         phoneNumber,
-        `Não há ${itemType}s disponíveis no momento.`
+        `Não há ${translateItemType(itemType)} disponíveis no momento.`
       );
     }
   } catch (error) {
-    console.error(`Erro ao buscar ${itemType}s:`, error);
+    console.error(`Erro ao buscar ${translateItemType(itemType)}:`, error);
     await client.sendMessage(
       phoneNumber,
-      `Ocorreu um erro ao buscar ${itemType}s. Por favor, tente novamente mais tarde.`
+      `Ocorreu um erro ao buscar ${translateItemType(itemType)}. Por favor, tente novamente mais tarde.`
     );
   }
 };
@@ -204,7 +204,7 @@ const sendDetails = async (client, phoneNumber, userState, userChoice) => {
     if (userChoice === 0) {
       sendMainMenu(client, phoneNumber, userState);
     } else if (userChoice >= 1 && userChoice <= itemsPerPage) {
-      const items = await listGetter(userState[phoneNumber].startIndex, itemsPerPage); // Utilizando listGetter para obter os itens
+      const items = await listGetter(userState[phoneNumber].startIndex, itemsPerPage);
       const selectedItem = items[userChoice - 1];
       const location = `https://maps.google.com/maps?q=${selectedItem.coordinates.lat},${selectedItem.coordinates.lng}&z=17&hl=br`;
       const itemDetails = `Nome: ${selectedItem.name}\nEndereço: ${selectedItem.address}\nAvaliação: ${selectedItem.rating}\nAvaliações Totais: ${selectedItem.user_ratings_total}`;
@@ -234,10 +234,10 @@ const sendDetails = async (client, phoneNumber, userState, userChoice) => {
       );
     }
   } catch (error) {
-    console.error(`Erro ao buscar ${itemType}s:`, error);
+    console.error(`Erro ao buscar ${translateItemType(itemType)}:`, error);
     await client.sendMessage(
       phoneNumber,
-      `Ocorreu um erro ao buscar ${itemType}s. Por favor, tente novamente mais tarde.`
+      `Ocorreu um erro ao buscar ${translateItemType(itemType)}. Por favor, tente novamente mais tarde.`
     );
   }
 };
@@ -273,5 +273,72 @@ const getAttractions = async (startIndex = 0, itemsPerPage = 5) => {
     throw error;
   }
 };
+
+const collectFeedback = (client, phoneNumber, userState, user) => {
+  // Variável de controle para determinar se o listener deve processar a mensagem
+  let isCollectingFeedback = true;
+
+  // Enviar mensagem inicial informando ao usuário para fornecer sua avaliação
+  client.sendMessage(
+    phoneNumber,
+    `Por favor, forneça sua avaliação de 1 a 5 estrelas para o nosso chatbot corumbaense.`
+  );
+
+  const messageListener = async (message) => {
+    if (!isCollectingFeedback) {
+      return;
+    }
+
+    const rating = parseInt(message.body.trim());
+    if (isNaN(rating) || rating < 1 || rating > 5) {
+      await client.sendMessage(
+        phoneNumber,
+        `Por favor, forneça uma avaliação válida de 1 a 5 estrelas.`
+      );
+    } else {
+      // Salvar a avaliação no banco de dados
+      const evaluation = new EvaluationModel({
+        clientName: user,
+        phoneNumber: phoneNumber,
+        rating: rating,
+      });
+      await evaluation.save();
+
+      // Confirmar ao cliente que a avaliação foi recebida
+      await client.sendMessage(
+        phoneNumber,
+        `Agradecemos pela sua avaliação! Atendimento encerrado. Obrigado!`
+      );
+
+      // Atualizar o estado do usuário para indicar que o atendimento foi encerrado
+      userState[phoneNumber].state = null;
+
+      // Parar de processar mensagens para coleta de feedback
+      isCollectingFeedback = false;
+
+      // Remover o listener de mensagem após a coleta da avaliação
+      client.removeListener('message', messageListener);
+    }
+  };
+
+  // Adicionar listener de mensagem para coletar feedback
+  client.on('message', messageListener);
+};
+
+
+const translateItemType = (itemType) => {
+  switch (itemType) {
+    case "hotel":
+      return "Hotel";
+    case "restaurant":
+      return "Restaurante";
+    case "attraction":
+      return "Atração turística";
+    default:
+      return itemType;
+  }
+};
+
+
 
 export default handleMessage;
