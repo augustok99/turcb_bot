@@ -1,4 +1,4 @@
-import pkg, { RemoteAuth } from 'whatsapp-web.js';
+import pkg from 'whatsapp-web.js';
 const { NoAuth } = pkg;
 const { Client } = pkg;
 import qrcode from "qrcode-terminal";
@@ -8,7 +8,7 @@ const client = new Client({
     type: 'remote',
     remotePath: 'https://raw.githubusercontent.com/wppconnect-team/wa-version/main/html/2.2412.54.html'
   },
-  authStrategy: new RemoteAuth({
+  authStrategy: new NoAuth({
   }),
 });
 

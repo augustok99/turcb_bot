@@ -1,9 +1,28 @@
-import { connectToDatabase } from "./connect.js";
-import { mongoose } from "mongoose";
+import mongoose from 'mongoose';
 import AttractionModel from "../models/attraction_model.js";
 import HotelModel from "../models/hotel_model.js";
 import RestaurantModel from "../models/restaurant_model.js";
 import fs from "fs";
+import dotenv from 'dotenv';
+
+async function connectToDatabase() {
+
+  dotenv.config({ path: "../../.env" });
+
+  const uri = process.env.MONGODB_URI;
+
+  try {
+    if ([0, 3].includes(mongoose.connection.readyState)) {
+      await mongoose.connect(uri, { dbName: "bot_system" });
+      console.log("Conexão com o MongoDB estabelecida com sucesso.");
+    } else {
+      console.log("O mongoose já está conectado ao MongoDB!");
+    }
+  } catch (error) {
+    console.error("Erro ao conectar ao MongoDB:", error);
+  }
+}
+
 
 const saveOrUpdateData = async (filePath, Model) => {
   try {
