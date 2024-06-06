@@ -1,0 +1,300 @@
+[
+  {
+    "name": "Cristo Rei do Pantanal",
+    "address": "Alameda Dezessete Bc, 140 - Popular Velha, Corumbá - MS, 79310-120, Brazil",
+    "phone_number": "(67) 3231-2886",
+    "rating": 4.5,
+    "user_ratings_total": 1512,
+    "coordinates": {
+      "lat": -19.0188866,
+      "lng": -57.6403465
+    },
+    "photos": [
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AUGGfZmFmD0No3NP57aKgZWanREhPnCZLf7o6EXz5U_HwAQzLGuE49cAEfKWOkIQV20RG5Mwj1XXEw8PmrBC4xT4h2XUgClK3BDCk2vSTKVqcIKDsR18Gi6kSUzJmdJXKyFkZazeABxQLgDdtoZ5spasyNgOXTw34Kyojz8SJTPP8BulBkqJ&key=AIzaSyBsTsHs_lXzHo-UVl3ZcfURk5zzh7D1apE",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AUGGfZmaUJFqZ0X386ZwMMVPW3HwN-M3zQoZY-Ry7BOZeMDV9GG5nsL4dkVsKk9PeiCkNOQBe2nw2SH0ia4BcqjV7SDwafqGbeLppsdVjv8qvquEEKsbFAz1o0Aqddd83cg3PyACBjPMfzKK3CB4WLmf-iTnzG1-49KUYYaXoPRvKclUz2SL&key=AIzaSyBsTsHs_lXzHo-UVl3ZcfURk5zzh7D1apE"
+    ]
+  },
+  {
+    "name": "Forte Junqueira",
+    "address": "R. Cáceres - Maria Leite, Corumbá - MS, 79304-040, Brazil",
+    "phone_number": "Número de telefone não disponível",
+    "rating": 4.6,
+    "user_ratings_total": 207,
+    "coordinates": {
+      "lat": -18.9968229,
+      "lng": -57.63651900000001
+    },
+    "photos": [
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AUGGfZlNRA2ffc8Xq8QAJCt-H_qpUuh3XURtzJ9nvWb5qNp_ZCKEv2eSjkT4EtV-ZhXC4rJWVYNJcnD_FxM3wbGnCE81BZBa5pUb45EtTbwSk7t57ApY8XRkZ9P3bLoeyEs-XwjraW8GmHh9-_POdOBcbEf8Slap4quJuubXjCY_DtRhY7B7&key=AIzaSyBsTsHs_lXzHo-UVl3ZcfURk5zzh7D1apE",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AUGGfZne_qFlhPeTsyrPIutAzXFzRpmQTgfLpuZ6QEtnvskS6iiGg0XaWDjBmTCxINaDwjEhqf0g2tfy8DC9o8KGp0H-Gj7FSvONKW_tDnxQKhfO5NK73EPCNCxKCcvBraZNJ_bxWGx6C0a1E4lyvsPGEJX3-IqC8_llYchZU4Yp5YDHee_t&key=AIzaSyBsTsHs_lXzHo-UVl3ZcfURk5zzh7D1apE"
+    ]
+  },
+  {
+    "name": "Muhpan - Museu de História do Pantanal",
+    "address": "R. Manoel Cavassa, 275 - Centro, Corumbá - MS, 79301-120, Brazil",
+    "phone_number": "(67) 3907-5690",
+    "rating": 4.6,
+    "user_ratings_total": 362,
+    "coordinates": {
+      "lat": -18.997517,
+      "lng": -57.6544214
+    },
+    "photos": [
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AUGGfZlXVGZhlPTfWbEEuzPKStG3Lre_cloQa-M74DV-NXmug04WPAvmUe7WC-VpwQvn6cDJFSYXF4Lce3x3VRNJBwSHivL3SyB7QGJpaZ7RshDAbMP5WWdS_ygvrsntRkv3reEcfzVjT8-UvT-8I-syjMppcbdZudRuSGi29RLmdrPkRn0&key=AIzaSyBsTsHs_lXzHo-UVl3ZcfURk5zzh7D1apE",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AUGGfZkE2djkm6DZgSgJ6FebF6IQxNaxNXFF9xNh15k6wXujBmvGSQM4tqsavfrvUvBHiRB7wRpYkyHUCSysrgvaCIFT9yidUyi4fQt9VM7VFrrQd81LdGk_vCaGL9puSirfScqJU8Ls1yz4HFpt7WCxnpGKBSM6aHsTDI4jv7m7BdA0T-5v&key=AIzaSyBsTsHs_lXzHo-UVl3ZcfURk5zzh7D1apE"
+    ]
+  },
+  {
+    "name": "Casario do Porto",
+    "address": "Ladeira José Bonifácio, 158-172 - Centro, Corumbá - MS, 79300-010, Brazil",
+    "phone_number": "Número de telefone não disponível",
+    "rating": 5,
+    "user_ratings_total": 3,
+    "coordinates": {
+      "lat": -18.9976719,
+      "lng": -57.65536089999999
+    },
+    "photos": [
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AUGGfZkrsVqdxt2mOB6YAlktCRgqPE0QcpLU9sqgIrXYGUD46CAyItB7RLvtKT73DU5pcA-CfxgMK845371cHcp4FdOyu-wSZV925KoyjthdQizEMIwjdJ1NGISykWguSEhRuHvc2Jy-YL2C278BxIbKSOW9QwoIskInuJ8O4xlFxZtm_h-X&key=AIzaSyBsTsHs_lXzHo-UVl3ZcfURk5zzh7D1apE"
+    ]
+  },
+  {
+    "name": "Praça da República",
+    "address": "Centro, Corumbá - State of Mato Grosso do Sul, 79302-000, Brazil",
+    "phone_number": "Número de telefone não disponível",
+    "rating": 3.7,
+    "user_ratings_total": 3,
+    "coordinates": {
+      "lat": -18.9985423,
+      "lng": -57.6512214
+    },
+    "photos": [
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AUGGfZnDP1CBH01FilPonzdQkZqjPlJHwru8Z7LuHCDKkXveoUwIZusbgLN9kF9M5AWwowDnoGzd6oQFrdm_tgO45u8giIzY6dGfMO6FGoG7p2Gg9EqHgAYqOVNODIE0r9X28eRZL5-CUDDLH5ikSa8CPSy7kHKTI4Ec3dRnOYrRu1sExiux&key=AIzaSyBsTsHs_lXzHo-UVl3ZcfURk5zzh7D1apE",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AUGGfZn5vAcI0F0JmR0EVGAsmitXw6yD4Cr6SRdfqC2vDqNypQHsV7Rr0bBwtKNadDMPy_RsSQs3IHf4gBxZkw8MLIsnhuT7tORKWXNS90eCG1N7NyHS-ZkW-57lhMjfAJ1XXN-L1RdVvjWQIqnwO8P_yU14QU1969SSEKXi0Zn1Ya1I_axa&key=AIzaSyBsTsHs_lXzHo-UVl3ZcfURk5zzh7D1apE"
+    ]
+  },
+  {
+    "name": "Captação de água de Corumbá",
+    "address": "284Q+FW - Corumbá, MS, Brazil",
+    "phone_number": "Número de telefone não disponível",
+    "rating": 4.5,
+    "user_ratings_total": 2,
+    "coordinates": {
+      "lat": -18.9937716,
+      "lng": -57.6601969
+    },
+    "photos": [
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AUGGfZlG--GkYrz5eI535CFXv-ysPE1KqWiAUyu3LxwCan-GxbrxzpR5asFooB7B1UdeAt3IkT3D8zpC7Pl6P_JPTbL8JBmObuHNJRDT7M4ntnnBXoXGrjuSRcJ9FBMI8JXBn-wY-iN0yEzp1wfcWTrR7rsPfKNszHd7GOCWwTe2GZvAgSwO&key=AIzaSyBsTsHs_lXzHo-UVl3ZcfURk5zzh7D1apE",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AUGGfZnBQaINL_TynKLeCVgWlLkSRwvSNY7W_rBrAu7IHm87sttbrqkrz6z9ez1pfZmhyTsAtOWoNpo9fbqpI8NBr3wBTkxFLNnMajt29cZaqh7GngF974yiCLCRZSYQmVjbvJeRW9Oah6OjOYPVIyu_awN_iqQ0xOlowWd1-PNqzIlf0W-K&key=AIzaSyBsTsHs_lXzHo-UVl3ZcfURk5zzh7D1apE"
+    ]
+  },
+  {
+    "name": "Adventure passeio ecológico pescaria",
+    "address": "LADEIRA Emília jordano - bairro borrovisk, Corumbá - MS, 79303-190, Brazil",
+    "phone_number": "(67) 99647-1743",
+    "rating": 5,
+    "user_ratings_total": 1,
+    "coordinates": {
+      "lat": -18.9962389,
+      "lng": -57.64639649999999
+    },
+    "photos": [
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AUGGfZli3ydLU_feFOjtSBx_d_1oQP9QM4K-R-54JDFqi-ci04WVhcZnuUpcCWlBH94M6pKzae5DWfmeHghlx4G-vUI__VPvJCDeDvIU-VMu6y453E7GEBtgkOh1zD0_7O4kO-RF2s3MmG-ilhVcxoK_AgwZviTiPFdXYbSdHvC6EKlEV6fu&key=AIzaSyBsTsHs_lXzHo-UVl3ZcfURk5zzh7D1apE",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AUGGfZkTVJkdz2JfNoOf0zmQLLq8RoKS2XJs1_fIBtlu4dmt_UOV4R6lzcxAVOKiZBktOqvCyrx0tqf0EkuSa-lbbhwZr-m2xoGwIZWHiC8gUWf5nuf8QpbR5rbCYA6hdiJj7Gi5CiNQLlBJj11bx45p0MVWRrvAR3bGUf6ZTOnN9-22DQdt&key=AIzaSyBsTsHs_lXzHo-UVl3ZcfURk5zzh7D1apE"
+    ]
+  },
+  {
+    "name": "Praça da Independência",
+    "address": "Centro, Corumbá - State of Mato Grosso do Sul, 79302-000, Brazil",
+    "phone_number": "Número de telefone não disponível",
+    "rating": 4.3,
+    "user_ratings_total": 1659,
+    "coordinates": {
+      "lat": -19.0011913,
+      "lng": -57.65315709999999
+    },
+    "photos": [
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AUGGfZk6rlYhtZ9IHf4NO1hca1fDjScpIqYqdRTofljgtzHSmwtoUCTw7lGAim3oiTcBb_rUiFiy8JfBXrQqHD-XtJ1rrDKzU3TtLNwZCYIeWIWXOBleQNts9PWbSOY5OPzHTJVpqUbktX1w-mS_QzsvEVynTLjjdHtQ05nh35EYhkDXumpS&key=AIzaSyBsTsHs_lXzHo-UVl3ZcfURk5zzh7D1apE",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AUGGfZmxXYGIKEaCy-qM_XRnqPrUUm_476pcGA8URWBOjbXzEPb7GQfxzhFtUQjQ-cTg7DEjSZ-tkSD8vETwceaYyqhj8YU7f3TSOmUOj87G-Qgy9DGOk_N5xawLTnYBxtT3me4-oXmVpQdbRvb2bQcx8lnY1vrBfAkkB9NSJQNN_nImg__X&key=AIzaSyBsTsHs_lXzHo-UVl3ZcfURk5zzh7D1apE"
+    ]
+  },
+  {
+    "name": "Estrada Parque Pantanal - Mato Grosso do Sul.",
+    "address": "e MS - Estrada Parque Pantanal, MS-228, 184 - Corumbá, MS, 79300-002, Brazil",
+    "phone_number": "Número de telefone não disponível",
+    "rating": 4.5,
+    "user_ratings_total": 10,
+    "coordinates": {
+      "lat": -19.2296437,
+      "lng": -57.4589872
+    },
+    "photos": [
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AUGGfZlrxLPPVOqZc-Kv8Po2DksYKblJdA6o8kzg8K9CLGUWnuo_HTF9_OXztwUHe67q901b88LmiA6b9nQTkGGIK6yaqM4Xs47niN0RiyC363Dpgqv_z20L06uVJHyGHaHejAbrcNUVGv4PVKuuUdZDQP6ya6f0bnWVyGcsMM5EcweCIq0n&key=AIzaSyBsTsHs_lXzHo-UVl3ZcfURk5zzh7D1apE",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AUGGfZkiAiNebhVu4NHUrhc6mGZz9wVPpMrXNtT8UkRZ4unU5rlcuHK3NwHpe996Mex1s3h2eIEP3frlubgEBbBluRZbS9oaeQvCdtm8U5XrAaWibyny9lQ5G2MVAg5_HPfhLI3YBG3upa6_8iBdVSdwlJIo348BSosphMvL50AbA-cExjqZ&key=AIzaSyBsTsHs_lXzHo-UVl3ZcfURk5zzh7D1apE"
+    ]
+  },
+  {
+    "name": "Santuário de Nossa Senhora Auxiliadora",
+    "address": "R. Dom Aquino Correa, 1037 - Centro, Corumbá - MS, 79330-060, Brazil",
+    "phone_number": "(67) 3231-3113",
+    "rating": 4.8,
+    "user_ratings_total": 317,
+    "coordinates": {
+      "lat": -19.0022674,
+      "lng": -57.6529311
+    },
+    "photos": [
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AUGGfZn8a7EwBAMotLPj57-GypQmldG823Q0-pdtSTUEbDuT-ufqsnV85NL9diSHu79tvEV4ujTEwAiShaKT-dsZSaMNB4aO1VLj2Qi0_lFGZXLo4q0vPJaRqRDEJuNDO5s3BbAy2ZiQ88s_WZEo8lKyI0gl00wkeg1OnEbN2MhfAv-Bc38r&key=AIzaSyBsTsHs_lXzHo-UVl3ZcfURk5zzh7D1apE",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AUGGfZmBYmII9x9WxAqU2yxpQhkaQbKabUACIIlBH7LvGekmvAVaMqAjLKDdg7EuZItpnFNJfOTmqrobeGJo-2xoJU2fwpkOQdqtKWIFZ6tFtKAozXUaKixju3fYnZyw-20YwjT56TkCq480XbGZBHWEA8woAuSmm7EfiU0VARqKmmf4nfXg&key=AIzaSyBsTsHs_lXzHo-UVl3ZcfURk5zzh7D1apE"
+    ]
+  },
+  {
+    "name": "Corumbá",
+    "address": "Centro, Corumbá - State of Mato Grosso do Sul, 79301-100, Brazil",
+    "phone_number": "Número de telefone não disponível",
+    "rating": 5,
+    "user_ratings_total": 2,
+    "coordinates": {
+      "lat": -19.0118675,
+      "lng": -57.6533639
+    },
+    "photos": [
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AUGGfZkQJxQhoz-aDaATj7wuyy7NoxxgN8zwBxLpLJfd49ESPWdqUH12HBv89SBGyrdVjnZB4_mjNwIyQ7WRfu1lxx7nndCHDQLT1QCMADg58X49cexdtSuItoYkNfMf87gG9AKVcgS7SXL_oyhdrFp73AZal2Z1cGXrPzVTm0sUBeG_UcLf&key=AIzaSyBsTsHs_lXzHo-UVl3ZcfURk5zzh7D1apE",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AUGGfZmEoyUALarp-BwOGhFmjUa2bUY5Av5P5pzz6iJC4XL1zAfOWWOOj4FgcZVxrstE8PWJfaYWRPHkxSHlsDGDuAXzgdqHmMPfENNa0bONxfXEHB1G4YXXyLcHlQ5lkSaM80GVJsJJK34fgzhHRYRJxCUrP4c5DGcPQiU18iyzk5CxtvmT&key=AIzaSyBsTsHs_lXzHo-UVl3ZcfURk5zzh7D1apE"
+    ]
+  },
+  {
+    "name": "Mirante da Capivara",
+    "address": "R. Mal. Floriano - Aeroporto, Corumbá - MS, Brazil",
+    "phone_number": "Número de telefone não disponível",
+    "rating": 4.2,
+    "user_ratings_total": 105,
+    "coordinates": {
+      "lat": -19.0006838,
+      "lng": -57.6714157
+    },
+    "photos": [
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AUGGfZkEXyp456K1TekTTQeGbVSnaQCzLL8StlJjM2_YIvu8Xri7aY7Ur9TVIOI46C2R7_3uM2UGXNTTA_x792MVnhGfsdQH81L_E77J9kjzSBm6Atn4B7oT3yOCLDOBCzR6krdU-lIKVnBc2HhG6uXjwyXfsRW2PIhkhxBifQ5UgFx-kiO1&key=AIzaSyBsTsHs_lXzHo-UVl3ZcfURk5zzh7D1apE",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AUGGfZkA7-MrXjqZHQEj_fexzfgVb7lyPPQL7D8BY0qo2pKWNvqqjHr-IsA2tgn40ekycQ0gl9LhmXcDQq2KUi5n9GaStzqsJTKnkgqJowqT4AI0gfywtu5Ad6IvmLeukgFxbxPDjVApOGdhVyyVqMu1fMT1YxMYGAlOBr4mWpbu_Q9Ldo8-&key=AIzaSyBsTsHs_lXzHo-UVl3ZcfURk5zzh7D1apE"
+    ]
+  },
+  {
+    "name": "Zé Leôncio Passeios",
+    "address": "R. Manoel Cavassa - Corumbá, MS, 79301-120, Brazil",
+    "phone_number": "(67) 99952-4301",
+    "rating": 4.9,
+    "user_ratings_total": 55,
+    "coordinates": {
+      "lat": -18.9969208,
+      "lng": -57.65427449999999
+    },
+    "photos": [
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AUGGfZmuGFHFgItLIhto94_zSuFMElPNRm_Zq18ki65mtb_BKXZUtBGmQNovhw1qZa4TZbyYUxIozZo71iN1gKeIqoPkVD7nPE2QHv2XlMaM4O_XxMKwJsQlk5x-7e8PrDsYYvSejylx9xAr4WaAudPNXdTyUyAz5cCHIZJnXAuj__0fd9B6&key=AIzaSyBsTsHs_lXzHo-UVl3ZcfURk5zzh7D1apE",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AUGGfZljwWDZHCF8n4sq7XfdicgKDW-TkNnLv445ERJZT5knqSRe9b0LjWrPgC4amJikw-7vO_58VjG8K1nOY-0fAKoHQaWI9kqMosBzis_hGhDSyZLynyCelW-UUc9Pc9OrnfGxQqjDfdsgdU357Iw_n7DHgrleRKxxbUx04irO_afKUqFr&key=AIzaSyBsTsHs_lXzHo-UVl3ZcfURk5zzh7D1apE"
+    ]
+  },
+  {
+    "name": "Pérola Passeios Diários e Navio Kalypso Pesca",
+    "address": "R. Manoel Cavassa, 255 - Centro, Corumbá - MS, 79301-120, Brazil",
+    "phone_number": "(67) 99282-7794",
+    "rating": 4.2,
+    "user_ratings_total": 70,
+    "coordinates": {
+      "lat": -18.9974805,
+      "lng": -57.65421119999999
+    },
+    "photos": [
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AUGGfZkMeDzSRV7O7YS9LokKiPlJ8VwEMcyJFJ3ODvdFniHi4GdM7zHPP34NexaaHsbt_EkjKVn527fveaaV0DMlImi4B2zTbMiP3M_7RKwA_NjBJvFYEXVtim0T6bH3cB7bzxNstJii14xh1wjPSILyqfTfsBkFGnMaGcpa058-Todri1Ys&key=AIzaSyBsTsHs_lXzHo-UVl3ZcfURk5zzh7D1apE",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AUGGfZkiFJs-L2s29OZqa--OHlIE6QuAhayFXZ_y4XKd_S7EhDPhl9rVeRYW99F5UB1-AG76mEtZtWEVXywJ-s6j-JT-evYOsj5palkkM8TBIb2NDPfT9Ija3aK1rd1McvU9rMhTWtDiriaZZfgZxSfiB4_ZyENoHcqwnfbJYw06ESVEfIVX&key=AIzaSyBsTsHs_lXzHo-UVl3ZcfURk5zzh7D1apE"
+    ]
+  },
+  {
+    "name": "Shouth Pantanal Tour Operator",
+    "address": "R. Sete de Setembro, 416 - Centro, Corumbá - MS, 79330-030, Brazil",
+    "phone_number": "(67) 99822-2314",
+    "rating": 0,
+    "user_ratings_total": 0,
+    "coordinates": {
+      "lat": -19.0025464,
+      "lng": -57.6555642
+    },
+    "photos": [
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AUGGfZn9m3HrdX0YYI4yxEidPc3zUYRQ81UiM54ws4RconmgcDyeVIezDSPYsmXXwhuKFba-b9hl-OB6ZFLKLHx697njhVvwGNACrC0n_eGOpDKC5PgXNO6Y5fByhWYBOnTycKopJPvSaaX0__R7qej8fY3DJ4orCfYJsZGPBk1z7-M3oRUQ&key=AIzaSyBsTsHs_lXzHo-UVl3ZcfURk5zzh7D1apE"
+    ]
+  },
+  {
+    "name": "Praça Generoso Ponce",
+    "address": "R. Gen. Rondon, 168-322 - Centro, Corumbá - MS, 79300-010, Brazil",
+    "phone_number": "Número de telefone não disponível",
+    "rating": 4.3,
+    "user_ratings_total": 315,
+    "coordinates": {
+      "lat": -18.9982729,
+      "lng": -57.6554818
+    },
+    "photos": [
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AUGGfZnWMhmKmeTQE_9fNMn3Wwh1tQRCARaOQmeJUm4uIOg-3dyBYNB0go88OYxXJl_X5oeW09CnIcEMPH19GCmnbz10nGDARskbdD03WtQ_4QkuMmxqUOXr7TDRYxoh0Lu0G8CTputWkei4vfX7H47zKvIci73ctl5U-gBc3p_sMeV1sXCZ&key=AIzaSyBsTsHs_lXzHo-UVl3ZcfURk5zzh7D1apE",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AUGGfZl4aBVEcc7j5GoNFtiN1m5iFOMCtAz_xoRl9NCZe2BXLYd9GJerkDBH1hty3Z9WTdoua3jyOW3e1tJWi80FLeS-BT9whphf2TPQmAbnqrtdQTDMfRNbqqqLbBU-_FMbFN10A-lRRnysa12KRGzGWwbda_nnB4t5Pzh-cgAA5QrADUT5&key=AIzaSyBsTsHs_lXzHo-UVl3ZcfURk5zzh7D1apE"
+    ]
+  },
+  {
+    "name": "Estrada parque pantanal sul",
+    "address": "Corumbá - State of Mato Grosso do Sul, 79370-000, Brazil",
+    "phone_number": "Número de telefone não disponível",
+    "rating": 5,
+    "user_ratings_total": 7,
+    "coordinates": {
+      "lat": -19.0945035,
+      "lng": -57.6165466
+    },
+    "photos": [
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AUGGfZlHX1jHTzS7eEBrMM1-wVOxjwArf2VbL-Jy_Naj4Pi-KfvoOWSj7KImGVjiodV9WBNXNdAPrcHN6V6GSrHfiT6LhW9_t5IixNeOGEa_8UjFIWBcCsP7nKrkR3YzITp5bKJ4hUKcnPqDBLvWTJpQJw4OFDiBM0pt7MfIfOsV5otWh-99&key=AIzaSyBsTsHs_lXzHo-UVl3ZcfURk5zzh7D1apE",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AUGGfZkt_1bB4PMHVnTKLY7mARjnE1cA6gtf7WDNiheJ_buPGvI8yMFHqYvXvLrATU_xg0Y2FAgx_fDDFLspivQ4bbuyxAFqgv9reU8FEYudKm9uNDknhucEw8mWKEZ80L_7I175L4YG7H9etQByYCIho58Q4JozVHBJXDD31gCKcnnlEx03&key=AIzaSyBsTsHs_lXzHo-UVl3ZcfURk5zzh7D1apE"
+    ]
+  },
+  {
+    "name": "Corumbá General port",
+    "address": "Beira-Rio, Corumbá - State of Mato Grosso do Sul, 79302-000, Brazil",
+    "phone_number": "Número de telefone não disponível",
+    "rating": 4.6,
+    "user_ratings_total": 2744,
+    "coordinates": {
+      "lat": -18.9968914,
+      "lng": -57.65339609999999
+    },
+    "photos": [
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AUGGfZnybGL8J83Tfbrahsdmxuf-lc97RQa5HXo0X9V1oORcThNP_jyfPYVmT73ZdUMG1MRMfh6XttYDFm8j4FQbKAmbvaBHdPeUwwWAzEl9DtLqxlUBfxPLw5CMG1CIAG9U4duRd73N6R8uHhTKk_iW3I8qefUCuhSbygUGlrF8NbKScoey&key=AIzaSyBsTsHs_lXzHo-UVl3ZcfURk5zzh7D1apE",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AUGGfZlfxqFvwRwcseDWntRSw-jayp-k5Ppm_HLkx9Av1KySMcdn3-u9pg80lbrp0Va4BgVLCXeRKHESvtdd3RlTSFkrm_95J7dH1X1jSYqhIeCU6HvYRqxwnRDhny0ee0rvuiwTD3l2bmIS5rKOMv01uvgvDagbpxm9YRAYbgid-nH973eP&key=AIzaSyBsTsHs_lXzHo-UVl3ZcfURk5zzh7D1apE"
+    ]
+  },
+  {
+    "name": "Barco Hotel Estrela Plaza",
+    "address": "Porto Gold Fish - Av. Rio Branco, 2777 - Vila Mamona, Ladário - MS, 79300-000, Brazil",
+    "phone_number": "(67) 99179-5115",
+    "rating": 4.6,
+    "user_ratings_total": 12,
+    "coordinates": {
+      "lat": -19.002071,
+      "lng": -57.61547410000001
+    },
+    "photos": [
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AUGGfZlPgRG_jKH1-PI0J43NVbAZ8FE2_3LbPTKD5GQPa5c01mNJ0HxwXhVjCwL3xih3w9wJvjpsCHiDBQzNha62gmCan9zdOi0HL5MtSn3Rx63LLF2k9FG0PP1tghbuuOmxpoo1qaDLVmj3WWKXAnbaJuwH8Sf0pNX2yXTfn4Zox3nhWBb6&key=AIzaSyBsTsHs_lXzHo-UVl3ZcfURk5zzh7D1apE",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AUGGfZnp0Zz-AYqCJSdxNSqj6sOpZo-uFsCozcw2vp4rjf8ldHKbx9Lk1Os7sPBq6RE6CrTgCtOGHO-yd6QB8ZiTqBvU-czVIcgahIxSJN2djREauQSsnHz4OnPURv61Plr7xBgc1bWs2TQA8ZfU_9B-4Ooo5A6GD0I2R_W2F0rgTTyT2eqy&key=AIzaSyBsTsHs_lXzHo-UVl3ZcfURk5zzh7D1apE"
+    ]
+  },
+  {
+    "name": "Joice Pesca e Tur",
+    "address": "R. Manoel Cavassa, 215 - Centro, Corumbá - MS, 79301-120, Brazil",
+    "phone_number": "(67) 3232-4048",
+    "rating": 4.4,
+    "user_ratings_total": 27,
+    "coordinates": {
+      "lat": -18.9974176,
+      "lng": -57.65376069999999
+    },
+    "photos": [
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AUGGfZnjUfyFZ-zOe31TTGQqpUqd7jVuDOwVRHqxJjMGEGl8u814R_ogtdxY3tDVsjYCBZzPKUtbunSN2xzBtAyw9kIEVNgeI2sdkQPU-pA05NU53OLzau9WZ_ctd-W5VCTcCo5tnO5sp3QX58Sdaf6Fb8fbI_EZ81dpvHDQ5jy-fdG9M_Yh&key=AIzaSyBsTsHs_lXzHo-UVl3ZcfURk5zzh7D1apE",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AUGGfZkqGJh88Z5XQRQYFZB7r4wrRTVYTlS9ifjfkO0oPpnrp4fHlrGjrVoP6iSv49miUh1TnNcuWbQtXH0BGaCJTfmXaTyaErZcAtM-dCyCcPhViGao3zXSVCqL-hrnkAEY6pv7OQalH24XaeQwte1zu0EyPCq05qPy393mMjMfzOnX74o7&key=AIzaSyBsTsHs_lXzHo-UVl3ZcfURk5zzh7D1apE"
+    ]
+  }
+]

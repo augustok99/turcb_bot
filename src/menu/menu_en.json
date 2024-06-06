@@ -1,0 +1,27 @@
+[
+  {
+    "optionNumber": 1,
+    "description": "Show List of Hotels",
+    "action": "showHotelList"
+  },
+  {
+    "optionNumber": 2,
+    "description": "Show List of Restaurants",
+    "action": "showRestaurantList"
+  },
+  {
+    "optionNumber": 3,
+    "description": "Show Tourist Attractions",
+    "action": "showAttractionList"
+  },
+  {
+    "optionNumber": 4,
+    "description": "Exit Service",
+    "action": "exitService"
+  },
+  {
+    "optionNumber": 5,
+    "description": "Choose Language",
+    "action": "chooseLanguage"
+  }
+]
