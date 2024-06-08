@@ -50,7 +50,6 @@ const handleMessage = async (client) => {
 };
 
 
-
 // Função para carregar o menu a partir do arquivo JSON
 const loadMenu = (language) => {
   try {
@@ -66,18 +65,20 @@ const loadMenu = (language) => {
 
 const handleUserFlow = async (client, phoneNumber, message, userState, user) => {
   const currentState = userState[phoneNumber].state;
+  const messageTimestamp = message.timestamp;
 
+  // Verifica se está coletando feedback
   if (userState[phoneNumber].isCollectingFeedback) {
     const messages = loadLogMessages();
     await messageListener(client, phoneNumber, userState, user, messages)(message);
     return;
   }
 
-  // Adiciona uma verificação para mensagens novas em "LISTENING_ONLY"
-  if (currentState === "LISTENING_ONLY" && message.timestamp > (userState[phoneNumber].lastMessageTimestamp || 0)) {
+  // Verifica novas mensagens em "LISTENING_ONLY"
+  if (currentState === "LISTENING_ONLY" && messageTimestamp > (userState[phoneNumber].lastMessageTimestamp || 0)) {
     userState[phoneNumber].state = "AWAITING_SELECT_LANGUAGE";
     await sendLanguageMenu(userState, phoneNumber, client);
-    userState[phoneNumber].lastMessageTimestamp = message.timestamp; // Atualiza o timestamp da última mensagem processada
+    userState[phoneNumber].lastMessageTimestamp = messageTimestamp; // Atualiza o timestamp da última mensagem processada
     return;
   }
 
@@ -100,6 +101,12 @@ const handleUserFlow = async (client, phoneNumber, message, userState, user) => 
     case "AWAITING_MORE_ITEMS":
       const choice = parseInt(message.body.trim());
       await sendDetails(client, phoneNumber, userState, choice);
+      break;
+    case "AWAITING_RESTAURANT_SELECTION":
+    case "AWAITING_ATTRACTION_SELECTION":
+    case "AWAITING_HOTEL_SELECTION":
+      const userChoice = parseInt(message.body.trim());
+      await handleDetailsOrPagination(client, phoneNumber, message, userState, userChoice);
       break;
     default:
       console.error("Estado inválido:", currentState);
@@ -196,13 +203,9 @@ const handleUserChoice = async (client, phoneNumber, userState, user, message) =
 
   switch (userChoice) {
     case 1:
-      await sendList(client, phoneNumber, 1, userState);
-      break;
     case 2:
-      await sendList(client, phoneNumber, 2, userState);
-      break;
     case 3:
-      await sendList(client, phoneNumber, 3, userState);
+      await sendList(client, phoneNumber, userChoice, userState); // Opções 1, 2 e 3 correspondem a hotéis, restaurantes e atrações turísticas, respectivamente
       break;
     case 4:
       await collectFeedback(client, phoneNumber, userState, user);
@@ -210,6 +213,10 @@ const handleUserChoice = async (client, phoneNumber, userState, user, message) =
     case 5:
       userState[phoneNumber].state = "AWAITING_SELECT_LANGUAGE";
       await sendLanguageMenu(userState, phoneNumber, client);
+      break;
+    case 0:
+      await client.sendMessage(phoneNumber, 'Você saiu do sistema. Para retornar, envie qualquer mensagem.');
+      userState[phoneNumber] = { state: "LISTENING_ONLY", isCollectingFeedback: false };
       break;
     default:
       await client.sendMessage(phoneNumber, invalidOptionMessage);
@@ -240,97 +247,146 @@ const handleLanguageSelection = async (message, userState, phoneNumber, client, 
 };
 
 
-const sendList = async (client, phoneNumber, type, userState, startIndex = 0) => {
-  const itemsPerPage = 5;
-  userState[phoneNumber].lastType = type;
-  userState[phoneNumber].state = `AWAITING_${type === 1 ? "HOTEL" : type === 2 ? "RESTAURANT" : "ATTRACTION"}_SELECTION`;
+const sendList = async (client, phoneNumber, option, userState, startIndex = 0, itemsPerPage = 5) => {
+  let items = [];
+  let message = '';
 
   try {
-    const items = await getItems(type, startIndex, itemsPerPage);
-    const language = userState[phoneNumber].language || 'pt';
-    let response = logMessages.menuText[language] || logMessages.menuText['pt'];
+    switch (option) {
+      case 1:
+        items = await HotelModel.find().skip(startIndex).limit(itemsPerPage);
+        message = 'Aqui estão algumas opções de hotéis:\n';
+        userState[phoneNumber].state = 'AWAITING_HOTEL_SELECTION';
+        break;
+      case 2:
+        items = await RestaurantModel.find().skip(startIndex).limit(itemsPerPage);
+        message = 'Aqui estão algumas opções de restaurantes:\n';
+        userState[phoneNumber].state = 'AWAITING_RESTAURANT_SELECTION';
+        break;
+      case 3:
+        items = await AttractionModel.find().skip(startIndex).limit(itemsPerPage);
+        message = 'Aqui estão algumas opções de pontos turísticos:\n';
+        userState[phoneNumber].state = 'AWAITING_ATTRACTION_SELECTION';
+        break;
+      default:
+        await client.sendMessage(phoneNumber, 'Opção inválida. Por favor, selecione um número válido.');
+        return;
+    }
 
     if (items.length === 0) {
       await client.sendMessage(phoneNumber, 'Nenhum item encontrado.');
-      userState[phoneNumber].state = "AWAITING_CHOICE";
       return;
     }
 
     items.forEach((item, index) => {
-      response += `${startIndex + index + 1} - ${item.name}\n`;
+      message += `${index + 1} - ${item.name}\n`;
     });
 
-    if (items.length === itemsPerPage) {
-      response += `${startIndex + itemsPerPage + 1} - Ver mais\n`;
+    const totalItems = await HotelModel.countDocuments(); // Adapte conforme a coleção
+    const hasMoreItems = (startIndex + itemsPerPage) < totalItems;
+
+    if (startIndex > 0) {
+      message += '6 - Ver mais opções\n';
+      message += '7 - Voltar à lista anterior\n';
+    } else if (hasMoreItems) {
+      message += '6 - Ver mais opções\n';
     }
 
-    await client.sendMessage(phoneNumber, response);
+    message += '\nDigite o número do item para ver mais detalhes ou "0" para sair.';
+
+    userState[phoneNumber].lastCategory = option;
+    userState[phoneNumber].lastStartIndex = startIndex;
+    userState[phoneNumber].items = items; // Armazene os itens no estado do usuário
+
+    await client.sendMessage(phoneNumber, message);
   } catch (error) {
-    console.error('Erro ao enviar a lista:', error);
+    console.error('Erro ao carregar itens:', error);
+    await client.sendMessage(phoneNumber, 'Desculpe, ocorreu um erro ao carregar os itens. Por favor, tente novamente mais tarde.');
   }
 };
 
 
-// Função genérica para obter itens (hotéis, restaurantes, atrações)
-const getItems = async (type, startIndex, itemsPerPage) => {
-  switch (type) {
-    case 1:
-      return await HotelModel.find().skip(startIndex).limit(itemsPerPage);
-    case 2:
-      return await RestaurantModel.find().skip(startIndex).limit(itemsPerPage);
-    case 3:
-      return await AttractionModel.find().skip(startIndex).limit(itemsPerPage);
-    default:
-      return [];
+
+
+
+
+const handleDetailsOrPagination = async (client, phoneNumber, message, userState, userChoice) => {
+  if (userChoice === 0) {
+    await sendMainMenu(client, phoneNumber, userState);
+  } else if (userChoice === 6) {
+    await handlePagination(client, phoneNumber, userState);
+  } else {
+    await sendDetails(client, phoneNumber, userState, userChoice);
   }
 };
+
+
+const handlePagination = async (client, phoneNumber, userState) => {
+  const category = userState[phoneNumber].lastCategory;
+  const startIndex = userState[phoneNumber].lastStartIndex + 5 || 0; // Próxima página
+  const itemsPerPage = 5;
+
+  if (category) {
+    await sendList(client, phoneNumber, category, userState, startIndex, itemsPerPage);
+  } else {
+    await client.sendMessage(phoneNumber, 'Opção inválida. Por favor, selecione uma categoria válida.');
+  }
+};
+
+
+
 
 const sendDetails = async (client, phoneNumber, userState, userChoice) => {
-  const startIndex = userState[phoneNumber].lastStartIndex || 0;
-  const index = userChoice - 1 - startIndex;
-  const itemsPerPage = 5;
-  let items = [];
-  let selectedItem;
+  const items = userState[phoneNumber].items;
+  const category = userState[phoneNumber].lastCategory;
+  const startIndex = userState[phoneNumber].lastStartIndex;
 
   try {
-    switch (userState[phoneNumber].state) {
-      case "AWAITING_HOTEL_SELECTION":
-        items = await getItems(1, startIndex, itemsPerPage);
-        selectedItem = items[index];
-        break;
-      case "AWAITING_RESTAURANT_SELECTION":
-        items = await getItems(2, startIndex, itemsPerPage);
-        selectedItem = items[index];
-        break;
-      case "AWAITING_ATTRACTION_SELECTION":
-        items = await getItems(3, startIndex, itemsPerPage);
-        selectedItem = items[index];
-        break;
-      case "AWAITING_MORE_ITEMS":
-        userState[phoneNumber].lastStartIndex += itemsPerPage;
-        await sendList(client, phoneNumber, userState.lastType, userState, userState[phoneNumber].lastStartIndex);
-        return;
-      default:
-        await client.sendMessage(phoneNumber, "Tipo inválido.");
-        return;
-    }
-
-    if (selectedItem) {
-      const details = `Detalhes:\n\n${selectedItem.description}`;
-      await client.sendMessage(phoneNumber, details);
-    } else if (userChoice === startIndex + itemsPerPage + 1) {
-      userState[phoneNumber].lastStartIndex = startIndex + itemsPerPage;
-      await sendList(client, phoneNumber, userState.lastType, userState, userState[phoneNumber].lastStartIndex);
+    if (userChoice > 0 && userChoice <= items.length) {
+      const selectedItem = items[userChoice - 1];
+      await showItemDetails(client, phoneNumber, selectedItem);
+      userState[phoneNumber].state = 'AWAITING_MORE_ITEMS';
+      await sendList(client, phoneNumber, category, userState, startIndex);
+    } else if (userChoice === 6) {
+      await handlePagination(client, phoneNumber, userState);
+    } else if (userChoice === 7 && startIndex > 0) {
+      const previousStartIndex = Math.max(0, startIndex - 5); // Volta para a página anterior
+      await sendList(client, phoneNumber, category, userState, previousStartIndex);
     } else {
       const invalidOptionMessage = logMessages.invalidOptionMessage[userState[phoneNumber].language] || logMessages.invalidOptionMessage['pt'];
       await client.sendMessage(phoneNumber, invalidOptionMessage);
+      await sendList(client, phoneNumber, category, userState, startIndex); // Reinicie a lista para o usuário
     }
   } catch (error) {
     console.error('Erro ao enviar os detalhes:', error);
   }
 };
 
-const collectFeedback = async (client, phoneNumber, userState, user) => {
+
+
+const showItemDetails = async (client, phoneNumber, selectedItem) => {
+  try {
+    const location = `https://maps.google.com/maps?q=${selectedItem.coordinates.lat},${selectedItem.coordinates.lng}&z=17&hl=br`;
+    const itemDetails = `Receba 🙅‍♂️ os  detalhes:\nNome: ${selectedItem.name}\nEndereço: ${selectedItem.address}\nAvaliação: ${selectedItem.rating}\nAvaliações Totais: ${selectedItem.user_ratings_total}`;
+
+    await client.sendMessage(phoneNumber, itemDetails);
+    await client.sendMessage(phoneNumber, `Localização: ${location}`);
+
+    for (let i = 0; i < selectedItem.photos.length; i++) {
+      try {
+        const media = await MessageMedia.fromUrl(selectedItem.photos[i], { unsafeMime: true });
+        await client.sendMessage(phoneNumber, media, { caption: `Imagem ${i + 1}` });
+      } catch (error) {
+        console.error('Erro ao enviar imagem:', error);
+      }
+    }
+  } catch (error) {
+    console.error('Erro ao mostrar os detalhes do item:', error);
+  }
+};
+
+
+const collectFeedback = async (client, phoneNumber, userState) => {
   // Definir que o feedback está sendo coletado
   userState[phoneNumber].isCollectingFeedback = true;
 
@@ -383,9 +439,6 @@ const messageListener = (client, phoneNumber, userState, user, messages) => asyn
     }
   }
 };
-
-
-
 
 
 export default handleMessage;
