@@ -18,5 +18,83 @@
     "pt": "Por favor, escolha uma opção:\n\n",
     "es": "Por favor, elija una opción:\n\n",
     "en": "Please choose an option:\n\n"
+  },
+  "menuError": {
+    "pt": "Desculpe, ocorreu um erro ao carregar o menu. Por favor, tente novamente mais tarde.",
+    "es": "Lo sentimos, ocurrió un error al cargar el menú. Por favor, inténtelo de nuevo más tarde.",
+    "en": "Sorry, an error occurred while loading the menu. Please try again later."
+  },
+  "presentationMessageHotel": {
+    "pt": "Aqui estão algumas opções de Hotéis:\n\n",
+    "es": "Aquí algunas opciones de hoteles:\n\n",
+    "en": "Here are some Hotel options:\n\n"
+  },
+  "presentationMessageRestaurant": {
+    "pt": "Aqui estão algumas opções de restaurantes:\n\n",
+    "es": "Aquí hay algunas opciones de restaurantes:\n\n",
+    "en": "Here are some restaurant options:\n\n"
+  },
+  "presentationMessageAttraction": {
+    "pt": "Aqui estão algumas opções de atrações turísticas:\n\n",
+    "es": "Aquí algunas opciones de atractivos turísticos:\n\n",
+    "en": "Here are some tourist attraction options:\n\n"
+  },
+  "itemNotFound": {
+    "pt": "Nenhum item encontrado.",
+    "es": "No se encontraron artículos.",
+    "en": "No items found."
+  },
+  "categoryError": {
+    "pt": "Opção inválida. Por favor, selecione uma categoria válida.",
+    "es": "Opción inválida. Por favor seleccione una categoría válida.",
+    "en": "Invalid option. Please select a valid category."
+  },
+  "detailsError": {
+    "pt": "Desculpe, ocorreu um erro ao processar sua solicitação.",
+    "es": "Disculpa, ocurrió un error al procesar su solicitud.",
+    "en": "Sorry, an error occurred while processing your request."
+  },
+  "menuOptions": {
+    "pt": {
+      "seeMore": "6 - Ver mais opções\n",
+      "goBack": "7 - Voltar à lista anterior\n",
+      "detailsOrExit": "Digite o número do item para ver mais detalhes ou '0' para sair."
+    },
+    "es": {
+      "seeMore": "6 - Ver más opciones\n",
+      "goBack": "7 - Volver a la lista anterior\n",
+      "detailsOrExit": "Digite el número del artículo para ver más detalles o '0' para salir."
+    },
+    "en": {
+      "seeMore": "6 - See more options\n",
+      "goBack": "7 - Go back to the previous list\n",
+      "detailsOrExit": "Enter the item number to see more details or '0' to exit."
+    }
+  },
+  "itemDetails": {
+    "pt": {
+      "receiveDetails": "Receba 🙅‍♂️ os detalhes:",
+      "name": "Nome",
+      "address": "Endereço",
+      "rating": "Avaliação",
+      "totalRatings": "Avaliações Totais",
+      "location": "Localização"
+    },
+    "es": {
+      "receiveDetails": "Reciba 🙅‍♂️ los detalles:",
+      "name": "Nombre",
+      "address": "Dirección",
+      "rating": "Calificación",
+      "totalRatings": "Total de Calificaciones",
+      "location": "Ubicación"
+    },
+    "en": {
+      "receiveDetails": "Receive 🙅‍♂️ the details:",
+      "name": "Name",
+      "address": "Address",
+      "rating": "Rating",
+      "totalRatings": "Total Ratings",
+      "location": "Location"
+    }
   }
 }
