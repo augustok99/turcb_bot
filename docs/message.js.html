@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>message.js - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    <input type="text" id="nav-search" placeholder="Search" />
+    
+    
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="message.module_js.html">js</a></li></ul><h3>Global</h3><ul><li><a href="global.html#collectFeedback">collectFeedback</a></li><li><a href="global.html#handleDetailsOrPagination">handleDetailsOrPagination</a></li><li><a href="global.html#handleLanguageSelection">handleLanguageSelection</a></li><li><a href="global.html#handleMessage">handleMessage</a></li><li><a href="global.html#handlePagination">handlePagination</a></li><li><a href="global.html#handleUserChoice">handleUserChoice</a></li><li><a href="global.html#handleUserFlow">handleUserFlow</a></li><li><a href="global.html#initializeUserState">initializeUserState</a></li><li><a href="global.html#loadLogMessages">loadLogMessages</a></li><li><a href="global.html#loadMenu">loadMenu</a></li><li><a href="global.html#logMessages">logMessages</a></li><li><a href="global.html#messageListener">messageListener</a></li><li><a href="global.html#processMessage">processMessage</a></li><li><a href="global.html#saveOrUpdateClient">saveOrUpdateClient</a></li><li><a href="global.html#sendDetails">sendDetails</a></li><li><a href="global.html#sendLanguageMenu">sendLanguageMenu</a></li><li><a href="global.html#sendMainMenu">sendMainMenu</a></li><li><a href="global.html#sendWelcomeMessage">sendWelcomeMessage</a></li><li><a href="global.html#showItemDetails">showItemDetails</a></li><li><a href="global.html#updateUserState">updateUserState</a></li></ul>
+    
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">message.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import connectToDatabase from "./connect.js";
+import ClientModel from "./models/client_model.js";
+import HotelModel from "./models/hotel_model.js";
+import RestaurantModel from "./models/restaurant_model.js";
+import AttractionModel from "./models/attraction_model.js";
+import EvaluationModel from './models/evaluation_model.js';
+import fs from 'fs';
+import pkg from 'whatsapp-web.js';
+const { MessageMedia } = pkg;
+const userState = {};
+
+/**
+ * @function loadLogMessages
+ * @async
+ * @description This is a function responsible for loading log messages (records of the current state of the system) from the chatbot. It reads a JSON file, interprets its contents and returns the data in object format. If an error occurs while reading or interpreting the file, the function captures the error and returns an empty object.
+ * @return returns the JSON file as an object. If any problems occur during this process, the function will log the error in the console and return an empty object.
+ */
+function loadLogMessages() {
+  try {
+    const logMessagesData = fs.readFileSync('./src/interactions/log_messages.json', 'utf8');
+    return JSON.parse(logMessagesData);
+  } catch (error) {
+    console.error('Error loading log messages:', error);
+    return {};
+  }
+}
+
+/**
+ * @global
+ * @description Loads log messages from a JSON file (log_messages.json). It is a global variable because it is used in several functions. It is mainly used to retrieve a type of systematic message for the user according to the language chosen at the beginning.
+ */
+const logMessages = loadLogMessages();
+
+/**
+ * @function initializeUserState
+ * @description - This is a function responsible for initializing a user's state, assigning default values to the variables associated with a specific phone number. If the user state does not yet exist, the function creates a new entry for the phone number in the userState object, setting the initial parameters. The parameters include the state of waiting for language choice, feedback collection and other relevant information.
+ * @param {string} phoneNumber - The user's telephone number.
+ * @param {Object.&lt;string, Object>} userState - An object that stores user states, where each key is a phone number.
+ */
+const initializeUserState = (phoneNumber, userState) => {
+  if (!userState[phoneNumber]) {
+    userState[phoneNumber] = {
+      state: "AWAITING_SELECT_LANGUAGE",
+      isCollectingFeedback: false,
+      items: [],
+      lastCategory: null,
+      lastStartIndex: 0,
+      language: ""
+    };
+  }
+};
+
+/**
+ * @function updateUserState
+ * @description This function is responsible for updating a user's state with new values. If the user's state does not exist, it will be initialized with default values. Then, the properties provided in the updates object will be merged with the user's current state.
+ * @param {string} phoneNumber - The user's telephone number.
+ * @param {Object.&lt;string, Object>} userState - An object that stores user states, where each key is a phone number.
+ * @param {Object} updates - An object containing the new values to update the user's state.
+ */
+const updateUserState = (phoneNumber, userState, updates) => {
+  if (!userState[phoneNumber]) {
+    initializeUserState(phoneNumber, userState);
+  }
+  Object.assign(userState[phoneNumber], updates);
+};
+
+/**
+ * @function handleMessage
+ * @description This function handles messages received by a client, connecting to the database and processing the messages according to the user's state. It includes initializing the user state and managing the interaction flow.
+ * @param {Object} client - The messaging client that listens to and processes incoming messages.
+ */
+const handleMessage = async (client) => {
+  try {
+    await connectToDatabase();
+  } catch (error) {
+    console.error("Error connecting to the database:", error);
+    return;
+  }
+
+  client.on("message", async (message) => {
+
+    /**
+    * @type {string}
+    * @property {phoneNumber} - The phone number of the user sending the message to the bot.
+    */
+    const phoneNumber = message.from;
+
+    /**
+     * @type {Object} 
+     * @property {contact} - The contact object of the sender of the message.
+     */
+    const contact = await message.getContact();
+
+    /**
+     * @type {string}
+     * @property {userName} - The user name taken from the whatsapp contact. (As the user himself put it on whatsapp)
+     */
+    const userName = contact.pushname;
+
+    /**
+    * @type {string} 
+    * @property {formattedNumber} - The user's phone number formatted ex: +12 34 5678-9101.
+    */
+    const formattedNumber = await contact.getFormattedNumber();
+
+    saveOrUpdateClient(formattedNumber, userName);
+
+    initializeUserState(phoneNumber, userState);
+
+    await handleUserFlow(client, phoneNumber, message, userState, userName);
+  });
+};
+
+
+/**
+ * @function loadMenu
+ * @description - Loads the menu from a JSON file, based on the specified language.
+ * @param {string} language - The language in which to load the menu ('en', 'es', 'en'.).
+ * @returns {Array} - Returns an array with the menu items corresponding to the specified language.Returns an empty array if there is an error loading the menu or if the menu for the language is not available.
+ */
+const loadMenu = (language) => {
+  try {
+    const menuPath = `./src/menu/menu.json`;
+    const menuData = fs.readFileSync(menuPath, 'utf8');
+    const menu = JSON.parse(menuData);
+    return menu[language] || [];
+  } catch (error) {
+    console.error('Error loading menu:', error);
+    return [];
+  }
+};
+
+/**
+ * @function handleUserFlow
+ * @async
+ * @description - Manages the flow of user interaction with the system, based on the user's current state.
+ * @param {Client} client - Describes client as an object of type Client, which represents the client instance for interaction.
+ * @param {string} phoneNumber - User's telephone number.
+ * @param {Message} message - Message received from the user.
+ * @param {Object} userState - The user's current status, containing status and context information.
+ * @param {string} userName - User name for personalizing interactions.
+ * @returns {Promise&lt;void>} - Empty promise that indicates the completion of the user flow handling after the execution of all asynchronous operations within the function.
+ */
+const handleUserFlow = async (client, phoneNumber, message, userState, userName) => {
+
+  /**
+   * @type {string}
+   * @property - It stores the current state of the user's interaction with the system. This determines which flow of actions should be carried out based on the user's current state.
+   */
+  const currentState = userState[phoneNumber].state;
+
+  /**
+   * @type {number}
+   * @property - Timestamp of the message received from the user. It is used to determine whether a new interaction is taking place based on the last recorded timestamp.
+   */
+  const messageTimestamp = message.timestamp;
+
+  if (userState[phoneNumber].isCollectingFeedback) {
+    const messages = loadLogMessages();
+    await messageListener(client, phoneNumber, userState, userName, messages)(message);
+    return;
+  }
+
+  if (currentState === "LISTENING_ONLY" &amp;&amp; messageTimestamp > (userState[phoneNumber].lastMessageTimestamp || 0)) {
+    userState[phoneNumber].state = "AWAITING_SELECT_LANGUAGE";
+    await sendLanguageMenu(userState, phoneNumber, client);
+    userState[phoneNumber].lastMessageTimestamp = messageTimestamp; // Atualiza o timestamp da última mensagem processada
+    return;
+  }
+
+  switch (currentState) {
+    case "AWAITING_SELECT_LANGUAGE":
+      await sendLanguageMenu(userState, phoneNumber, client);
+      break;
+    case "AWAITING_LANGUAGE_SELECTION":
+      await handleLanguageSelection(message, userState, phoneNumber, client, userName);
+      break;
+    case "AWAITING_WELCOME":
+      await sendWelcomeMessage(client, phoneNumber, userState, userName);
+      break;
+    case "AWAITING_POST_WELCOME":
+      await sendMainMenu(client, phoneNumber, userState);
+      break;
+    case "AWAITING_CHOICE":
+      await handleUserChoice(client, phoneNumber, userState, userName, message);
+      break;
+    case "AWAITING_MORE_ITEMS":
+      const choice = parseInt(message.body.trim());
+      await sendDetails(client, phoneNumber, userState, choice);
+      break;
+    case "AWAITING_RESTAURANT_SELECTION":
+    case "AWAITING_ATTRACTION_SELECTION":
+    case "AWAITING_HOTEL_SELECTION":
+      const userChoice = parseInt(message.body.trim());
+      await handleDetailsOrPagination(client, phoneNumber, userState, userChoice);
+      break;
+    default:
+      console.error("Invalid status:", currentState);
+      break;
+  }
+};
+
+/**
+ * @function saveOrUpdateClient
+ * @async
+ * @description - Saves or updates a customer's information in the database. If the customer does not exist, creates a new record.
+ * @param {string} formattedNumber - The customer's formatted telephone number.
+ * @param {string} userName - The client's name.
+ * @returns {Promise&lt;void>} - A Promise that resolves when the client is saved or updated.
+ * @throws {Error} - Throws an error if the save or update operation fails.
+ */
+const saveOrUpdateClient = async (formattedNumber, userName) => {
+  try {
+    let clientData = await ClientModel.findOne({ phoneNumber: formattedNumber });
+    if (!clientData) {
+      clientData = new ClientModel({ name: userName, phoneNumber: formattedNumber });
+      await clientData.save();
+    }
+  } catch (error) {
+    console.error("Error saving or updating client:", error);
+    throw error;
+  }
+};
+
+/**
+ * @function sendLanguageMenu
+ * @description - This method prepares and sends a menu with the language options available to the user. Each option is numbered and includes the name of the language. After the menu has been successfully sent, the user's state is updated to await the language selection.
+ * @async
+ * @param {Object} userState - The user's current state, containing state and some informations.
+ *    @param {string} userState[phoneNumber].state - The current state of the user in the interaction flow.
+ * @param {string} phoneNumber - Telephone number to send the language menu to.
+ * @param {Client} client - Client instance used to send messages.
+ * @returns {Promise&lt;void>} An empty Promise that is resolved after the menu has been successfully sent.
+ */
+const sendLanguageMenu = async (userState, phoneNumber, client) => {
+  /**
+   * @type {array}
+  * @description - Array of language options with number, language code, and language name
+   */
+  const languageOptions = [
+    { number: 1, language: 'pt', name: 'Português' },
+    { number: 2, language: 'en', name: 'English' },
+    { number: 3, language: 'es', name: 'Español' }
+  ];
+
+  /**
+   * @type {string}
+   * @property - This will return a formatted string containing the language options, each on a new line. This string is generated from the languageOptions array and maps each object in this array to a string combining the option number and the language name, separated by a hyphen. Next, all these strings are joined into a single string, with each item separated by a new line 
+   */
+  const menu = languageOptions.map(option => `${option.number} - ${option.name}`).join('\n');
+
+  // Envia a mensagem com o menu de seleção de idioma para o número de telefone especificado
+  await client.sendMessage(phoneNumber, 'Please Choose a Language:\n\n' + menu);
+
+  /**
+   * @type {string}
+   * @property The user's current state in this case 'AWAITING_LANGUAGE_SELECTION'
+   */
+  userState[phoneNumber].state = 'AWAITING_LANGUAGE_SELECTION';
+};
+
+/**
+ * @function sendMainMenu
+ * @description Sends the main menu to the user based on the user's selected language.
+ * @param {Object} client - The client instance used to send messages.
+ * @param {string} phoneNumber - The phone number to send the main menu to.
+ * @param {Object.&lt;string, Object>} userState - The user's current state, containing status and context information.
+ * @returns {Promise&lt;void>} An empty promise that resolves after the menu has been sent.
+ */
+const sendMainMenu = async (client, phoneNumber, userState) => {
+  try {
+    /**
+    * @type {string}
+    * @property {language} - The preferred language of the user, defaults to 'pt' if not specified.
+    */
+    const language = userState[phoneNumber].language || 'pt';
+    /**
+   * @type {Array&lt;Object>}
+   * @property {menu} - The list of menu options loaded based on the user's language preference.
+   */
+    const menu = loadMenu(language);
+    /**
+     * @type {string}
+     * @property {menuText} - The introductory text for the menu based on the user's language preference.
+     */
+    const menuText = logMessages.menuText[language] || logMessages.menuText['pt'];
+
+
+    if (menu.length === 0) {
+      /**
+      * @type {string}
+      * @property {errorMenu} - Error message in the user's language if the menu is empty.
+      */
+      const errorMenu = logMessages.menuError[language] || logMessages.menuError['pt'];
+      await client.sendMessage(phoneNumber, errorMenu);
+      return;
+    }
+
+    let response = menuText;
+    menu.forEach(option => {
+      response += `${option.optionNumber} - ${option.description}\n`;
+    });
+
+    await client.sendMessage(phoneNumber, response);
+    /**
+    * @type {string}
+    * @property {state} - Updates the user's state to 'AWAITING_CHOICE' after sending the menu.
+    */
+    userState[phoneNumber].state = 'AWAITING_CHOICE';
+  } catch (error) {
+    console.error('Error sending menu:', error);
+  }
+};
+
+/**
+ * @function sendWelcomeMessage
+ * @description - This method sends a welcome message to the user in their preferred language and updates the user's state. After sending the welcome message, it triggers the sending of the main menu.
+ * @async
+ * @param {Client} client - Client instance used to send messages.
+ * @param {string} phoneNumber - Telephone number to send the welcome message to.
+ * @param {Object} userState - The user's current state, containing status and context information.
+ *    @param {string} userState.language - The user's preferred language for receiving messages.
+ *    @param {string} userState.state - The current state of the user in the interaction flow.
+ * @param {string} userName - The name of the user to personalize the welcome message.
+ * @returns {Promise&lt;void>} An empty Promise that is resolved after the welcome message and main menu have been successfully sent.
+ */
+const sendWelcomeMessage = async (client, phoneNumber, userState, userName) => {
+  const language = userState[phoneNumber].language || 'pt';
+  let welcomeMessage;
+
+  switch (language) {
+    case 'en':
+      welcomeMessage = `Hello, ${userName}! Welcome to our automated service system. I am your tourist guide. I will help you choose hotels, restaurants, or tourist spots in Corumbá-MS.`;
+      break;
+    case 'es':
+      welcomeMessage = `Hola, ${userName}! Bienvenido a nuestro sistema de servicio automatizado. Soy tu guía turístico. Te ayudaré a elegir hoteles, restaurantes o puntos turísticos en Corumbá-MS.`;
+      break;
+    default:
+      welcomeMessage = `Olá, ${userName}! Seja bem-vindo ao nosso sistema de atendimento automatizado. Eu sou o seu guia turístico. Irei te auxiliar a escolher hotéis, restaurantes ou pontos turísticos da cidade de Corumbá-MS.`;
+      break;
+  }
+
+  await client.sendMessage(phoneNumber, welcomeMessage);
+  userState[phoneNumber].state = 'AWAITING_POST_WELCOME';
+
+  setTimeout(async () => {
+    await sendMainMenu(client, phoneNumber, userState);
+  }, 2000);
+};
+
+/**
+ * @function handleUserChoice
+ * @description Handles the user's choice from the main menu and sends corresponding information.
+ * @param {Object} client - The client instance used to send messages.
+ * @param {string} phoneNumber - The phone number to send the choice information to.
+ * @param {Object.&lt;string, Object>} userState - The user's current state, containing status and context information.
+ * @param {string} userName - The user's name.
+ * @param {Object} message - The message received from the user.
+ * @returns {Promise&lt;void>} An empty promise that resolves after the choice has been processed.
+ */
+const handleUserChoice = async (client, phoneNumber, userState, userName, message) => {
+  const language = userState[phoneNumber].language || 'pt';
+  const invalidOptionMessage = logMessages.invalidOptionMessage[language] || logMessages.invalidOptionMessage['pt'];
+
+  const userChoice = parseInt(message.body.trim());
+
+  switch (userChoice) {
+    case 1:
+    case 2:
+    case 3:
+      await sendList(client, phoneNumber, userChoice, userState); // Opções 1, 2 e 3 correspondem a hotéis, restaurantes e atrações turísticas, respectivamente
+      break;
+    case 4:
+      await collectFeedback(client, phoneNumber, userState, userName);
+      break;
+    case 5:
+      userState[phoneNumber].state = "AWAITING_SELECT_LANGUAGE";
+      await sendLanguageMenu(userState, phoneNumber, client);
+      break;
+    case 0:
+      userState[phoneNumber] = { state: "LISTENING_ONLY", isCollectingFeedback: false };
+      break;
+    default:
+      await client.sendMessage(phoneNumber, invalidOptionMessage);
+      break;
+  }
+};
+
+/**
+ * @function handleLanguageSelection
+ * @async
+ * @description Handles the user's language selection and updates the user's state accordingly.
+ * @param {Object} message - The message received from the user.
+ * @param {Object.&lt;string, Object>} userState - The user's current state, containing status and context information.
+ * @param {string} phoneNumber - The phone number to update the state for.
+ * @returns {Promise&lt;void>} An empty promise that resolves after the language has been set.
+ */
+const handleLanguageSelection = async (message, userState, phoneNumber, client, userName) => {
+  const languageOptions = [
+    { number: 1, language: 'pt', name: 'Português' },
+    { number: 2, language: 'en', name: 'English' },
+    { number: 3, language: 'es', name: 'Español' }
+  ];
+
+  const languageChoice = parseInt(message.body.trim());
+  const selectedOption = languageOptions.find(option => option.number === languageChoice);
+
+  if (selectedOption) {
+    userState[phoneNumber].language = selectedOption.language;
+    userState[phoneNumber].state = "AWAITING_WELCOME";
+    await sendWelcomeMessage(client, phoneNumber, userState, userName);
+  } else {
+    const language = userState[phoneNumber].language || 'pt';
+    const invalidOptionMessage = logMessages.invalidOptionMessage[language];
+    await client.sendMessage(phoneNumber, invalidOptionMessage);
+    await sendLanguageMenu(userState, phoneNumber, client);
+  }
+};
+
+/**
+ * @function sendDetails
+ * @async
+ * @description Sends details about the selected menu item (e.g., hotels, restaurants, attractions) to the user.
+ * @param {Object} client - The client instance used to send messages.
+ * @param {string} phoneNumber - The phone number to send the details to.
+ * @param {Object.&lt;string, Object>} userState - The user's current state, containing status and context information.
+ * @param {number} choice - The user's choice from the main menu.
+ * @returns {Promise&lt;void>} An empty promise that resolves after the details have been sent.
+ */
+const sendList = async (client, phoneNumber, option, userState, startIndex = 0, itemsPerPage = 5) => {
+  let items = [];
+  let message = '';
+  let presentationMessage = '';
+  const language = userState[phoneNumber].language || 'pt';
+
+  try {
+    switch (option) {
+      case 1:
+        items = await getItemsFromCollection(HotelModel, startIndex, itemsPerPage);
+        presentationMessage = logMessages.presentationMessageHotel[language];
+        userState[phoneNumber].state = "AWAITING_HOTEL_SELECTION"
+        break;
+      case 2:
+        items = await getItemsFromCollection(RestaurantModel, startIndex, itemsPerPage);
+        presentationMessage = logMessages.presentationMessageRestaurant[language];
+        userState[phoneNumber].state = "AWAITING_RESTAURANT_SELECTION"
+        break;
+      case 3:
+        items = await getItemsFromCollection(AttractionModel, startIndex, itemsPerPage);
+        presentationMessage = logMessages.presentationMessageAttraction[language];
+        userState[phoneNumber].state = "AWAITING_ATTRACTION_SELECTION"
+        break;
+      default:
+        let invalidOptionMessage = '';
+        invalidOptionMessage = logMessages.invalidOptionMessage[language];
+        await client.sendMessage(phoneNumber, invalidOptionMessage);
+        return;
+    }
+    message += presentationMessage;
+    await processItems(client, userState, items, phoneNumber, message, startIndex, itemsPerPage, language, option, presentationMessage);
+
+  } catch (error) {
+    console.error('Error loading items:', error);
+    const itemLoadErrorMessage = logMessages.itemNotFound[language]
+    await client.sendMessage(phoneNumber, itemLoadErrorMessage);
+  }
+};
+
+// Função para obter os itens da coleção
+const getItemsFromCollection = async (collection, startIndex, itemsPerPage) => {
+  return await collection.find().skip(startIndex).limit(itemsPerPage);
+};
+
+// Função para obter o total de itens na coleção
+const getTotalItemsCount = async (option) => {
+  switch (option) {
+    case 1:
+      return await HotelModel.countDocuments();
+    case 2:
+      return await RestaurantModel.countDocuments();
+    case 3:
+      return await AttractionModel.countDocuments();
+    default:
+      return 0;
+  }
+};
+
+/**
+ * @function processMessage
+ * @async
+ * @description Processes incoming messages and directs them to appropriate handlers.
+ * @param {Object} client - The client instance used to send messages.
+ * @param {string} phoneNumber - The phone number to process the message for.
+ * @param {Object.&lt;string, Object>} userState - The user's current state, containing status and context information.
+ * @param {Object} message - The message received from the user.
+ * @returns {Promise&lt;void>} An empty promise that resolves after the message has been processed.
+ */
+const processItems = async (client, userState, items, phoneNumber, message, startIndex, itemsPerPage, language, option) => {
+  // Inicialize o estado do usuário
+  initializeUserState(phoneNumber, userState);
+
+  if (items.length === 0) {
+    const messageItemNotFound = logMessages.itemNotFound[language];
+    await client.sendMessage(phoneNumber, messageItemNotFound);
+    return;
+  }
+
+  items.forEach((item, index) => {
+    message += `${index + 1} - ${item.name}\n`;
+  });
+
+  const totalItems = await getTotalItemsCount(option); // Obtém o total de itens na coleção
+  const hasMoreItems = (startIndex + itemsPerPage) &lt; totalItems;
+
+  const menuOptions = logMessages.menuOptions[language];
+
+  if (startIndex > 0) {
+    message += menuOptions.seeMore;
+    message += menuOptions.goBack;
+  } else if (hasMoreItems) {
+    message += menuOptions.seeMore;
+  }
+
+  message += `\n${menuOptions.detailsOrExit}`;
+
+  updateUserState(phoneNumber, userState, {
+    lastCategory: option,
+    lastStartIndex: startIndex,
+    items: items
+  });
+
+  await client.sendMessage(phoneNumber, message);
+}
+
+/**
+ * @function handleDetailsOrPagination
+ * @description Handles the user's selection for more details or pagination for the selected category items.
+ * @param {Object} client - The client instance used to send messages.
+ * @param {string} phoneNumber - The phone number to send the information to.
+ * @param {Object.&lt;string, Object>} userState - The user's current state, containing status and context information.
+ * @param {number} choice - The user's choice from the category items.
+ * @returns {Promise&lt;void>} An empty promise that resolves after the information has been processed.
+ */
+const handleDetailsOrPagination = async (client, phoneNumber, userState, userChoice) => {
+  if (userChoice === 0) {
+    await sendMainMenu(client, phoneNumber, userState);
+  } else if (userChoice === 6) {
+    await handlePagination(client, phoneNumber, userState);
+  } else {
+    await sendDetails(client, phoneNumber, userState, userChoice);
+  }
+};
+
+/**
+ * @function handlePagination
+ * @description Handles pagination for the user's selected category.
+ * @param {Object} client - The client instance used to send messages.
+ * @param {string} phoneNumber - The phone number to send the information to.
+ * @param {Object.&lt;string, Object>} userState - The user's current state, containing status and context information.
+ * @returns {Promise&lt;void>} An empty promise that resolves after pagination has been handled.
+ */
+const handlePagination = async (client, phoneNumber, userState) => {
+  // Inicialize o estado do usuário
+  initializeUserState(phoneNumber, userState);
+
+  const category = userState[phoneNumber].lastCategory;
+  const startIndex = userState[phoneNumber].lastStartIndex + 5; // Próxima página
+  const itemsPerPage = 5;
+
+  if (category) {
+    await sendList(client, phoneNumber, category, userState, startIndex, itemsPerPage);
+  } else {
+    const categoryMessageError = logMessages.categoryError[language];
+    await client.sendMessage(phoneNumber, categoryMessageError);
+  }
+};
+
+/**
+ * @function sendDetails
+ * @description Sends details about the selected menu item (e.g., hotels, restaurants, attractions) to the user.
+ * @param {Object} client - The client instance used to send messages.
+ * @param {string} phoneNumber - The phone number to send the details to.
+ * @param {Object.&lt;string, Object>} userState - The user's current state, containing status and context information.
+ * @param {number} choice - The user's choice from the main menu.
+ * @returns {Promise&lt;void>} An empty promise that resolves after the details have been sent.
+ */
+const sendDetails = async (client, phoneNumber, userState, userChoice) => {
+
+  const items = userState[phoneNumber].items;
+  const category = userState[phoneNumber].lastCategory;
+  const startIndex = userState[phoneNumber].lastStartIndex;
+  const language = userState[phoneNumber].language
+
+  try {
+    if (userChoice > 0 &amp;&amp; userChoice &lt;= items.length) {
+      const selectedItem = items[userChoice - 1];
+      await showItemDetails(client, phoneNumber, selectedItem);
+      userState[phoneNumber].state = 'AWAITING_MORE_ITEMS'; // Atualiza o estado do usuário
+      await sendList(client, phoneNumber, category, userState, startIndex);
+    } else if (userChoice === 6) {
+      await handlePagination(client, phoneNumber, userState);
+    } else if (userChoice === 7 &amp;&amp; startIndex > 0) {
+      const previousStartIndex = Math.max(0, startIndex - 5); // Volta para a página anterior
+      await sendList(client, phoneNumber, category, userState, previousStartIndex);
+    } else {
+      const invalidOptionMessage = logMessages.invalidOptionMessage[language]
+      await client.sendMessage(phoneNumber, invalidOptionMessage);
+      await sendList(client, phoneNumber, category, userState, startIndex); // Reinicie a lista para o usuário
+    }
+  } catch (error) {
+    console.error('Error sending details:', error);
+    const detailsError = logMessages.detailsError[language]
+    await client.sendMessage(phoneNumber, detailsError);
+  }
+};
+
+/**
+ * @function showItemDetails
+ * @description - This method sends detailed information about a selected item to a user's phone number. It includes information such as the item's name, address, rating, total ratings, and a Google Maps location link. Additionally, it sends photos of the item if available.
+ * @async
+ * @param {Client} client - Client instance used to send messages.
+ * @param {string} phoneNumber - Telephone number to send the item details to.
+ * @param {Object} selectedItem - The selected item whose details are to be sent.
+ *    @param {Object} selectedItem.coordinates - The coordinates of the item.
+ *       @param {number} selectedItem.coordinates.lat - The latitude of the item's location.
+ *       @param {number} selectedItem.coordinates.lng - The longitude of the item's location.
+ *    @param {string} selectedItem.name - The name of the item.
+ *    @param {string} selectedItem.address - The address of the item.
+ *    @param {number} selectedItem.rating - The rating of the item.
+ *    @param {number} selectedItem.user_ratings_total - The total number of user ratings for the item.
+ *    @param {Array.&lt;string>} selectedItem.photos - An array of URLs of the item's photos.
+ * @returns {Promise&lt;void>} An empty Promise that is resolved after the item details and photos have been successfully sent.
+ */
+const showItemDetails = async (client, phoneNumber, selectedItem) => {
+  const language = userState[phoneNumber].language;
+  const itemDetailsMessages = logMessages.itemDetails[language];
+
+  try {
+    const location = `https://maps.google.com/maps?q=${selectedItem.coordinates.lat},${selectedItem.coordinates.lng}&amp;z=17&amp;hl=br`;
+    const itemDetails = `${itemDetailsMessages.receiveDetails}\n${itemDetailsMessages.name}: ${selectedItem.name}\n${itemDetailsMessages.address}: ${selectedItem.address}\n${itemDetailsMessages.rating}: ${selectedItem.rating}\n${itemDetailsMessages.totalRatings}: ${selectedItem.user_ratings_total}\n${itemDetailsMessages.location}: ${location}`;
+
+
+    await client.sendMessage(phoneNumber, itemDetails);
+
+    for (let i = 0; i &lt; selectedItem.photos.length; i++) {
+      try {
+        const media = await MessageMedia.fromUrl(selectedItem.photos[i], { unsafeMime: true });
+        await client.sendMessage(phoneNumber, media, { caption: `Imagem ${i + 1}` });
+      } catch (error) {
+        console.error('Error sending image:', error);
+      }
+    }
+
+  } catch (error) {
+    console.error('Error showing item details:', error);
+  }
+};
+
+/**
+ * @function collectFeedback
+ * @description - This method sets the user state to indicate that feedback is being collected, retrieves the appropriate feedback prompt message, and sends it to the user's phone number.
+ * @async
+ * @param {Client} client - Client instance used to send messages.
+ * @param {string} phoneNumber - Telephone number to send the feedback prompt to.
+ * @param {Object} userState - The user's current state, containing status and context information.
+ *    @param {boolean} userState.isCollectingFeedback - Indicates if feedback is currently being collected from the user.
+ *    @param {string} userState.language - The user's preferred language for receiving messages.
+ * @returns {Promise&lt;void>} An empty Promise that is resolved after the feedback prompt has been successfully sent.
+ */
+const collectFeedback = async (client, phoneNumber, userState) => {
+  // Set the user state to indicate that feedback is being collected
+  userState[phoneNumber].isCollectingFeedback = true;
+
+  // Load the JSON file containing the log messages
+  const messages = loadLogMessages();
+
+  // Determine the user's language or default to Portuguese ('pt')
+  const language = userState[phoneNumber].language || 'pt';
+  // Retrieve the feedback prompt message in the user's language or default to Portuguese if not available
+  const feedbackPrompt = messages.provideFeedbackMessage[language] || messages.provideFeedbackMessage['pt'];
+
+  // Enviar a mensagem inicial
+  await client.sendMessage(phoneNumber, feedbackPrompt);
+};
+
+/**
+ * @function messageListener
+ * @description Listens for messages during feedback collection and processes them accordingly.
+ * @param {Object} client - The client instance used to send messages.
+ * @param {string} phoneNumber - The phone number to send the information to.
+ * @param {Object.&lt;string, Object>} userState - The user's current state, containing status and context information.
+ * @param {string} userName - The user's name.
+ * @param {Object} messages - The log messages to be sent to the user.
+ */
+const messageListener = (client, phoneNumber, userState, userName, messages) => async (message) => {
+  const language = userState[phoneNumber].language || 'pt';
+  const rating = parseInt(message.body.trim());
+
+  if (isNaN(rating) || rating &lt; 1 || rating > 5) {
+    const invalidMessage = messages.invalidOptionMessage[language] || messages.invalidOptionMessage['pt'];
+    await client.sendMessage(phoneNumber, invalidMessage);
+  } else {
+    try {
+      // Salvar a avaliação no banco de dados
+      await EvaluationModel.findOneAndUpdate(
+        { phoneNumber },
+        { clientName: userName, phoneNumber: phoneNumber, rating: rating },
+        { upsert: true, new: true }
+      );
+
+      // Mensagem de confirmação
+      const confirmationMessage = messages.feedbackMessage[language] || messages.feedbackMessage['pt'];
+      await client.sendMessage(phoneNumber, confirmationMessage);
+
+      // Atualizar o estado do usuário
+      userState[phoneNumber].state = "LISTENING_ONLY";
+      console.log(`Feedback received. The user ${userName} ended the conversation`);
+
+      // Definir que o feedback não está mais sendo coletado
+      userState[phoneNumber].isCollectingFeedback = false;
+
+      // Atualizar o timestamp da última mensagem processada
+      userState[phoneNumber].lastMessageTimestamp = message.timestamp;
+    } catch (error) {
+      console.error('Error saving feedback:', error);
+      const errorMessage = 'Sorry, there was an error saving your feedback. Please try again later.';
+      await client.sendMessage(phoneNumber, errorMessage);
+    }
+  }
+};
+
+/** @module message.js */
+export default handleMessage;</code></pre>
+        </article>
+    </section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.3</a> on Tue Jun 18 2024 20:07:57 GMT-0400 (Horário Padrão do Chile) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+<script src="scripts/search.js" defer></script>
+
+
+
+</body>
+</html>

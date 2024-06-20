@@ -4,7 +4,13 @@ import HotelModel from "../models/hotel_model.js";
 import RestaurantModel from "../models/restaurant_model.js";
 import fs from "fs";
 import dotenv from 'dotenv';
-
+/** @module save_data_db*/
+/**
+ * @function connectToDatabase
+ * @async
+ * @description Connects to the MongoDB database using Mongoose.
+ * @returns {Promise<void>} A Promise that resolves once the connection is established.
+ */
 async function connectToDatabase() {
 
   dotenv.config({ path: "../../.env" });
@@ -14,16 +20,23 @@ async function connectToDatabase() {
   try {
     if ([0, 3].includes(mongoose.connection.readyState)) {
       await mongoose.connect(uri, { dbName: "bot_system" });
-      console.log("Conexão com o MongoDB estabelecida com sucesso.");
+      console.log("MongoDB connection successfully established.");
     } else {
-      console.log("O mongoose já está conectado ao MongoDB!");
+      console.log("Mongoose is already connected to MongoDB!");
     }
   } catch (error) {
-    console.error("Erro ao conectar ao MongoDB:", error);
+    console.error("Error connecting to MongoDB:", error);
   }
 }
 
-
+/**
+ * @function saveOrUpdateData
+ * @async
+ * @description Reads JSON data from a file and saves or updates documents in the MongoDB collection specified by the Model.
+ * @param {string} filePath - The path to the JSON file containing data to be saved or updated.
+ * @param {mongoose.Model} Model - The Mongoose model representing the MongoDB collection.
+ * @returns {Promise<void>} A Promise that resolves once all data is processed and saved or updated.
+ */
 const saveOrUpdateData = async (filePath, Model) => {
   try {
     const data = JSON.parse(fs.readFileSync(filePath, "utf-8"));
@@ -33,25 +46,32 @@ const saveOrUpdateData = async (filePath, Model) => {
 
       if (existingItem) {
         await Model.findOneAndUpdate({ name: item.name }, item);
-        console.log(`"${item.name}" atualizado.`);
+        console.log(`"${item.name}" updated.`);
       } else {
         await Model.create(item);
-        console.log(`"${item.name}" criado.`);
+        console.log(`"${item.name}" created.`);
       }
     }
 
-    console.log(`Processo concluído para ${Model.modelName}.`);
+    console.log(`Process completed for ${Model.modelName}.`);
   } catch (err) {
-    console.error(`Erro ao processar ${Model.modelName}: ${err.message}`);
+    console.error(`Processing error ${Model.modelName}: ${err.message}`);
   }
 };
-
+/**
+ * @function main
+ * @async
+ * @description Main function to orchestrate the process of connecting to MongoDB, processing data files, and closing the connection.
+ * @returns {Promise<void>} A Promise that resolves once all files are processed and the database connection is closed.
+ */
 const main = async () => {
   try {
-    // Inicia a conexão com o banco de dados MongoDB
     await connectToDatabase();
 
-    // Define os arquivos e modelos para processamento
+    /**
+    * @constant {Array<{ filePath: string, Model: mongoose.Model<any> }>} files - An array of objects specifying JSON file paths and corresponding Mongoose models for data processing.
+    */
+
     const files = [
       {
         filePath: "../data/attractions_data.json",
@@ -64,17 +84,15 @@ const main = async () => {
       },
     ];
 
-    // Processa cada arquivo e modelo
     for (const file of files) {
       await saveOrUpdateData(file.filePath, file.Model);
     }
 
-    // Fecha a conexão com o banco de dados
     await mongoose.connection.close();
 
     process.exit(0);
   } catch (err) {
-    console.error(`Erro no processo principal: ${err.message}`);
+    console.error(`Error in the main proceedings: ${err.message}`);
   }
 };
 

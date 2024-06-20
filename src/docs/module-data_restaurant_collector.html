@@ -1,0 +1,1733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>data_restaurant_collector - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    <input type="text" id="nav-search" placeholder="Search" />
+    
+    
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-apiCache.html">apiCache</a><ul class='methods'><li data-type='method'><a href="module-apiCache.html#.getCache">getCache</a></li><li data-type='method'><a href="module-apiCache.html#.setCache">setCache</a></li></ul></li><li><a href="module-atrraction_model.html">atrraction_model</a></li><li><a href="module-client_model.html">client_model</a></li><li><a href="module-connect.html">connect</a><ul class='methods'><li data-type='method'><a href="module-connect.html#~connectToDatabase">connectToDatabase</a></li></ul></li><li><a href="module-data_attraction_collector.html">data_attraction_collector</a><ul class='methods'><li data-type='method'><a href="module-data_attraction_collector.html#~getPlaceDetails">getPlaceDetails</a></li><li data-type='method'><a href="module-data_attraction_collector.html#~main">main</a></li><li data-type='method'><a href="module-data_attraction_collector.html#~searchAttractionsInCorumba">searchAttractionsInCorumba</a></li></ul></li><li><a href="module-data_hotel_collector.html">data_hotel_collector</a><ul class='methods'><li data-type='method'><a href="module-data_hotel_collector.html#~getPlaceDetails">getPlaceDetails</a></li><li data-type='method'><a href="module-data_hotel_collector.html#~main">main</a></li><li data-type='method'><a href="module-data_hotel_collector.html#~searchHotelsInCorumba">searchHotelsInCorumba</a></li></ul></li><li><a href="module-data_restaurant_collector.html">data_restaurant_collector</a><ul class='methods'><li data-type='method'><a href="module-data_restaurant_collector.html#~getPlaceDetails">getPlaceDetails</a></li><li data-type='method'><a href="module-data_restaurant_collector.html#~main">main</a></li><li data-type='method'><a href="module-data_restaurant_collector.html#~searchRestaurantsInCorumba">searchRestaurantsInCorumba</a></li></ul></li><li><a href="module-evaluation_model.html">evaluation_model</a></li><li><a href="module-hotel_model.html">hotel_model</a></li><li><a href="module-index.html">index</a><ul class='methods'><li data-type='method'><a href="module-index.html#~message">message</a></li></ul></li><li><a href="module-message.html">message</a><ul class='methods'><li data-type='method'><a href="module-message.html#~collectFeedback">collectFeedback</a></li><li data-type='method'><a href="module-message.html#~getItemsFromCollection">getItemsFromCollection</a></li><li data-type='method'><a href="module-message.html#~getTotalItemsCount">getTotalItemsCount</a></li><li data-type='method'><a href="module-message.html#~handleDetailsOrPagination">handleDetailsOrPagination</a></li><li data-type='method'><a href="module-message.html#~handleLanguageSelection">handleLanguageSelection</a></li><li data-type='method'><a href="module-message.html#~handleMessage">handleMessage</a></li><li data-type='method'><a href="module-message.html#~handlePagination">handlePagination</a></li><li data-type='method'><a href="module-message.html#~handleUserChoice">handleUserChoice</a></li><li data-type='method'><a href="module-message.html#~handleUserFlow">handleUserFlow</a></li><li data-type='method'><a href="module-message.html#~initializeUserState">initializeUserState</a></li><li data-type='method'><a href="module-message.html#~loadLogMessages">loadLogMessages</a></li><li data-type='method'><a href="module-message.html#~loadMenu">loadMenu</a></li><li data-type='method'><a href="module-message.html#~messageListener">messageListener</a></li><li data-type='method'><a href="module-message.html#~processItems">processItems</a></li><li data-type='method'><a href="module-message.html#~saveOrUpdateUser">saveOrUpdateUser</a></li><li data-type='method'><a href="module-message.html#~sendDetails">sendDetails</a></li><li data-type='method'><a href="module-message.html#~sendLanguageMenu">sendLanguageMenu</a></li><li data-type='method'><a href="module-message.html#~sendList">sendList</a></li><li data-type='method'><a href="module-message.html#~sendMainMenu">sendMainMenu</a></li><li data-type='method'><a href="module-message.html#~sendWelcomeMessage">sendWelcomeMessage</a></li><li data-type='method'><a href="module-message.html#~showItemDetails">showItemDetails</a></li><li data-type='method'><a href="module-message.html#~updateUserState">updateUserState</a></li></ul></li><li><a href="module-photoCache.html">photoCache</a><ul class='methods'><li data-type='method'><a href="module-photoCache.html#.getPhotoUrl">getPhotoUrl</a></li></ul></li><li><a href="module-restaurant_model.html">restaurant_model</a></li><li><a href="module-save_data_db.html">save_data_db</a><ul class='methods'><li data-type='method'><a href="module-save_data_db.html#~connectToDatabase">connectToDatabase</a></li><li data-type='method'><a href="module-save_data_db.html#~main">main</a></li><li data-type='method'><a href="module-save_data_db.html#~saveOrUpdateData">saveOrUpdateData</a></li></ul></li></ul><h3>Global</h3><ul><li><a href="global.html#logMessages">logMessages</a></li></ul>
+    
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">data_restaurant_collector</h1>
+    
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        
+    
+</header>
+
+<article>
+    
+        <div class="container-overview">
+        
+            
+
+            
+        
+        </div>
+    
+
+    
+
+    
+
+    
+    
+    
+
+     
+
+    
+
+    
+        <h3 class="subsection-title">Members</h3>
+
+        
+            
+<h4 class="name" id="~apiKey"><span class="type-signature type-signature-inner, constant">(inner, constant) </span>apiKey<span class="type-signature"> :string</span></h4>
+
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>The Google API key retrieved from environment variables.</p></li></ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="config_data_restaurant_collector.js.html">config/data_restaurant_collector.js</a>, <a href="config_data_restaurant_collector.js.html#line15">line 15</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p>The Google API key retrieved from environment variables.</p>
+</div>
+
+
+
+    <h5 class="h5-types">Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">string</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="~cachedDetails"><span class="type-signature type-signature-inner, constant">(inner, constant) </span>cachedDetails<span class="type-signature"> :Object|null</span></h4>
+
+
+
+
+
+<dl class="details">
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="config_data_restaurant_collector.js.html">config/data_restaurant_collector.js</a>, <a href="config_data_restaurant_collector.js.html#line101">line 101</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+    <h5 class="h5-types">Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+|
+
+<span class="param-type">null</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="~data"><span class="type-signature type-signature-inner, constant">(inner, constant) </span>data<span class="type-signature"> :Object</span></h4>
+
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>The data object from the response.</p></li></ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="config_data_restaurant_collector.js.html">config/data_restaurant_collector.js</a>, <a href="config_data_restaurant_collector.js.html#line35">line 35</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>status</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The status of the API request.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>results</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The array of results from the search query.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<div class="description usertext">
+    <p>The data object from the response.</p>
+</div>
+
+
+
+    <h5 class="h5-types">Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="~data"><span class="type-signature type-signature-inner, constant">(inner, constant) </span>data<span class="type-signature"> :Object</span></h4>
+
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>The data object from the response.</p></li></ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="config_data_restaurant_collector.js.html">config/data_restaurant_collector.js</a>, <a href="config_data_restaurant_collector.js.html#line118">line 118</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>status</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The status of the API request.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>result</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The detailed place information.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<div class="description usertext">
+    <p>The data object from the response.</p>
+</div>
+
+
+
+    <h5 class="h5-types">Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="~phoneNumber"><span class="type-signature type-signature-inner, constant">(inner, constant) </span>phoneNumber<span class="type-signature"> :string</span></h4>
+
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>The formatted phone number of the place.
+If the phone number is not available, a default message is used.</p></li></ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="config_data_restaurant_collector.js.html">config/data_restaurant_collector.js</a>, <a href="config_data_restaurant_collector.js.html#line62">line 62</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p>The formatted phone number of the place.
+If the phone number is not available, a default message is used.</p>
+</div>
+
+
+
+    <h5 class="h5-types">Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">string</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="~photoUrls"><span class="type-signature type-signature-inner, constant">(inner, constant) </span>photoUrls<span class="type-signature"> :Array.&lt;string></span></h4>
+
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>The array of photo URLs for the place.</p></li></ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="config_data_restaurant_collector.js.html">config/data_restaurant_collector.js</a>, <a href="config_data_restaurant_collector.js.html#line126">line 126</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p>The array of photo URLs for the place.</p>
+</div>
+
+
+
+    <h5 class="h5-types">Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Array.&lt;string></span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="~photos"><span class="type-signature type-signature-inner, constant">(inner, constant) </span>photos<span class="type-signature"> :Array.&lt;string></span></h4>
+
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>The array of photo URLs for the place. Checks if placeDetails exists and is true. If true, extracts the first two elements of the photos array inside placeDetails. If placeDetails is false or photos is empty, initializes photos as an empty array ([]).</p></li></ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="config_data_restaurant_collector.js.html">config/data_restaurant_collector.js</a>, <a href="config_data_restaurant_collector.js.html#line52">line 52</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p>The array of photo URLs for the place. Checks if placeDetails exists and is true. If true, extracts the first two elements of the photos array inside placeDetails. If placeDetails is false or photos is empty, initializes photos as an empty array ([]).</p>
+</div>
+
+
+
+    <h5 class="h5-types">Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Array.&lt;string></span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="~placeDetails"><span class="type-signature type-signature-inner, constant">(inner, constant) </span>placeDetails<span class="type-signature"> :Object|null</span></h4>
+
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>The detailed information about the place. Retrieves detailed information about a specific place using the place ID.</p></li></ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="config_data_restaurant_collector.js.html">config/data_restaurant_collector.js</a>, <a href="config_data_restaurant_collector.js.html#line48">line 48</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p>The detailed information about the place. Retrieves detailed information about a specific place using the place ID.</p>
+</div>
+
+
+
+    <h5 class="h5-types">Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+|
+
+<span class="param-type">null</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="~query"><span class="type-signature type-signature-inner, constant">(inner, constant) </span>query<span class="type-signature"> :string</span></h4>
+
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>The search query for restaurants in Corumbá, MS.</p></li></ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="config_data_restaurant_collector.js.html">config/data_restaurant_collector.js</a>, <a href="config_data_restaurant_collector.js.html#line19">line 19</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p>The search query for restaurants in Corumbá, MS.</p>
+</div>
+
+
+
+    <h5 class="h5-types">Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">string</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="~response"><span class="type-signature type-signature-inner, constant">(inner, constant) </span>response<span class="type-signature"> :Object</span></h4>
+
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>The response from the Google Places API.</p></li></ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="config_data_restaurant_collector.js.html">config/data_restaurant_collector.js</a>, <a href="config_data_restaurant_collector.js.html#line31">line 31</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p>The response from the Google Places API.</p>
+</div>
+
+
+
+    <h5 class="h5-types">Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="~response"><span class="type-signature type-signature-inner, constant">(inner, constant) </span>response<span class="type-signature"> :Object</span></h4>
+
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>The response from the Google Places API.</p></li></ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="config_data_restaurant_collector.js.html">config/data_restaurant_collector.js</a>, <a href="config_data_restaurant_collector.js.html#line114">line 114</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p>The response from the Google Places API.</p>
+</div>
+
+
+
+    <h5 class="h5-types">Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="~restaurants"><span class="type-signature type-signature-inner, constant">(inner, constant) </span>restaurants<span class="type-signature"> :Array.&lt;Object></span></h4>
+
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>The array of restaurant objects.</p></li></ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="config_data_restaurant_collector.js.html">config/data_restaurant_collector.js</a>, <a href="config_data_restaurant_collector.js.html#line43">line 43</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p>The array of restaurant objects.</p>
+</div>
+
+
+
+    <h5 class="h5-types">Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Array.&lt;Object></span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="~restaurants"><span class="type-signature type-signature-inner, constant">(inner, constant) </span>restaurants<span class="type-signature"> :Array.&lt;Object>|null</span></h4>
+
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>The array of restaurant objects.</p></li></ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="config_data_restaurant_collector.js.html">config/data_restaurant_collector.js</a>, <a href="config_data_restaurant_collector.js.html#line151">line 151</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p>The array of restaurant objects.</p>
+</div>
+
+
+
+    <h5 class="h5-types">Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Array.&lt;Object></span>
+|
+
+<span class="param-type">null</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="~url"><span class="type-signature type-signature-inner, constant">(inner, constant) </span>url<span class="type-signature"> :string</span></h4>
+
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>The encoded URL for the Google Places API request.</p></li></ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="config_data_restaurant_collector.js.html">config/data_restaurant_collector.js</a>, <a href="config_data_restaurant_collector.js.html#line23">line 23</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p>The encoded URL for the Google Places API request.</p>
+</div>
+
+
+
+    <h5 class="h5-types">Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">string</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+        
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    <h4 class="name" id="~getPlaceDetails"><span class="type-signature type-signature-async, inner">(async, inner) </span>getPlaceDetails<span class="signature">(placeId)</span><span class="type-signature"> &rarr; {Promise.&lt;(Object|null)>}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Retrieves detailed information about a specific place using the Google Places API.</p></li></ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="config_data_restaurant_collector.js.html">config/data_restaurant_collector.js</a>, <a href="config_data_restaurant_collector.js.html#line100">line 100</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-parameters">Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>placeId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The unique identifier for the place.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-returns">Returns:</h5>
+
+        
+<div class="param-desc">
+    <ul>
+<li>The detailed place information if successful, otherwise null.</li>
+</ul>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;(Object|null)></span>
+
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="~main"><span class="type-signature type-signature-async, inner">(async, inner) </span>main<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><ul>
+<li>
+<ul>
+<li>Main function to fetch restaurants and save them to a JSON file.</li>
+</ul>
+</li>
+</ul></li></ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="config_data_restaurant_collector.js.html">config/data_restaurant_collector.js</a>, <a href="config_data_restaurant_collector.js.html#line145">line 145</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="~searchRestaurantsInCorumba"><span class="type-signature type-signature-async, inner">(async, inner) </span>searchRestaurantsInCorumba<span class="signature">()</span><span class="type-signature"> &rarr; {Promise.&lt;(Array.&lt;Object>|null)>}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><ul>
+<li>Searches for restaurants in Corumbá, MS using the Google Places API.</li>
+</ul></li></ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="config_data_restaurant_collector.js.html">config/data_restaurant_collector.js</a>, <a href="config_data_restaurant_collector.js.html#line8">line 8</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-returns">Returns:</h5>
+
+        
+<div class="param-desc">
+    <ul>
+<li>An array of restaurant objects if successful, otherwise null.</li>
+</ul>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;(Array.&lt;Object>|null)></span>
+
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.3</a> on Wed Jun 19 2024 23:26:25 GMT-0400 (Horário Padrão do Chile) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+<script src="scripts/search.js" defer></script>
+
+
+
+</body>
+</html>

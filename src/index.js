@@ -2,7 +2,16 @@ import pkg from 'whatsapp-web.js';
 const { NoAuth } = pkg;
 const { Client } = pkg;
 import qrcode from "qrcode-terminal";
-
+/** @module index*/
+/**
+ * @constant
+ * @type {Client}
+ * @description - Creates an instance of the WhatsApp client.
+ * @property {Object} webVersionCache - Cache settings for the web version of WhatsApp.
+ * @property {string} webVersionCache.type - Remote cache type.
+ * @property {string} webVersionCache.remotePath - URL to the remote version HTML file.
+ * @property {NoAuth} authStrategy - Authentication strategy used to connect without authentication.
+ */
 const client = new Client({
   webVersionCache: {
     type: 'remote',
@@ -12,17 +21,35 @@ const client = new Client({
   }),
 });
 
+/**
+ *@description - Event triggered when a QR code is received.
+ * @param {string} qr - QR code received.
+ */
 client.on("qr", (qr) => {
   qrcode.generate(qr, { small: true });
 });
 
+/**
+ * @description - Event triggered when the customer is ready to receive messages.
+ */
 client.on("ready", () => {
   console.log("Bot está pronto para receber mensagens!");
 });
 
+/**
+ * @description - Import the message handling module.
+ */
 import message from "./message.js";
 
-//passa o cliente para o arquivo message.js
+/**
+ * 
+ * @function message
+ * @description - passes the client to the message.js file.
+ */
 message(client);
 
+/**
+ * @description - Starts the WhatsApp client.
+ */
 client.initialize();
+

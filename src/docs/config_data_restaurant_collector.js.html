@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>config/data_restaurant_collector.js - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    <input type="text" id="nav-search" placeholder="Search" />
+    
+    
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-apiCache.html">apiCache</a><ul class='methods'><li data-type='method'><a href="module-apiCache.html#.getCache">getCache</a></li><li data-type='method'><a href="module-apiCache.html#.setCache">setCache</a></li></ul></li><li><a href="module-atrraction_model.html">atrraction_model</a></li><li><a href="module-client_model.html">client_model</a></li><li><a href="module-connect.html">connect</a><ul class='methods'><li data-type='method'><a href="module-connect.html#~connectToDatabase">connectToDatabase</a></li></ul></li><li><a href="module-data_attraction_collector.html">data_attraction_collector</a><ul class='methods'><li data-type='method'><a href="module-data_attraction_collector.html#~getPlaceDetails">getPlaceDetails</a></li><li data-type='method'><a href="module-data_attraction_collector.html#~main">main</a></li><li data-type='method'><a href="module-data_attraction_collector.html#~searchAttractionsInCorumba">searchAttractionsInCorumba</a></li></ul></li><li><a href="module-data_hotel_collector.html">data_hotel_collector</a><ul class='methods'><li data-type='method'><a href="module-data_hotel_collector.html#~getPlaceDetails">getPlaceDetails</a></li><li data-type='method'><a href="module-data_hotel_collector.html#~main">main</a></li><li data-type='method'><a href="module-data_hotel_collector.html#~searchHotelsInCorumba">searchHotelsInCorumba</a></li></ul></li><li><a href="module-data_restaurant_collector.html">data_restaurant_collector</a><ul class='methods'><li data-type='method'><a href="module-data_restaurant_collector.html#~getPlaceDetails">getPlaceDetails</a></li><li data-type='method'><a href="module-data_restaurant_collector.html#~main">main</a></li><li data-type='method'><a href="module-data_restaurant_collector.html#~searchRestaurantsInCorumba">searchRestaurantsInCorumba</a></li></ul></li><li><a href="module-evaluation_model.html">evaluation_model</a></li><li><a href="module-hotel_model.html">hotel_model</a></li><li><a href="module-index.html">index</a><ul class='methods'><li data-type='method'><a href="module-index.html#~message">message</a></li></ul></li><li><a href="module-message.html">message</a><ul class='methods'><li data-type='method'><a href="module-message.html#~collectFeedback">collectFeedback</a></li><li data-type='method'><a href="module-message.html#~getItemsFromCollection">getItemsFromCollection</a></li><li data-type='method'><a href="module-message.html#~getTotalItemsCount">getTotalItemsCount</a></li><li data-type='method'><a href="module-message.html#~handleDetailsOrPagination">handleDetailsOrPagination</a></li><li data-type='method'><a href="module-message.html#~handleLanguageSelection">handleLanguageSelection</a></li><li data-type='method'><a href="module-message.html#~handleMessage">handleMessage</a></li><li data-type='method'><a href="module-message.html#~handlePagination">handlePagination</a></li><li data-type='method'><a href="module-message.html#~handleUserChoice">handleUserChoice</a></li><li data-type='method'><a href="module-message.html#~handleUserFlow">handleUserFlow</a></li><li data-type='method'><a href="module-message.html#~initializeUserState">initializeUserState</a></li><li data-type='method'><a href="module-message.html#~loadLogMessages">loadLogMessages</a></li><li data-type='method'><a href="module-message.html#~loadMenu">loadMenu</a></li><li data-type='method'><a href="module-message.html#~messageListener">messageListener</a></li><li data-type='method'><a href="module-message.html#~processItems">processItems</a></li><li data-type='method'><a href="module-message.html#~saveOrUpdateUser">saveOrUpdateUser</a></li><li data-type='method'><a href="module-message.html#~sendDetails">sendDetails</a></li><li data-type='method'><a href="module-message.html#~sendLanguageMenu">sendLanguageMenu</a></li><li data-type='method'><a href="module-message.html#~sendList">sendList</a></li><li data-type='method'><a href="module-message.html#~sendMainMenu">sendMainMenu</a></li><li data-type='method'><a href="module-message.html#~sendWelcomeMessage">sendWelcomeMessage</a></li><li data-type='method'><a href="module-message.html#~showItemDetails">showItemDetails</a></li><li data-type='method'><a href="module-message.html#~updateUserState">updateUserState</a></li></ul></li><li><a href="module-photoCache.html">photoCache</a><ul class='methods'><li data-type='method'><a href="module-photoCache.html#.getPhotoUrl">getPhotoUrl</a></li></ul></li><li><a href="module-restaurant_model.html">restaurant_model</a></li><li><a href="module-save_data_db.html">save_data_db</a><ul class='methods'><li data-type='method'><a href="module-save_data_db.html#~connectToDatabase">connectToDatabase</a></li><li data-type='method'><a href="module-save_data_db.html#~main">main</a></li><li data-type='method'><a href="module-save_data_db.html#~saveOrUpdateData">saveOrUpdateData</a></li></ul></li></ul><h3>Global</h3><ul><li><a href="global.html#logMessages">logMessages</a></li></ul>
+    
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">config/data_restaurant_collector.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import axios from "axios";
+import dotenv from "dotenv";
+import { writeFile } from "fs/promises";
+import { getCache, setCache } from "./cache/apiCache.js";
+import { getPhotoUrl } from "./cache/photoCache.js";
+dotenv.config({ path: "../../.env" });
+/** @module data_restaurant_collector*/
+/**
+ * @function searchRestaurantsInCorumba
+ * @async
+ * @description - Searches for restaurants in Corumbá, MS using the Google Places API.
+ * @returns {Promise&lt;Array&lt;Object>|null>} - An array of restaurant objects if successful, otherwise null.
+ */
+async function searchRestaurantsInCorumba() {
+  /**
+  * @constant {string} apiKey - The Google API key retrieved from environment variables.
+  */
+  const apiKey = process.env.GOOGLE_API;
+  /**
+ * @constant {string} query - The search query for restaurants in Corumbá, MS.
+ */
+  const query = "Restaurantes em Corumbá MS";
+  /**
+  * @constant {string} url - The encoded URL for the Google Places API request.
+  */
+  const url = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${encodeURIComponent(
+    query
+  )}&amp;key=${apiKey}`;
+
+  try {
+    /**
+    * @constant {Object} response - The response from the Google Places API.
+    */
+    const response = await axios.get(url);
+    /**
+     * @constant {Object} data - The data object from the response.
+     * @property {string} status - The status of the API request.
+     * @property {Array} results - The array of results from the search query.
+     */
+    const data = response.data;
+
+    if (data.status === "OK" &amp;&amp; data.results.length > 0) {
+      /**
+      * @constant {Array&lt;Object>} restaurants - The array of restaurant objects.
+      */
+      const restaurants = await Promise.all(
+        data.results.map(async (result) => {
+          /**
+           * @constant {Object|null} placeDetails - The detailed information about the place. Retrieves detailed information about a specific place using the place ID.
+           */
+          const placeDetails = await getPlaceDetails(result.place_id);
+          /**
+          * @constant {Array&lt;string>} photos - The array of photo URLs for the place. Checks if placeDetails exists and is true. If true, extracts the first two elements of the photos array inside placeDetails. If placeDetails is false or photos is empty, initializes photos as an empty array ([]).
+          */
+          const photos = placeDetails
+            ? placeDetails.photos
+              .slice(0, 2)
+              .map((photo) =>
+                getPhotoUrl(result.place_id, photo.photo_reference)
+              )
+            : [];
+          /**
+          * @constant {string} phoneNumber - The formatted phone number of the place.
+          * If the phone number is not available, a default message is used.
+          */
+          const phoneNumber =
+            placeDetails &amp;&amp; placeDetails.formatted_phone_number
+              ? placeDetails.formatted_phone_number
+              : "Phone number not available";
+
+          return {
+            name: result.name,
+            address: result.formatted_address,
+            phone_number: phoneNumber,
+            rating: result.rating,
+            user_ratings_total: result.user_ratings_total,
+            coordinates: result.geometry.location,
+            photos: photos,
+          };
+        })
+      );
+
+      return restaurants;
+    } else {
+      console.error("Error when searching for hotels:", data.error_message);
+      return null;
+    }
+  } catch (error) {
+    console.error("Connection error:", error);
+    return null;
+  }
+}
+
+/**
+ * Retrieves detailed information about a specific place using the Google Places API.
+ * @async
+ * @param {string} placeId - The unique identifier for the place.
+ * @returns {Promise&lt;Object|null>} - The detailed place information if successful, otherwise null.
+ */
+async function getPlaceDetails(placeId) {
+  /**
+   * @type {Object|null}
+   * @constant cachedDetails - Check if the details are already in cache.
+   */
+  const cachedDetails = getCache(placeId);
+  if (cachedDetails) {
+    return cachedDetails;
+  }
+
+  const apiKey = process.env.GOOGLE_API;
+  const url = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&amp;fields=name,formatted_address,formatted_phone_number,opening_hours,rating,user_ratings_total,photos&amp;key=${apiKey}`;
+
+  try {
+    /**
+    * @constant {Object} response - The response from the Google Places API.
+    */
+    const response = await axios.get(url);
+    /**
+     * @constant {Object} data - The data object from the response.
+     * @property {string} status - The status of the API request.
+     * @property {Object} result - The detailed place information.
+     */
+    const data = response.data;
+
+    if (data.status === "OK" &amp;&amp; data.result) {
+      /**
+      * @constant {Array&lt;string>} photoUrls - The array of photo URLs for the place.
+      */
+      const detail = data.result;
+      detail.photoUrls = detail.photos.map((photo) =>
+        getPhotoUrl(placeId, photo.photo_reference)
+      );
+      setCache(placeId, detail);
+      return detail;
+    } else {
+      console.error("Error obtaining location details: ", data.error_message);
+      return null;
+    }
+  } catch (error) {
+    console.error("Connection error:", error);
+    return null;
+  }
+}
+
+/**
+ * @function main
+ * @description - - Main function to fetch restaurants and save them to a JSON file.
+ * @async
+ */
+async function main() {
+  /**
+  * @constant {Array&lt;Object>|null} restaurants - The array of restaurant objects.
+  */
+  const restaurants = await searchRestaurantsInCorumba();
+
+  if (restaurants) {
+    try {
+      const filePath = "../data/restaurants_data.json";
+      await writeFile(filePath, JSON.stringify(restaurants, null, 2));
+      console.log(
+        `Restaurant data successfully saved in '${filePath}'.`
+      );
+    } catch (error) {
+      console.error("Error saving restaurant data:", error);
+    }
+  } else {
+    console.log("Restaurant points fail.");
+  }
+}
+
+main();
+
+export { main };</code></pre>
+        </article>
+    </section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.3</a> on Wed Jun 19 2024 23:26:25 GMT-0400 (Horário Padrão do Chile) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+<script src="scripts/search.js" defer></script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>restaurant_model - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    <input type="text" id="nav-search" placeholder="Search" />
+    
+    
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-apiCache.html">apiCache</a><ul class='methods'><li data-type='method'><a href="module-apiCache.html#.getCache">getCache</a></li><li data-type='method'><a href="module-apiCache.html#.setCache">setCache</a></li></ul></li><li><a href="module-atrraction_model.html">atrraction_model</a></li><li><a href="module-client_model.html">client_model</a></li><li><a href="module-connect.html">connect</a><ul class='methods'><li data-type='method'><a href="module-connect.html#~connectToDatabase">connectToDatabase</a></li></ul></li><li><a href="module-data_attraction_collector.html">data_attraction_collector</a><ul class='methods'><li data-type='method'><a href="module-data_attraction_collector.html#~getPlaceDetails">getPlaceDetails</a></li><li data-type='method'><a href="module-data_attraction_collector.html#~main">main</a></li><li data-type='method'><a href="module-data_attraction_collector.html#~searchAttractionsInCorumba">searchAttractionsInCorumba</a></li></ul></li><li><a href="module-data_hotel_collector.html">data_hotel_collector</a><ul class='methods'><li data-type='method'><a href="module-data_hotel_collector.html#~getPlaceDetails">getPlaceDetails</a></li><li data-type='method'><a href="module-data_hotel_collector.html#~main">main</a></li><li data-type='method'><a href="module-data_hotel_collector.html#~searchHotelsInCorumba">searchHotelsInCorumba</a></li></ul></li><li><a href="module-data_restaurant_collector.html">data_restaurant_collector</a><ul class='methods'><li data-type='method'><a href="module-data_restaurant_collector.html#~getPlaceDetails">getPlaceDetails</a></li><li data-type='method'><a href="module-data_restaurant_collector.html#~main">main</a></li><li data-type='method'><a href="module-data_restaurant_collector.html#~searchRestaurantsInCorumba">searchRestaurantsInCorumba</a></li></ul></li><li><a href="module-evaluation_model.html">evaluation_model</a></li><li><a href="module-hotel_model.html">hotel_model</a></li><li><a href="module-index.html">index</a><ul class='methods'><li data-type='method'><a href="module-index.html#~message">message</a></li></ul></li><li><a href="module-message.html">message</a><ul class='methods'><li data-type='method'><a href="module-message.html#~collectFeedback">collectFeedback</a></li><li data-type='method'><a href="module-message.html#~getItemsFromCollection">getItemsFromCollection</a></li><li data-type='method'><a href="module-message.html#~getTotalItemsCount">getTotalItemsCount</a></li><li data-type='method'><a href="module-message.html#~handleDetailsOrPagination">handleDetailsOrPagination</a></li><li data-type='method'><a href="module-message.html#~handleLanguageSelection">handleLanguageSelection</a></li><li data-type='method'><a href="module-message.html#~handleMessage">handleMessage</a></li><li data-type='method'><a href="module-message.html#~handlePagination">handlePagination</a></li><li data-type='method'><a href="module-message.html#~handleUserChoice">handleUserChoice</a></li><li data-type='method'><a href="module-message.html#~handleUserFlow">handleUserFlow</a></li><li data-type='method'><a href="module-message.html#~initializeUserState">initializeUserState</a></li><li data-type='method'><a href="module-message.html#~loadLogMessages">loadLogMessages</a></li><li data-type='method'><a href="module-message.html#~loadMenu">loadMenu</a></li><li data-type='method'><a href="module-message.html#~messageListener">messageListener</a></li><li data-type='method'><a href="module-message.html#~processItems">processItems</a></li><li data-type='method'><a href="module-message.html#~saveOrUpdateUser">saveOrUpdateUser</a></li><li data-type='method'><a href="module-message.html#~sendDetails">sendDetails</a></li><li data-type='method'><a href="module-message.html#~sendLanguageMenu">sendLanguageMenu</a></li><li data-type='method'><a href="module-message.html#~sendList">sendList</a></li><li data-type='method'><a href="module-message.html#~sendMainMenu">sendMainMenu</a></li><li data-type='method'><a href="module-message.html#~sendWelcomeMessage">sendWelcomeMessage</a></li><li data-type='method'><a href="module-message.html#~showItemDetails">showItemDetails</a></li><li data-type='method'><a href="module-message.html#~updateUserState">updateUserState</a></li></ul></li><li><a href="module-photoCache.html">photoCache</a><ul class='methods'><li data-type='method'><a href="module-photoCache.html#.getPhotoUrl">getPhotoUrl</a></li></ul></li><li><a href="module-restaurant_model.html">restaurant_model</a></li><li><a href="module-save_data_db.html">save_data_db</a><ul class='methods'><li data-type='method'><a href="module-save_data_db.html#~connectToDatabase">connectToDatabase</a></li><li data-type='method'><a href="module-save_data_db.html#~main">main</a></li><li data-type='method'><a href="module-save_data_db.html#~saveOrUpdateData">saveOrUpdateData</a></li></ul></li></ul><h3>Global</h3><ul><li><a href="global.html#logMessages">logMessages</a></li></ul>
+    
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">restaurant_model</h1>
+    
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        
+    
+</header>
+
+<article>
+    
+        <div class="container-overview">
+        
+            
+
+            
+        
+        </div>
+    
+
+    
+
+    
+
+    
+    
+    
+
+     
+
+    
+
+    
+        <h3 class="subsection-title">Members</h3>
+
+        
+            
+<h4 class="name" id="~RestaurantModel"><span class="type-signature type-signature-inner, constant">(inner, constant) </span>RestaurantModel<span class="type-signature"> :RestaurantModel</span></h4>
+
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><ul>
+<li>Restaurant model for interaction with the MongoDB database.</li>
+</ul></li></ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="models_restaurant_model.js.html">models/restaurant_model.js</a>, <a href="models_restaurant_model.js.html#line46">line 46</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <ul>
+<li>Restaurant model for interaction with the MongoDB database.</li>
+</ul>
+</div>
+
+
+
+    <h5 class="h5-types">Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">RestaurantModel</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="~restaurantSchema"><span class="type-signature type-signature-inner, constant">(inner, constant) </span>restaurantSchema<span class="type-signature"> :RestaurantModel</span></h4>
+
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Define the layout and model of the restaurant using Mongoose.</p></li></ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="models_restaurant_model.js.html">models/restaurant_model.js</a>, <a href="models_restaurant_model.js.html#line26">line 26</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p>Define the layout and model of the restaurant using Mongoose.</p>
+</div>
+
+
+
+    <h5 class="h5-types">Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">RestaurantModel</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+        
+    
+
+    
+
+    
+        <h3 class="subsection-title">Type Definitions</h3>
+
+        
+                
+<h4 class="name" id="~RestaurantModel">RestaurantModel</h4>
+
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>Restaurant model for interaction with the MongoDB database.</p></li></ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="models_restaurant_model.js.html">models/restaurant_model.js</a>, <a href="models_restaurant_model.js.html#line17">line 17</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p>Restaurant model for interaction with the MongoDB database.</p>
+</div>
+
+
+
+    <h5 class="h5-types">Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Model</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+            
+                
+<h4 class="name" id="~RestaurantSchema">RestaurantSchema</h4>
+
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><ul>
+<li>Restaurant schema for data modeling using Mongoose.</li>
+</ul></li></ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="models_restaurant_model.js.html">models/restaurant_model.js</a>, <a href="models_restaurant_model.js.html#line3">line 3</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>name</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Name of restaurant.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>address</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Restaurant address.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>phoneNumber</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Phone number of the restaurant.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>rating</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Restaurant rating.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>user_ratings_total</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Total restaurant reviews.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>coordinates</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Geographical coordinates of the restaurant.</p>
+                <h6>Properties</h6>
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>lat</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Latitude of the restaurant.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>lng</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Length of the restaurant.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>photos</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;string></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Photos of the restaurant.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<div class="description usertext">
+    <ul>
+<li>Restaurant schema for data modeling using Mongoose.</li>
+</ul>
+</div>
+
+
+
+    <h5 class="h5-types">Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+            
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.3</a> on Wed Jun 19 2024 23:26:25 GMT-0400 (Horário Padrão do Chile) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+<script src="scripts/search.js" defer></script>
+
+
+
+</body>
+</html>
