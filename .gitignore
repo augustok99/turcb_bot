@@ -1,5 +1,6 @@
 node_modules
+src/docs/
+.vscode
 .wwebjs_auth
 .wwebjs_cache
 .env
-.src/docs
