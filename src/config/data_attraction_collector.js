@@ -161,7 +161,7 @@ async function main() {
       const filePath = "../data/attractions_data.json";
       await writeFile(filePath, JSON.stringify(attractions, null, 2));
       console.log(
-        `Sightseeing data successfully saved in '${filePath}'.`
+        `Tourist Attraction data successfully saved in '${filePath}'.`
       );
     } catch (error) {
       console.error("Error when saving data on tourist attractions: ", error);

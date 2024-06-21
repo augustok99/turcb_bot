@@ -912,12 +912,7 @@ const showItemDetails = async (client, phoneNumber, selectedItem) => {
     /**
      * @description - Assembles the item details to be sent to the user.
      */
-    const itemDetails = `${itemDetailsMessages.receiveDetails}\n
-    ${itemDetailsMessages.name}: ${selectedItem.name}\n
-    ${itemDetailsMessages.address}: ${selectedItem.address}\n
-    ${itemDetailsMessages.rating}: ${selectedItem.rating}\n
-    ${itemDetailsMessages.totalRatings}: ${selectedItem.user_ratings_total}\n
-    ${itemDetailsMessages.location}: ${location}`;
+    const itemDetails = `${itemDetailsMessages.receiveDetails}\n${itemDetailsMessages.name}: ${selectedItem.name}\n${itemDetailsMessages.address}: ${selectedItem.address}\n${itemDetailsMessages.rating}: ${selectedItem.rating}\n${itemDetailsMessages.totalRatings}: ${selectedItem.user_ratings_total}\n${itemDetailsMessages.location}: ${location}`;
 
     /**
      * @description - Sends the item details to the user.
@@ -933,7 +928,7 @@ const showItemDetails = async (client, phoneNumber, selectedItem) => {
         /**
         * @property {string} - Send the choice of user and the menu to the user.
         */
-        await client.sendMessage(phoneNumber, media, { caption: `Imagem ${i + 1}` });
+        await client.sendMessage(phoneNumber, media, { caption: `${i + 1}` });
       } catch (error) {
         console.error('Error sending image:', error);
       }
