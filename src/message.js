@@ -987,74 +987,103 @@ const collectFeedback = async (client, phoneNumber, userState) => {
  */
 const messageListener = (client, phoneNumber, userState, userName, messages) => async (message) => {
   /**
-  * @constant {string} language - Retrieving the user's preferred language, or default "pt"
-  */
-  const language = userState[phoneNumber].language || 'pt';
-  /**
-  * @constant {number} rating - capturing customer feedback and converting to int.
-  */
-  const rating = parseInt(message.body.trim());
-
-  /**
-   * @description - Checks that the rating is a number between 1 and 5.
+   * @constant {string} language - Retrieving the user's preferred language, or default "pt"
    */
-  if (isNaN(rating) || rating < 1 || rating > 5) {
+  const language = userState[phoneNumber].language || 'pt';
+
+  if (userState[phoneNumber].isCollectingFeedback && !userState[phoneNumber].isCollectingOpinion) {
     /**
-    * @constant {string} invalidMessage - invalid message according to the user's language. If not, the default language "pt" is used.
-       */
-    const invalidMessage = messages.invalidOptionMessage[language] || messages.invalidOptionMessage['pt'];
-    /**
-  * @property {string} - Send the choice of user and the menu to the user.
-  */
-    await client.sendMessage(phoneNumber, invalidMessage);
-  } else {
-    try {
-      /**
-       * @description -  Save the evaluation in the database.
-       */
-      await EvaluationModel.findOneAndUpdate(
-        { phoneNumber },
-        { clientName: userName, phoneNumber: phoneNumber, rating: rating },
-        { upsert: true, new: true }
-      );
-
-      /**
-       * @constant {Object} confirmationMessage - Confirmation message according to the user's language, if there is no Portuguese standard.
-       */
-      const confirmationMessage = messages.feedbackMessage[language] || messages.feedbackMessage['pt'];
-      /**
-      * @property {string} - Send the choice of user and the menu to the user.
-      */
-      await client.sendMessage(phoneNumber, confirmationMessage);
-
-      /**
-       * @property {string} state - Update user status.
-       */
-      userState[phoneNumber].state = "LISTENING_ONLY";
-      console.log(`Feedback received. The user ${userName} ended the conversation`);
-
-      /**
-       * @property {boolean} isCollectingFeedback - Define that feedback is no longer being collected.
-       */
-      userState[phoneNumber].isCollectingFeedback = false;
-
-      /**
-       * @property {Object} lastMessageTimestamp - Update the timestamp of the last message processed.
-       */
-      userState[phoneNumber].lastMessageTimestamp = message.timestamp;
-    } catch (error) {
-      console.error('Error saving feedback:', error);
-      /**
-     * @constant {string} errorMessage - Error message, default.
+     * @constant {number} rating - capturing customer feedback and converting to int.
      */
-      const errorMessage = 'Sorry, there was an error saving your feedback. Please try again later.';
+    const rating = parseInt(message.body.trim());
+
+    /**
+     * @description - Checks that the rating is a number between 1 and 5.
+     */
+    if (isNaN(rating) || rating < 1 || rating > 5) {
       /**
-      * @property {string} - Send the choice of user and the menu to the user.
-      */
+       * @constant {string} invalidMessage - invalid message according to the user's language. If not, the default language "pt" is used.
+       */
+      const invalidMessage = messages.invalidOptionMessage[language] || messages.invalidOptionMessage['pt'];
+
+      /**
+       * @property {string} - Send the choice of user and the menu to the user.
+       */
+      await client.sendMessage(phoneNumber, invalidMessage);
+    } else {
+      // Save the rating and prompt for opinion
+      userState[phoneNumber].rating = rating;
+      userState[phoneNumber].isCollectingOpinion = true;
+
+      /**
+       * @constant {string} opinionPrompt - Opinion prompt message according to the user's language.
+       */
+      const opinionPrompt = messages.collectFeedbackMessage[language] || messages.collectFeedbackMessage['pt'];
+
+      /**
+       * @property {string} - Send opinion prompt to the user.
+       */
+      await client.sendMessage(phoneNumber, opinionPrompt);
+    }
+  } else if (userState[phoneNumber].isCollectingFeedback && userState[phoneNumber].isCollectingOpinion) {
+    // Collect the user's opinion
+    const opinion = message.body.trim();
+
+    if (opinion.length <= 256) {
+      try {
+        // Save the feedback to the database
+        await EvaluationModel.findOneAndUpdate(
+          { phoneNumber },
+          { clientName: userName, phoneNumber: phoneNumber, rating: userState[phoneNumber].rating, feedback: opinion },
+          { upsert: true, new: true }
+        );
+
+        /**
+         * @constant {Object} confirmationMessage - Confirmation message according to the user's language, if there is no Portuguese standard.
+         */
+        const confirmationMessage = messages.feedbackMessage[language] || messages.feedbackMessage['pt'];
+
+        /**
+         * @property {string} - Send the choice of user and the menu to the user.
+         */
+        await client.sendMessage(phoneNumber, confirmationMessage);
+
+        /**
+         * @property {string} state - Update user status.
+         */
+        userState[phoneNumber].state = "LISTENING_ONLY";
+        console.log(`Feedback received. The user ${userName} ended the conversation`);
+
+        /**
+         * @property {boolean} isCollectingFeedback - Define that feedback is no longer being collected.
+         */
+        userState[phoneNumber].isCollectingFeedback = false;
+        userState[phoneNumber].isCollectingOpinion = false;
+
+        /**
+         * @property {Object} lastMessageTimestamp - Update the timestamp of the last message processed.
+         */
+        userState[phoneNumber].lastMessageTimestamp = message.timestamp;
+      } catch (error) {
+        console.error('Error saving feedback:', error);
+
+        /**
+         * @constant {string} errorMessage - Error message, default.
+         */
+        const errorMessage = 'Sorry, there was an error saving your feedback. Please try again later.';
+
+        /**
+         * @property {string} - Send the choice of user and the menu to the user.
+         */
+        await client.sendMessage(phoneNumber, errorMessage);
+      }
+    } else {
+      const errorMessage = `Feedback is too long. Please keep it within 256 characters.`;
       await client.sendMessage(phoneNumber, errorMessage);
     }
   }
 };
+
 
 
 export default handleMessage;

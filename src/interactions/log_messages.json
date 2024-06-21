@@ -14,6 +14,11 @@
     "es": "Por favor, proporcione su evaluación de 1 a 5 estrellas para nuestro chatbot turístico de Corumbá.",
     "en": "Please provide your rating from 1 to 5 stars for our Corumbá tourist chatbot."
   },
+  "collectFeedbackMessage": {
+    "pt": "Por favor, me diga o que você achou do nosso chatbot (👉Digite a sua opnião...)",
+    "es": "Por favor, hazme saber lo que piensas de nuestro chatbot (👉Dinos lo que piensas...)",
+    "en": "Please let me know what you think of our chatbot (👉Type your opinion..."
+  },
   "menuText": {
     "pt": "Por favor, escolha uma opção:\n\n",
     "es": "Por favor, elija una opción:\n\n",

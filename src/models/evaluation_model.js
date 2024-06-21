@@ -21,6 +21,7 @@ const evaluationSchema = new mongoose.Schema({
   clientName: { type: String, required: true },
   phoneNumber: { type: String, required: true },
   rating: { type: Number, required: true },
+  feedback: { type: String, required: true }
 },
   { collection: "Evaluations" }
 );
