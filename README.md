@@ -1,6 +1,7 @@
 ## 🚀 Começando
+
 <img src="https://raw.githubusercontent.com/MicaelliMedeiros/micaellimedeiros/master/image/computer-illustration.png" alt="ilustração de um computador" min-width="400px" max-width="400px" width="400px" align="right">
-Essas instruções permitirão que você obtenha uma cópia do projeto em operação na sua máquina local para fins de desenvolvimento e teste. 
+Essas instruções permitirão que você obtenha uma cópia do projeto em operação na sua máquina local para fins de desenvolvimento e teste.
 
 Esse projeto foi desenvolvido como requisito parcial da obtenção de titulo de graduação em Análise e Desenvolvimento de Sistemas do IFMS - Campus Corumba.
 
