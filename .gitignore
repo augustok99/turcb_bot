@@ -1,6 +1,6 @@
 node_modules
 src/docs/*
-!src/docs/
+!src/docs/.gitkeep
 .vscode
 .wwebjs_auth
 .wwebjs_cache
