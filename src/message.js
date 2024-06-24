@@ -362,13 +362,13 @@ const sendWelcomeMessage = async (client, phoneNumber, userState, userName) => {
   */
   switch (language) {
     case 'en':
-      welcomeMessage = `Hello, ${userName}! Welcome to our automated service system. I am your tourist guide. I will help you choose hotels, restaurants, or tourist spots in Corumbá-MS.`;
+      welcomeMessage = `Hello, ${userName}! Welcome to our automated service system. I'm TurCB your tourist guide. I will help you choose hotels, restaurants, or tourist spots in Corumbá-MS.`;
       break;
     case 'es':
-      welcomeMessage = `Hola, ${userName}! Bienvenido a nuestro sistema de servicio automatizado. Soy tu guía turístico. Te ayudaré a elegir hoteles, restaurantes o puntos turísticos en Corumbá-MS.`;
+      welcomeMessage = `Hola, ${userName}! Bienvenido a nuestro sistema de servicio automatizado. Soy TurCB tu guía turístico. Te ayudaré a elegir hoteles, restaurantes o puntos turísticos en Corumbá-MS.`;
       break;
     default:
-      welcomeMessage = `Olá, ${userName}! Seja bem-vindo ao nosso sistema de atendimento automatizado. Eu sou o seu guia turístico. Irei te auxiliar a escolher hotéis, restaurantes ou pontos turísticos da cidade de Corumbá-MS.`;
+      welcomeMessage = `Olá, ${userName}! Seja bem-vindo ao nosso sistema de atendimento automatizado. Eu sou o TurCB seu guia turístico. Irei te auxiliar a escolher hotéis, restaurantes ou pontos turísticos da cidade de Corumbá-MS.`;
       break;
   }
 
@@ -928,7 +928,7 @@ const showItemDetails = async (client, phoneNumber, selectedItem) => {
         /**
         * @property {string} - Send the choice of user and the menu to the user.
         */
-        await client.sendMessage(phoneNumber, media, { caption: `${i + 1}` });
+        await client.sendMessage(phoneNumber, media);
       } catch (error) {
         console.error('Error sending image:', error);
       }
