@@ -63,17 +63,17 @@
     "pt": {
       "seeMore": "6 - Ver mais opções\n",
       "goBack": "7 - Voltar à lista anterior\n",
-      "detailsOrExit": "Digite o número do item para ver mais detalhes ou '0' para sair."
+      "detailsOrExit": "Digite o número do item para ver mais detalhes ou '0' para voltar ao menu principal."
     },
     "es": {
       "seeMore": "6 - Ver más opciones\n",
       "goBack": "7 - Volver a la lista anterior\n",
-      "detailsOrExit": "Digite el número del artículo para ver más detalles o '0' para salir."
+      "detailsOrExit": "Digite el número de artículo para ver más detalles o '0' para volver al menú principal."
     },
     "en": {
       "seeMore": "6 - See more options\n",
       "goBack": "7 - Go back to the previous list\n",
-      "detailsOrExit": "Enter the item number to see more details or '0' to exit."
+      "detailsOrExit": "Type in the item number to see more details or '0' to return to the main menu."
     }
   },
   "itemDetails": {

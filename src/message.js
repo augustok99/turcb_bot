@@ -1029,7 +1029,7 @@ const messageListener = (client, phoneNumber, userState, userName, messages) => 
     // Collect the user's opinion
     const opinion = message.body.trim();
 
-    if (opinion.length <= 256) {
+    if (opinion.length <= 2056) {
       try {
         // Save the feedback to the database
         await EvaluationModel.findOneAndUpdate(
@@ -1078,7 +1078,7 @@ const messageListener = (client, phoneNumber, userState, userName, messages) => 
         await client.sendMessage(phoneNumber, errorMessage);
       }
     } else {
-      const errorMessage = `Feedback is too long. Please keep it within 256 characters.`;
+      const errorMessage = `Feedback is too long. Please keep it within 2056 characters.`;
       await client.sendMessage(phoneNumber, errorMessage);
     }
   }
