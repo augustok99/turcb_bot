@@ -11,7 +11,7 @@ import mongoose from "mongoose";
  */
 async function connectToDatabase() {
 
-  const path = ".env";
+  const path = "../.env";
 
   /**
    * @description - Load the environment variables from the .env file

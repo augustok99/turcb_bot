@@ -24,15 +24,15 @@ import mongoose from "mongoose";
  * @type {AttractionModel}
  */
 const attractionSchema = new mongoose.Schema(
-  {
-    name: String,
-    address: String,
-    phoneNumber: String,
-    rating: Number,
-    user_ratings_total: Number,
+ {
+    name: { type: String, required: true },
+    address: { type: String, required: true },
+    phone_number: { type: String, required: true },
+    rating: { type: Number, required: false },
+    user_ratings_total: { type: Number, required: false },
     coordinates: {
-      lat: Number,
-      lng: Number,
+      lat: { type: Number, required: true },
+      lng: { type: Number, required: true },
     },
     photos: [],
   },

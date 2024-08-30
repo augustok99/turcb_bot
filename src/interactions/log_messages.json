@@ -80,6 +80,7 @@
     "pt": {
       "receiveDetails": "Receba 🙅‍♂️ os detalhes:",
       "name": "Nome",
+      "phone_number": "Telefone",
       "address": "Endereço",
       "rating": "Avaliação",
       "totalRatings": "Avaliações Totais",
@@ -88,6 +89,7 @@
     "es": {
       "receiveDetails": "Reciba 🙅‍♂️ los detalles:",
       "name": "Nombre",
+      "phone_number": "Teléfono",
       "address": "Dirección",
       "rating": "Calificación",
       "totalRatings": "Total de Calificaciones",
@@ -96,6 +98,7 @@
     "en": {
       "receiveDetails": "Receive 🙅‍♂️ the details:",
       "name": "Name",
+      "phone_number": "Phone",
       "address": "Address",
       "rating": "Rating",
       "totalRatings": "Total Ratings",

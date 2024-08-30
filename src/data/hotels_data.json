@@ -1,47 +1,47 @@
 [
   {
+    "name": "Hotel Fazenda 4 cantos",
+    "address": "R. Ten. Melquíades de Jesus, 1152 - Centro, Corumbá - MS, 79303-031, Brazil",
+    "phone_number": "(67) 3231-0482",
+    "rating": 4.3,
+    "user_ratings_total": 176,
+    "coordinates": {
+      "lat": -19.0047742,
+      "lng": -57.642807
+    },
+    "photos": [
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AXCi2Q5Exk0OQMv6PL2Rwm15mK7kLZ8-r8A-g6OSf2lftGWQ69mg0GJ22EdCwf61DA3pzWev_-f-9kC5So56G5J0MEen8N5vomKVcKMjdiQY1rgrCxv9EZA_9tK-wjj2kKQKZVVAancmgSH3q6OGUUYrfBuxxvIzfBDrSDrIgX_ntL-RCCB3&key=AIzaSyDFPbuwWq40jOmxYyoNdbIfF4Jj7HGuekU",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AXCi2Q5GG9VXQnZhFAfaKr7rWck45tGFyjGxr--tyuaXrqaAklGakqpvX12eCn6F5SKdcB5p9XDTVs4nBJjz3tHwoNFs7taTpojwZMvVt5JHLCl2UTHOEmCU83uCNGfuugrzHSerRPfMEPDyq4lZeOy9igXXklSy5h9n1bTOSEqWrXHoWBaq&key=AIzaSyDFPbuwWq40jOmxYyoNdbIfF4Jj7HGuekU"
+    ]
+  },
+  {
+    "name": "Pousada Beija-Flor",
+    "address": "R. Cabral, 1101 - Centro, Corumbá - MS, 79300-090, Brazil",
+    "phone_number": "(67) 3232-0101",
+    "rating": 3.4,
+    "user_ratings_total": 174,
+    "coordinates": {
+      "lat": -19.0081901,
+      "lng": -57.6511344
+    },
+    "photos": [
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AXCi2Q5Ki-_eUVElgktCAbl6bHdi4EDsMsw2ZavRBRQwqK4CE7Fbxqi6BFPgzLwBn23XTwFzzBf6MEbUMFed4d3FQQ4Is87M7tMQwW7sNODxB5cQF_5W-JICE2HiX71MjXcxPGrGE74sPJO3LIh-sOb3UDugd2B8CsXOnbPrcf9lb-2ILnV7&key=AIzaSyDFPbuwWq40jOmxYyoNdbIfF4Jj7HGuekU",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AXCi2Q7zNpw0bxeJEq2MlP7hAHrTjZrgoJWt3HeW1RTDzWYQ4mnoFGYUKPLjDduJg5fqkIcCMYHX7mUacwxIEMMONRVKLJ5rGc6aUX1wWTZIls61X0jVOaWHZeRkfG_TjteYOrVic8-VSnZDZz162Nhb__QIWPXBLzVyq0xliNahwYkNhfiY&key=AIzaSyDFPbuwWq40jOmxYyoNdbIfF4Jj7HGuekU"
+    ]
+  },
+  {
     "name": "Nacional Palace Hotel",
     "address": "R. América, 936 - Centro, Corumbá - MS, 79301-060, Brazil",
     "phone_number": "(67) 3234-6000",
     "rating": 4.5,
-    "user_ratings_total": 1687,
+    "user_ratings_total": 1709,
     "coordinates": {
-      "lat": -19.0042898,
-      "lng": -57.65063509999999
+      "lat": -19.0042921,
+      "lng": -57.6506342
     },
     "photos": [
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AUc7tXXCiDMq7zvXBfuvMsNg0EQYKWAux9JWpSinohpmtMHDrDnq--gcb84XnF0VbEUZPaUnoLFGky7RPAcN0Z1s_MJ2uNTnC2Uk2U1_e-rn4xgexpj-7EMEr8MhIfDQOJZAL_CCG8NRSggzQNg4-xdL6rnu4JvkIP9WazefeP9RzpG4GWmn&key=AIzaSyAFdGKDcfeyuuwUDuZfrAOVSxrWWW3gu0s",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AUc7tXV50p_Yi9P46NCdFsyjERy2Cim7ydwduAM3LDPwxbEJlT2i6f6R3nv2-F6052YuL4bZcfBW1RQsPd2X6xtBgczeyW9_3Vuw8QnlWZ-y_1F8_CJmXGZEIPqGPpjgcDhstFgVFr257C00zPePXnbh8WjraVF6bxOPBiRsp0U67zgBJT_A&key=AIzaSyAFdGKDcfeyuuwUDuZfrAOVSxrWWW3gu0s"
-    ]
-  },
-  {
-    "name": "Yes Vancouver Hotel - Flat hotel - Corumbá - MS",
-    "address": "R. Joaquim Murtinho, 1947 - Aeroporto, Corumbá - MS, 79332-050, Brazil",
-    "phone_number": "(67) 98402-0002",
-    "rating": 5,
-    "user_ratings_total": 52,
-    "coordinates": {
-      "lat": -19.0118243,
-      "lng": -57.65841499999999
-    },
-    "photos": [
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AUc7tXWIcHV-dRRGPpxP6Q3DC0PotEfetLZc7Yc1GGhDAEfCGwW-4Z0tGG0OQ3miBnuNbKE3H7HhK84Qa2_AO-qeugFOpew_U_p2OiX9e8J20Yu0VOtRawd80_NLSWHmLZbFT1ISn1zB6dOJ5G8SFGc9D9GyEJ3cfBJ73-yIR_A3U3pCIWh9&key=AIzaSyAFdGKDcfeyuuwUDuZfrAOVSxrWWW3gu0s",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AUc7tXUsW6N-M2gsK8To06BHmvzPAyBgp86sFfXn_w3DWQTgsOerZcsxT4fJXQ6sxo0SUzySDqY5FzGvDQRuHJiJ5PO7sOJPhDVbCZwjXDyCuz5VWePYMG0_BSyPGO4teVfMkD5TdeEgwx2hgTqvEsRG02pBeU0bI_Q0rZaiFFBcorFtkgbJ&key=AIzaSyAFdGKDcfeyuuwUDuZfrAOVSxrWWW3gu0s"
-    ]
-  },
-  {
-    "name": "Hotel Laura Vicunha",
-    "address": "R. Cuiabá, 775 - Centro, Corumbá - MS, 79301-050, Brazil",
-    "phone_number": "(67) 3231-5874",
-    "rating": 3.9,
-    "user_ratings_total": 448,
-    "coordinates": {
-      "lat": -19.0027158,
-      "lng": -57.64955829999999
-    },
-    "photos": [
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AUc7tXWMSx80M3DnIbml9Th17WEpyw5_gruzAECum8hKVqVaueSuwS4W0qv9aAdGsqNo0MXWvL9KUlkphWtX7e_fXZaUSOuBi6FI1N5UF5pafyCbyQH0Kbwb36fj6HfZKJGEQ4iAOasSO1_onMSaDOI6MUd3fGs24mwYgwb_vQ1Plr79XVOy&key=AIzaSyAFdGKDcfeyuuwUDuZfrAOVSxrWWW3gu0s",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AUc7tXWnYx2yju31o5lgvYpFFPVXTYszixNHOu72ii6oA9wxLS-1rwCkdbxy0ckDMzD4r4ihQvYmZojIOaQpBdqsQPftEt7UMFVtxVf20MmSrhwdBb3LSDFnQ8TTeF2zmfGEa6BQw-xwV9qVB-Dj3qTBYHykduYroymzR3nHQAi1zr0KPZz5&key=AIzaSyAFdGKDcfeyuuwUDuZfrAOVSxrWWW3gu0s"
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AXCi2Q6_7gXwnk6l9Nk5Kjjvx3tvtBwtKp_mTHz1-923u0KCXFhwR61A7QgLc8EglLculyuxRjiLNfmV5Bv39Xr1GrUc-j-zP--0uoXQxpPD4QRLycCHI4wS2E5URnO7IOmcb-seILp_yQGs7_srbyA7AnrVcjt-4yArBIL1NRQCsdUgk2C8&key=AIzaSyDFPbuwWq40jOmxYyoNdbIfF4Jj7HGuekU",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AXCi2Q5R8lxPWAGoo9OjyN2xXR1-690Bef6b-pwzPcDmXbF4fWqpsSNDtjzJHG_z_6_Cihc3qm_oQmMdl_PNWr8pl7M5ezNTy7Ue4UbjlwylsPrSAs9xdA_m2M-HUjIcP3IuSqruCoX_C2fWiqEgndQdUe0Hes2vVOkdFm6JVtEq5XQ_DrJS&key=AIzaSyDFPbuwWq40jOmxYyoNdbIfF4Jj7HGuekU"
     ]
   },
   {
@@ -49,29 +49,74 @@
     "address": "R. Antônio Maria Coelho, 345 - Centro, Corumbá - MS, 79301-000, Brazil",
     "phone_number": "(67) 3234-3000",
     "rating": 4.3,
-    "user_ratings_total": 951,
+    "user_ratings_total": 961,
     "coordinates": {
       "lat": -19.0005735,
       "lng": -57.65089829999999
     },
     "photos": [
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AUc7tXUIBQnc9E2xDtXZsqd-b0VPruDw9D5xvd0SseT1sKylBV9il9uSshnDwV_41PmNDVYWULs3av9dd4XsVuvcDT8SnRM2xl7Rxj8pair1IDtGziAcxeL-B5Ky97nz_LqmC4UTo3D7FM8J7EHeVV2JRTntVkujZEPPeYUlNTBwRpOgjnCW&key=AIzaSyAFdGKDcfeyuuwUDuZfrAOVSxrWWW3gu0s",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AUc7tXVfVurvN4eWvTJnN5heoL4aMRXlDkLTsTFZ-UORPk4AZBVUVgSWtzxadtF3RXUdJpp5NBdG7BytdW_Zi4bDj8Z0gcJnwZE0KzWe-fdsoV1K0Yc64U9t7QZxFAtTbsj-RKyykfiZ4mBHlkiYnWAl8xDHtTEYEFhc9DIZwK3JY2-pdMLA&key=AIzaSyAFdGKDcfeyuuwUDuZfrAOVSxrWWW3gu0s"
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AXCi2Q5YbKvr-H7lwqtvNjrNDUa82QH9BlEqVfE1xgs2U_iCvdu6gZPJis_bhmQ7r0l13MGoIYl-eda-4vDErmPhQd9_q9V_knmFZ88rAnR2aT473AHLP6H-o_5gn8bHaYuoESIkRsndkMkUmspyIC79Qm9MQybPPpXggjLfvY6hWnq78dpT&key=AIzaSyDFPbuwWq40jOmxYyoNdbIfF4Jj7HGuekU",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AXCi2Q7qg9l3Bif6oH_gOEPzLPvGlfjlPZ_JWgaQ29h2vRNlVVxr9jb55oiO0rL2NfsJYnDTSqwdc1q8njTEqL5L702EygqDVbXBoa0FmyuIcZnFG6vuuXQRuDjHeJzjbqlvqafzbSDFP5WxuvHtHlijyH-3p-TIuiKDpmi8mEuee7mI0r-f&key=AIzaSyDFPbuwWq40jOmxYyoNdbIfF4Jj7HGuekU"
     ]
   },
   {
-    "name": "Dom Alberto Hostel",
-    "address": "R. Sete de Setembro, 34 - Centro, Corumbá - MS, 79330-030, Brazil",
-    "phone_number": "(67) 99343-5454",
-    "rating": 4.6,
-    "user_ratings_total": 205,
+    "name": "Pousada Pantanal",
+    "address": "R. Dom Pedro II, 99 - St. 1, Ladário - MS, 79370-000, Brazil",
+    "phone_number": "(67) 99607-1213",
+    "rating": 4.5,
+    "user_ratings_total": 143,
     "coordinates": {
-      "lat": -18.999297,
-      "lng": -57.6566512
+      "lat": -19.0007677,
+      "lng": -57.60439900000001
     },
     "photos": [
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AUc7tXUErkIdBPZ19rEsbq9f2wWiPu5cGN90r8cRzFG9R80ZLG8ta_l7iAFChjOigJOyIh9WEjjgr2vsmTPKE8w7lsXIDuLrGpuTHAw4HeFWMg9sNq4laVxreqZ2DFCEECVoBf0OpD37YiXDlfZcQirUgNK-umMzKINT2zkEsH-1nPrE2CFq&key=AIzaSyAFdGKDcfeyuuwUDuZfrAOVSxrWWW3gu0s",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AUc7tXVlbH1YVge31WUVsR3r9U93YLTbQ8d21BY692EoYHPlA0SnwyEfsSrN2C33VjAXlQsfeSywZnCVZx9V3PCVvbajyRoqe57bjur3TOxPmF07GIRmgM_y0pwR-XWn86nZKqkCxKonRnNrSaatKCkg0-ewQpXZvrrjIxbTThzcZyMOujo-&key=AIzaSyAFdGKDcfeyuuwUDuZfrAOVSxrWWW3gu0s"
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AXCi2Q6BhmnbBFglupec7Ui6KcF-NbydDjKtGP9bRfyzYEFaJ5ksZX7WRkL9vbTeJcL3kKwDarLmSld9aY4764Y4bPUojU-A-T2d6YrZwXq6aFeLuJ-yt6ugN2RLqw8BA8K-cn-cLNP1CR2ytk134JO3gmI2X0fckLJT2No-G5VSamgatPVK&key=AIzaSyDFPbuwWq40jOmxYyoNdbIfF4Jj7HGuekU",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AXCi2Q4l9u71GgduTQ4w7yJ6swOi0F19l_OpL-nFMXw0SWWtao3ReV7mgR6J91_Bl7HCHx5-aEqDfroiDV-Y2778bEVeGvRn4O11UNNhy8INde2LcKJUgkvPDiQL1lhbg7kCIlXyzPODKoi17E6QyhqdQw_HOo5dEWaY6cCsA8SPjxDjf2aU&key=AIzaSyDFPbuwWq40jOmxYyoNdbIfF4Jj7HGuekU"
+    ]
+  },
+  {
+    "name": "Hotel Rios Corumbá MS",
+    "address": "Av. 14 de Março, 1068 - Centro, Ladário - MS, 79370-000, Brazil",
+    "phone_number": "(67) 99874-0207",
+    "rating": 4.1,
+    "user_ratings_total": 242,
+    "coordinates": {
+      "lat": -19.002582,
+      "lng": -57.60757
+    },
+    "photos": [
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AXCi2Q7mOgbSVOHsw_go-qox1xbA5MPm-aNgiBpDc_xbkqbVYdh0KLiBzekS0HqvUt3PO6iSPWeLc9Plr2NP36d_XRGBNQkn0U314VL8delGLfbuFEgiPqULj6zWy4IxkZHGAG9sLPLpSMw6g3Gm60AFnvydbE0IE3cOYXvdC_-FxfFYSfRg&key=AIzaSyDFPbuwWq40jOmxYyoNdbIfF4Jj7HGuekU",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AXCi2Q7TQz-HOem0iFCzxe1awpg2UPjumN_8RrhAPFm45YgLONfOpsEESFT5h8klMSZrfcwHMU0DSI95ScKs5K1fD4D8m_mTPVWbpQmo5p_bMi5zMYvtUbfjJWBWR3i2EJY8aN3o-El64NRIjbUJfzwL3RzvrlFAa_pvMuBJXNZ7YDyZVm_x&key=AIzaSyDFPbuwWq40jOmxYyoNdbIfF4Jj7HGuekU"
+    ]
+  },
+  {
+    "name": "Gaturama Village",
+    "address": "R. Número 1, nº 200 - Maria Leite, Corumbá - MS, 79310-050, Brazil",
+    "phone_number": "(67) 99228-2850",
+    "rating": 3,
+    "user_ratings_total": 1,
+    "coordinates": {
+      "lat": -19.0144648,
+      "lng": -57.6260059
+    },
+    "photos": [
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AXCi2Q6hHiqAgPxmIucT0PWXAs1ULP-tttkU-LOKPqZBYB5ZVzYmpnUJ_1dToWnfXTRCeLVsrj5m4aWapI6mUeDo68Mpz1c_1fhkJxvpM1qUsZORuLCNSlgcc7Pj9F31018f3fp6cC564QS7XkNdHjbZOqp8IxHIqG0aBLtUFDmz6VoWOTfG&key=AIzaSyDFPbuwWq40jOmxYyoNdbIfF4Jj7HGuekU",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AXCi2Q71m0y4nwPHzZqWA40AXExthQhCWr1K3RFMi2Pe3lk0q5iFIPj0zfEuCKbEkbNkgB2yYoBE6OfJbNYtwZY7xiWt-x5GsZmW9IaVKeSD5xwza7IuC8ABh0RhSlWcaL6hgwPmX-8lIV6RyTjF3kt9tWUMLNpRSBZJmKVU_VuT804H7XFN&key=AIzaSyDFPbuwWq40jOmxYyoNdbIfF4Jj7HGuekU"
+    ]
+  },
+  {
+    "name": "Hotel Laura Vicunha",
+    "address": "R. Cuiabá, 775 - Centro, Corumbá - MS, 79301-050, Brazil",
+    "phone_number": "(67) 3231-5874",
+    "rating": 3.9,
+    "user_ratings_total": 456,
+    "coordinates": {
+      "lat": -19.0027158,
+      "lng": -57.64955829999999
+    },
+    "photos": [
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AXCi2Q5jOL0yvbxjpRLl1fUdEvQnR7CqDmHv4Ly01wFJ3DclXTwrIVgyIVFQIVdwjucbiEmzRKS39LupbjTTNYgZaTTNruQJOYJ8nKhQjO1IRB9AVb39bri_lVunUa6mxV8xQhWYKFMRXrbzsIc-7mlCoAAjQJUDhG6H_FDe7sttfzzOPO_q&key=AIzaSyDFPbuwWq40jOmxYyoNdbIfF4Jj7HGuekU",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AXCi2Q7GGs7hQfshcLcHa8_i76TyqmkCedBjO5eO5jvZhiTbTV_CdNIQPMoaM3HYMNVvzJo82QHlwzznQsIP6W35a3O_V3WmsO1-pv2bNAVC4IworVqO-Fd9vj5hGZXSZsm3Ttbca9xHSoBds04nACoQrixG9NkYL-mccYkMPVqyu39OJmtK&key=AIzaSyDFPbuwWq40jOmxYyoNdbIfF4Jj7HGuekU"
     ]
   },
   {
@@ -85,68 +130,23 @@
       "lng": -57.6518386
     },
     "photos": [
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AUc7tXWa3MMioxGykBqVn8MOMq1GWV7B0s2fHHvKPS9AthGJi9FwW6tyFlHF6Ac5GVKhURcLH2LeQZWsgkCl0WExhm4tcMcgDUMAoDj7SMXQDNGctr6zk-cdbVrplYxVAvzRLuwOM8JOCVM1tOm-c7WGBkpeyeSg4ljXFjB56OyH92KF5vJH&key=AIzaSyAFdGKDcfeyuuwUDuZfrAOVSxrWWW3gu0s",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AUc7tXWq6Y9EIWAOMG99FLHIiLS177cUPzjR6U9niOxZDp0ynX3PShZkf6z2WI5OfaNoW2Qqf0iRQd9MxnXnQbMaWJzfzJzwxTf2HQkP1B_DYBATXFNi4EPDMYPkJBIl8NOuCKd-EhrgmKCg8nPrIxuT68awD9KR3Gl061g6xd5hV07DINwi&key=AIzaSyAFdGKDcfeyuuwUDuZfrAOVSxrWWW3gu0s"
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AXCi2Q5Q78_3J05NreFott5BO9pzOINQTz8eLbgQn_Vl5SqP_cpn0Se3_OiL2JWm_Jl1i4IvcmL182pB8uwLfxFD8rUroFvuvtLPhcRR5vIRBchr-rBBdnabYP3T4ZCp1e6B3bdkkfLQriWrwcgTMdKTAGHNa3EeCMNYeiap61e0IJWDo07l&key=AIzaSyDFPbuwWq40jOmxYyoNdbIfF4Jj7HGuekU",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AXCi2Q7k4wYazyle62r4iQWlIPUUUZIbIemcwYerM9-32LMVLtust4W3gtf7w2Q52GrUbQ2lcEgpeGuy-IqF9wojkvdQ83k77jufKjSwXLc6FyJHvWuvzpVi_fnuTMGHZQn0KUqestaz8Mg6fxol21HYCSvsibyaBOIaDA3rkNlK_GzBE9EY&key=AIzaSyDFPbuwWq40jOmxYyoNdbIfF4Jj7HGuekU"
     ]
   },
   {
-    "name": "Hotel Rios Corumbá MS",
-    "address": "Av. 14 de Março, 1068 - Centro, Ladário - MS, 79370-000, Brazil",
-    "phone_number": "(67) 99874-0207",
-    "rating": 4.1,
-    "user_ratings_total": 241,
+    "name": "YesVancouver Hotel - Excelente custo benefício",
+    "address": "R. Joaquim Murtinho, 1947 - Aeroporto, Corumbá - MS, 79332-050, Brazil",
+    "phone_number": "(67) 98402-0002",
+    "rating": 5,
+    "user_ratings_total": 54,
     "coordinates": {
-      "lat": -19.002582,
-      "lng": -57.60757
+      "lat": -19.0118243,
+      "lng": -57.65841499999999
     },
     "photos": [
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AUc7tXUDUnnzOiQjstXnBwPSKn7NSuRG2daC2c-BdZDkn6KmDg1SZppDvyk8PaVNbIHQZDX7U0KwpxAlvAjU3JDIIvnsaodG2X6UGuJ0_3zNPFZH5bWp7TnzpC0jDjGW-eUqebNZYHX79fUAH11gvB2dbq5no5rNc6rSvR-hb6OW0CuEI_hu&key=AIzaSyAFdGKDcfeyuuwUDuZfrAOVSxrWWW3gu0s",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AUc7tXVt361GmUa3fQVwipCoJx8-nKb5q53GnMPpVnscjF7QQWnEB84s50YDV23h5buVnXAWxw6tukphoG6ttO7_UMd6O-zuvbvPbKzk-ZhDyvPkbjWYhJ1Ct0Mh0QqXNHUTzjkyNpSYqWqPk7xiLLRVwNdtVvpR7l58pYVGrJo4HsxC0k_c&key=AIzaSyAFdGKDcfeyuuwUDuZfrAOVSxrWWW3gu0s"
-    ]
-  },
-  {
-    "name": "Pousada Beija-Flor",
-    "address": "R. Cabral, 1101 - Centro, Corumbá - MS, 79300-090, Brazil",
-    "phone_number": "(67) 3232-0101",
-    "rating": 3.4,
-    "user_ratings_total": 173,
-    "coordinates": {
-      "lat": -19.0081901,
-      "lng": -57.6511344
-    },
-    "photos": [
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AUc7tXUJqnpsbklf8LoX5TBIbb-wTisx6THwiwI8eWwcJzKWcE_jVvtU2lFUlHW0JlSc1S9-7No7lDH852kkViLYMI32_TtldjjeXzJ3OEaXys6sapqt77Ce5z8nVyIRsxO2-AUkyOpwqaClX0bW27UBh8SHgEUOJPmGxjo8WkK5tUTjv9LF&key=AIzaSyAFdGKDcfeyuuwUDuZfrAOVSxrWWW3gu0s",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AUc7tXWgbqcsystLcEUH2xTy_f9RUg5A7keXp4dFnm46e0VgM13zWFiXpLz_UMaPCJp5fIUUrr6S6-WH06sWpd_1wdaPsr1CTB7dqrctCtTkxCESyIWEvbJBgz2w5wzgTHJvYv2b_k503iYs2dG41zeRiqAu09cL-NSBNEvSzi2cVe3WPcs_&key=AIzaSyAFdGKDcfeyuuwUDuZfrAOVSxrWWW3gu0s"
-    ]
-  },
-  {
-    "name": "Pousada Pantanal",
-    "address": "R. Dom Pedro II, 99 - St. 1, Ladário - MS, 79370-000, Brazil",
-    "phone_number": "(67) 99607-1213",
-    "rating": 4.5,
-    "user_ratings_total": 141,
-    "coordinates": {
-      "lat": -19.0007694,
-      "lng": -57.6043913
-    },
-    "photos": [
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AUc7tXV8P22YqnrITPLBPXJlfCnsC43oygOsEU2TKM5I4FjQJz0LmTibCbCVzQcugctqKbG6qIVkseDUTGlz5LH_9Bft5MTyTLPt32VD_j9fHeTJxTUdVwRTkU5tN4yQlZwd7kPRThSTWIY29VPNf5N7-iQuONFwuxw3oVx9d3yEUYU7Sbap&key=AIzaSyAFdGKDcfeyuuwUDuZfrAOVSxrWWW3gu0s",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AUc7tXVDax5epYybQkp8NrXYFi_OfXVT1N7cvfwOloQEUXnIusrJtdweVFsXiE_1fJTwLs8sfHqFbifCON93bCHWXV-fW5n9qL6YYdRH7JQkoY9C8xubb8D9QKMVpLf8Qu4FK89cQ7L8rPlo_KV6rQAB-fAuewLzPWASSejZVB5-icT0SPKA&key=AIzaSyAFdGKDcfeyuuwUDuZfrAOVSxrWWW3gu0s"
-    ]
-  },
-  {
-    "name": "Virgínia Palace Hotel",
-    "address": "R. Dom Aquino, 47 - Centro, Corumbá - MS, 79303-060, Brazil",
-    "phone_number": "(67) 3232-3508",
-    "rating": 4.2,
-    "user_ratings_total": 336,
-    "coordinates": {
-      "lat": -18.9992718,
-      "lng": -57.6434777
-    },
-    "photos": [
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AUc7tXV4mji0uEdF13UY2HMGsn3rtFolXTPelECjNi5ciNsFGZoxIFoy9q4NN4YuJWhplqHbr6a22oO7F7IDmX_8KHG8EzXyQdu6MLwVVZZ723LbTEggZYobJykMuwz6OxuH0ZonWys7mBiA2EDGVh1OwtHQk45AEZ_D3La2ixhB17ejMfL2&key=AIzaSyAFdGKDcfeyuuwUDuZfrAOVSxrWWW3gu0s",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AUc7tXUzTuw9cb2743PnRtx669iG26CWCTSjGEviSjcuh-bODJg0UWV_ECP_3NA0Ee-NoNhn-2tTZHyTilW_zMuGREuZB2H5krkeCWGxZX35vCzaQwS-0Gl2MYfNQGnrpeaa9V_aqkGW4nkwqW9k_CmDZ7E0Cusp1SK9tCP-NddrzrgsD6eP&key=AIzaSyAFdGKDcfeyuuwUDuZfrAOVSxrWWW3gu0s"
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AXCi2Q7T5kBTyGmt5Opb-sOC94mMCT5PcoV-jPM2bMophOvTmAv2Euzx0Evp6ktrWiPHeaORIIXXW6zQdgWokb0aRTDKvIhGG1rZUod17PrVsN4p4o-9VBrDe-0R0f9sRvub6IN_maRtZ3Iqse4kVbiaBjJlkaBWZl69PXgpFRUtWTJkjUVp&key=AIzaSyDFPbuwWq40jOmxYyoNdbIfF4Jj7HGuekU",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AXCi2Q7gQoV3qNkIWAMm0JYcvJTJynovuWR_uHRazZ3xNkSv01NjgMglJbMLWoebr0szD3DfOLVK96sey0cfMmA3gpp0O3K5pJ7LvkvPxvRWqrrIH7ThAKLbePDOl2Vu-rXB6_lAj-JfQ94EG2H63HHEiwgBQMJ2TBWYKZ-Bl5a0pD-hz7Ui&key=AIzaSyDFPbuwWq40jOmxYyoNdbIfF4Jj7HGuekU"
     ]
   },
   {
@@ -154,14 +154,44 @@
     "address": "R. Dom Aquino Correa, 860 - Centro, Corumbá - MS, 79300-050, Brazil",
     "phone_number": "(67) 3231-5453",
     "rating": 3.4,
-    "user_ratings_total": 220,
+    "user_ratings_total": 222,
     "coordinates": {
       "lat": -19.0013542,
       "lng": -57.65120690000001
     },
     "photos": [
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AUc7tXWKrQY9lgI1rJdfu8GbYmAIIjObUopgqfbRzEDEmQL_4VYrM0nKAA7MQQpi-BsrFIeRVYAABPW2PzPSSvA_PLHom0JXfScFrxITDf6ldjAgq5xZ0SfQI5JVDgS0fyPJOmAEPqRpsU71N_01fUZKr0FeAZ7BDy01VABihAPE8r_xJxKb&key=AIzaSyAFdGKDcfeyuuwUDuZfrAOVSxrWWW3gu0s",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AUc7tXV3QHZHdVnCvSNMvcmtdfu-IgW7nsiJ5JITEglk5_V1OVD6I_h_FMfm13_y4IfyuwJ0s9-8XL3PzYVxBlwgdkDdKSKwsHBKA8KgNdscx85_RDC3NvH_XQUKEy3CltHpShlC_kLt762GbcrSgtWv-If5dcrhzZdMCZWWHC941eziGLDQ&key=AIzaSyAFdGKDcfeyuuwUDuZfrAOVSxrWWW3gu0s"
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AXCi2Q4n85c9aFbl07_3KjpWUI-kNulyaUlYLju7MPNpfhXiQgIBoBGIVDjjCyYxUv6LXNHD0CAHHoEs4uECzNcdtFCgoGczPlYdVxCXx1r3MhWurwQYDQ9SAZvNAsbgcKQIOeKX5ivg5MJNN8N3rTq-xygCfAaY_sAYwS42MGxuDooKvmD_&key=AIzaSyDFPbuwWq40jOmxYyoNdbIfF4Jj7HGuekU",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AXCi2Q67yMoJNDPMUfg2FEnSbQ36xL214_tdlpdXHyjnpuVBg-8nEwXzlgsYBX0xYA178EV1f9vDKRnrMiRN-x67L0W-k4R5LtNa1j2dBrULuELvpa0m7DnDT5uz16yPbydbp0y87O5HrE3hK5CZ0ZTYy0JxzqPvnAaM6YZ7dPtDkAIkm0ng&key=AIzaSyDFPbuwWq40jOmxYyoNdbIfF4Jj7HGuekU"
+    ]
+  },
+  {
+    "name": "Virgínia Palace Hotel",
+    "address": "R. Dom Aquino, 47 - Centro, Corumbá - MS, 79303-060, Brazil",
+    "phone_number": "(67) 3232-3508",
+    "rating": 4.2,
+    "user_ratings_total": 339,
+    "coordinates": {
+      "lat": -18.9992718,
+      "lng": -57.6434777
+    },
+    "photos": [
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AXCi2Q5CGrmC1VBMz2jc9O3Chu4OV_UtJL_kumoPyKH8zPMRbRjPbCFhWGWssS5ylTVd4-u7yKlKcDsm1GdOajgwN82aZCXjkMBghP8crnSf0vVXSJiRZQykSjNiKCFEejYMJfVOnmPCoXc-CLIK6U53nYW3kG42oQvQ11ViHlhpIyXkuKJW&key=AIzaSyDFPbuwWq40jOmxYyoNdbIfF4Jj7HGuekU",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AXCi2Q7MIhwzFhoSuf_QarSl-vfCkD1AHhcJ4IC0fM6uKH1LPvrfDHLsXq--YsyEEAgcMyk-c5p6oGJu-OBb9yCeDNEMSDj3PqwIXZJwTMr8htPxfN9GYewlmNcztIrV-1dUGtrHpe_NTV10DLrXxzaJrwUlHuGtzIA_5qKtXP4xbTV6o6Dq&key=AIzaSyDFPbuwWq40jOmxYyoNdbIfF4Jj7HGuekU"
+    ]
+  },
+  {
+    "name": "Dom Alberto Hostel",
+    "address": "R. Sete de Setembro, 34 - Centro, Corumbá - MS, 79330-030, Brazil",
+    "phone_number": "(67) 99343-5454",
+    "rating": 4.6,
+    "user_ratings_total": 212,
+    "coordinates": {
+      "lat": -18.999297,
+      "lng": -57.6566512
+    },
+    "photos": [
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AXCi2Q6O57c5CA2VTILxQOtCU7beQcj-RO1Xn-C-SNQMyTUC7PsnRn410hbdYfTg8vrXxo0_RHLZURvKTb7M6yWc0CNdcUGMbT4nZ_cwb0S8MJrMZN1aaAJEky9grYIUhxZWC9_1N-XEAklx0Y37YRnlgr3JJ0t71sGFbogCL5qDBWH9btMc&key=AIzaSyDFPbuwWq40jOmxYyoNdbIfF4Jj7HGuekU",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AXCi2Q7ebIsvE1ddG5Q_C6V279BNbKsenCAwwPnA5G_0aEty_WoWhBaWAiUeuwdRIOeMkc1aSxyoTu0Z8KHRYulXZRGBLbBN-EmEAQK0Z15tv6Lkraw0SoLFLhn4ryguLPgPA75DK29QyohiJqJOAxUW_pDevtMhSxVNia0Q0NEcM8HZEWzR&key=AIzaSyDFPbuwWq40jOmxYyoNdbIfF4Jj7HGuekU"
     ]
   },
   {
@@ -169,59 +199,74 @@
     "address": "R. Quinze de Novembro, 205 - Centro, Corumbá - MS, 79330-000, Brazil",
     "phone_number": "(67) 3231-0028",
     "rating": 3.4,
-    "user_ratings_total": 207,
+    "user_ratings_total": 208,
     "coordinates": {
       "lat": -19.0002333,
       "lng": -57.654404
     },
     "photos": [
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AUc7tXVXD8VAuZTaWWbRgicx56lx7_j2CYU0_EyIT3fwc8bBl3d4t4pFd_AV7DHA4NH5WF3otvkZ-r444pEHhUtR2WCnfvfWI_KcVHkW1yzNCNjkLwdV_PKuJsvV2klDQocapWWvYuXX7tb4K-T26Czi6S3s7Mf4NWblhJNtoxIIlG3jpMq7&key=AIzaSyAFdGKDcfeyuuwUDuZfrAOVSxrWWW3gu0s",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AUc7tXVfDNv4RQbGK_AYpeZbSgYKl_L7W7yrkWxY7Bp4PhYXDTEPVxYtY8sGk0gWH8_kuoK4jmmXqLcnyqO-n3w76ot5xX3Rgc2QaJ_WQvtxD_kO95N7H5eaArkaE0QQCwmOKJ1VTvafWFGsQj1TwQruMJH1nun6x6wpYBjDWNYigw6pdQ4X&key=AIzaSyAFdGKDcfeyuuwUDuZfrAOVSxrWWW3gu0s"
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AXCi2Q7hM_cgsho13zNjXN8Vlbe-2oFnY68oMOGeFiqxSnCr-Oe_9JGk5SbO-86jrz80q9nD0lmb2JMN3HQdkTY8Bx9bNJIImnteucXeCF61t1zVJ-wwny6P62kHotikrISbCYm0YG4carLZlHxOiuQp4neJO9PijWFU8LMAsRkUJEQs1N5P&key=AIzaSyDFPbuwWq40jOmxYyoNdbIfF4Jj7HGuekU",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AXCi2Q6PJR9XNyAJMOTtJsbEhcz9vt8tqcRBHnHqH62J8jvC5Yndlyjnz1veekspjLCpREHAwJ7Z0zAtDEq8LJAiVQZT-wj1-pMZ6f6rvSqJd-NhG8I2vQe7xvLxMtT7R7kcvKn1wx1_BSfKefWbNfQIWnNcG1meVj2nprAaHpPtMxqHWAmE&key=AIzaSyDFPbuwWq40jOmxYyoNdbIfF4Jj7HGuekU"
     ]
   },
   {
-    "name": "Salette Hotel",
-    "address": "R. Delamare, 893 - Centro, Corumbá - MS, 79300-000, Brazil",
-    "phone_number": "(67) 3232-6760",
+    "name": "IPE PALACE HOTEL",
+    "address": "R. Tiradentes, 1621 - Centro, Corumbá - MS, 79302-050, Brazil",
+    "phone_number": "(67) 3231-5597",
     "rating": 3.3,
-    "user_ratings_total": 102,
+    "user_ratings_total": 161,
     "coordinates": {
-      "lat": -18.9986407,
-      "lng": -57.652219
+      "lat": -19.0087522,
+      "lng": -57.6446274
     },
     "photos": [
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AUc7tXVldX_u62lC3G04GsaULj-oMsTO5E1d3NSw1KzKY_q4WaGk1uGk7WjYW2YYFIpwN5LMsbzwIokJdeiilt_BLIDt6CThW_HGLM9a8D9UrCPwHZBrw7N7pHWBwzBeO7ksM0BEq77jHoqWZM1aD01cjPQ8PI-ed9-B0S-nmFWlAWWApFUs&key=AIzaSyAFdGKDcfeyuuwUDuZfrAOVSxrWWW3gu0s",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AUc7tXVbdaY62ilAx7FFZWuSIYVcuiAOSRuzOd1t5y2nGD4An_-E0Z7xSrIEUhO5W1Uu0A82GTA4N7_JhoAZwfCsa3dzL-J3bfKmWNBUvzEXNwC40QS1x956iEjiiU_t15Yk6GrA2cSWYZDqwVzaMpV3SotN0ayhKaRuMMy2MP8VkJdKLKe9&key=AIzaSyAFdGKDcfeyuuwUDuZfrAOVSxrWWW3gu0s"
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AXCi2Q75jWQeGzWaf3mE3RxFFV7HQ9f_uIWGC0wAIqLyA8zf8BQKYEjG_vlVSAzxVnLptZ8y_-H9fGhmbhD-ItKAhiswUoS8WsXT0eKV21eVlh8bWKdJIVAoABo2OOVxM8BuxJdSbv_Vlwd9gslNxWTMY9Lusnwe14fN1_9d_JfWkKRWGBoP&key=AIzaSyDFPbuwWq40jOmxYyoNdbIfF4Jj7HGuekU",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AXCi2Q475gZ4LkjSFhmNBQ7saKJc8lwPAR7aV74a1DEwuVftpEZkdpTIiy2sFABE7h7arrZFPb8l7W2KKujsNPkUvTUdkhouiS5ewV-PXuWSD7zEQBxpxOgT9eFTKdrkFZhDQeKSxs1gtqvOeHgewLRTy6yT-sF0tkp8xRfECe3JPApgA5i5&key=AIzaSyDFPbuwWq40jOmxYyoNdbIfF4Jj7HGuekU"
     ]
   },
   {
-    "name": "Hotel Fazenda 4 cantos",
-    "address": "R. Ten. Melquíades de Jesus, 1152 - Centro, Corumbá - MS, 79303-031, Brazil",
-    "phone_number": "(67) 3231-0482",
-    "rating": 4.3,
-    "user_ratings_total": 175,
+    "name": "Hotel Farias",
+    "address": "Av. Gaturama, 1 - Maria Leite, Corumbá - MS, 79310-731, Brazil",
+    "phone_number": "(67) 3231-5149",
+    "rating": 3.4,
+    "user_ratings_total": 329,
     "coordinates": {
-      "lat": -19.0047742,
-      "lng": -57.642807
+      "lat": -19.0126261,
+      "lng": -57.6297909
     },
     "photos": [
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AUc7tXU4VytKBYbLnIzjcN0unp_UfFexj5NSesP4SVN9Nj9WgLT7cjK6xhFpydEYccVr5rnlFe-nZVwgWGJSBdy_87SrKLnsZT6WoA3E6HwMFE_8vl-ACWw5MGIPx2UrulH6N1Xd-ad3FvsdtUuWjUBNkIa4Yq-9-L4vgfb_QfqyY131wBm7&key=AIzaSyAFdGKDcfeyuuwUDuZfrAOVSxrWWW3gu0s",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AUc7tXUtQGuNqMgVqJzEZikiHHq6Te232H3bFd4OsDMykpHHhkUmmfl8-dq3YyfpNujVbIHu65pj2uBEI5SiAI9BuYLHTaNU40slwg9KAvuNW60WiUye5D118b-hQdhavIikPd_wv6K4khuPLe1GI79bLkB5clFAKVjo2h9K3XRWyrofZDjf&key=AIzaSyAFdGKDcfeyuuwUDuZfrAOVSxrWWW3gu0s"
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AXCi2Q7o_9aDvWuF_IvEgZogAL4LpH8TbYw0rimQj9xMXJ-zxAJt9YO5Hgp9QvEGULdCmuJFpPwkKXtgIkTLkNonofW-f12LxFTXouZNyrureMqNOODf8rLOJHFYhC6PO750NsDMX3hVPJA8_hFP92UVmteMaiw8kWaQ-EAGsnmaTm89u3u1&key=AIzaSyDFPbuwWq40jOmxYyoNdbIfF4Jj7HGuekU",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AXCi2Q7JGfSD_GmF7kNMLoVMpGGlZVYpmFD1Qj6JB80sPrTXi55SeBoO6J3JyAwLqmQwW_Abo6LvivVHATismPztqKVnGBFpAEzP7ByY8WPDtyQQ3ilWFLYS6u2ydSVs6yE_Apz1wgFIB7fSQFZG4oKKxn8mLsaC392qCBTTOFwQZwXi-BJV&key=AIzaSyDFPbuwWq40jOmxYyoNdbIfF4Jj7HGuekU"
     ]
   },
   {
-    "name": "Hotel El Shadday",
-    "address": "R. Joaquim Murtinho, 1021 - Centro, Corumbá - MS, 79300-100, Brazil",
-    "phone_number": "(67) 99119-5077",
-    "rating": 3.7,
-    "user_ratings_total": 49,
+    "name": "Pousada Pantaneira",
+    "address": "120 Rua Ricardo Franco fundos Entrada pela, R. Cáceres - Centro, Corumbá - MS, 79303-260, Brazil",
+    "phone_number": "(67) 3232-7929",
+    "rating": 4.4,
+    "user_ratings_total": 188,
     "coordinates": {
-      "lat": -19.009217,
-      "lng": -57.65002999999999
+      "lat": -19.0073203,
+      "lng": -57.6388825
     },
     "photos": [
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AUc7tXWdSlIcqOv5dqfnUY5Ymd5iZHN7gZhfCPjioK2K7qa9S99kbiaejmrOADOF2qmkWgoN8Gnuo_N3KeknoL3lEUBv74MrV3cyFJaHeOdcTUvnSN8XVZsdnKOgU3QJr_s36lvI4kjD-Cd4phL14Ezq7g02PI61wGIQn3PdleZvJ5c6syp1&key=AIzaSyAFdGKDcfeyuuwUDuZfrAOVSxrWWW3gu0s",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AUc7tXUYDFUiWnVXlCoZpef1E6zbp1o8JpyMqeO2UTDFI3Bx8Eb_ooK-p4rSGV0HkIJ7_hVD69FcFHiGyaINjOSqal9eUaKX1gSTYQfkvesRPqhDWC1irqXTpqtz3tqnnuMLhv4Hn_3oAZL0WVsS3sdkvIsHSWfBneWWwtDlp_6mvq5Ebxld&key=AIzaSyAFdGKDcfeyuuwUDuZfrAOVSxrWWW3gu0s"
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AXCi2Q57FE616tvLrBW94BKuVkXyJ6-KRlZla0pffjsQYA4ONOo0uEvXTkgmh_jHaAj4x0M0E7HmuO8nZq6p81BdRcNHBF5nhfHdCMn4fQ2pC01v22jWh7EsUu0Dxaulpoy4rzTooLtXa-iq70CTJLNoHBZ_V0_2Gvr7ocm3IpE8ZPRcAoji&key=AIzaSyDFPbuwWq40jOmxYyoNdbIfF4Jj7HGuekU",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AXCi2Q4U9CAJmGof49Xhirdos5HLpQGtU8RKmyFu9YgN1LDx4Hz9tWPhTMs5y2Gdo9TVNLoJl9bLPgPVXQkOJ-CkHvHt_uXHBnop0Jl9Ex362vJiLjSJQBnBIsnkThJYWlZPMGlEl98Dub1lb75C0eiV-9-MJj2G7I72Lf-K7epScvZF1xc0&key=AIzaSyDFPbuwWq40jOmxYyoNdbIfF4Jj7HGuekU"
+    ]
+  },
+  {
+    "name": "Candeias Gold Fish",
+    "address": "Av. Rio Branco, 2799 - Universitário, Ladário - MS, 79303-220, Brazil",
+    "phone_number": "(67) 3231-5106",
+    "rating": 4.4,
+    "user_ratings_total": 1896,
+    "coordinates": {
+      "lat": -19.0012035,
+      "lng": -57.6141009
+    },
+    "photos": [
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AXCi2Q7_TzQ-5L2RIqUPNYV8wgQUoFauNxY34LQJ4PMz8GP0s8Vb35Bn7GSA3_BnmPE4vas6ZDuidrHmlylb9QtGIuFJhT6x7JGkKX76pi3aTVklq8dZGbjcrC0U1Ji67fPchteVk_239Z6uHOq2qHWjuDWDY85vmR_CqIwnr2hWnb050Oe-&key=AIzaSyDFPbuwWq40jOmxYyoNdbIfF4Jj7HGuekU",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AXCi2Q6XN_PRmdnfJnmGLlo2X2NtxXVqQV9_mIAd6EZTZftcGZ3VXuCaMBoxygTQPXE26t_fyWCR0wSQMnj6W8USpE0rc36qJCP6u5M400BjEHXdLkZwRRI0dv5x78UxbqAXFVvwNPCkrT8NSTjUzfY83-eMViS6UOXWc2pI0Sd3yyI307Gl&key=AIzaSyDFPbuwWq40jOmxYyoNdbIfF4Jj7HGuekU"
     ]
   },
   {
@@ -231,72 +276,27 @@
     "rating": 3.9,
     "user_ratings_total": 179,
     "coordinates": {
-      "lat": -19.0109438,
-      "lng": -57.6353619
+      "lat": -19.0109972,
+      "lng": -57.63534199999999
     },
     "photos": [
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AUc7tXWz62z9wiRuRQj5PZ8F-xb-oXRanyvzsg6vMnIVEpLAIKumt0_bb5sOx-sk0WjVUuio86klIztxkm-SlIR8mqWjtn26RZ4H3qerd40om9VpLPdZ_Bp05Srp0xHYspKsUYTGIBWtNeO9YDlaemgE_q_n5yydB54497vOCXjflB877dw0&key=AIzaSyAFdGKDcfeyuuwUDuZfrAOVSxrWWW3gu0s",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AUc7tXWacE1E8L5-JgeOXaPrSKQ9fYDfc8pmiwCkHl4P4tJZL-Yny779Zca5Qx6g1NLkAW8fEDLL7zPxdoVcWhse0PBU0m1XcSCbOcC8L4WdOi4oidVqyq-2RKwpD1roPFsCaEEKHRT6ONCH1mRDmKE9f9flTX8Zm0T3Z1BHLjVkL6HqGIJW&key=AIzaSyAFdGKDcfeyuuwUDuZfrAOVSxrWWW3gu0s"
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AXCi2Q7E0h1jayVV7K8MmSJgKXNO1occn700iR1C2W89p4cNvSpbWmbYm-bsOBYYuf5DqgfT56ZmC5hpNJ5FBoKNWPRTVSD3UGsRxaIpXmbzFIfKkeJCK8N6kxFni4Rejrdx6eXD5mtumW6jzRusLtB7rFUuy4IMofDvN3jx8ugkIHGfEqlz&key=AIzaSyDFPbuwWq40jOmxYyoNdbIfF4Jj7HGuekU",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AXCi2Q4RQttEQ-ULBM3eMIIsPR1aT7-jHMU1ft6mCc8RRtJePoF9tLL1cITCzznAevIXjY_21G-7O-HREi5XRQ8vpJ9xkmbW1u3dlBYf19RYidsUOUYN6nrm4gpBP8iDZloeowQ3t9rhTUbevKzX8flzs4nm0aWsvdc6do6an5XLI2ZWsAby&key=AIzaSyDFPbuwWq40jOmxYyoNdbIfF4Jj7HGuekU"
     ]
   },
   {
-    "name": "Hotel Farias",
-    "address": "Av. Gaturama, 1 - Maria Leite, Corumbá - MS, 79310-731, Brazil",
-    "phone_number": "(67) 3231-5149",
-    "rating": 3.3,
-    "user_ratings_total": 326,
-    "coordinates": {
-      "lat": -19.0126261,
-      "lng": -57.6297909
-    },
-    "photos": [
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AUc7tXU7IA1skCjBp75R78oMN3S6bNmNOllG3xjQYFZ6Ubc7dVsoOv1duhFx2ymcv7ZbZ54xVfFdMhKG8lt9T1jL6hmqF40D8P9znxN98uzzd8u9vlatCNbjSz6OSaNjxv7meKesEiJFdWJfzaqgdakWDIg_VkqcmACiGQnitxtdt2reqB6i&key=AIzaSyAFdGKDcfeyuuwUDuZfrAOVSxrWWW3gu0s",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AUc7tXVCAli4wwqKj8Qym-_bzNMkqmko5j9n1KJmJPXbQSQ347bcKQyzIHrPS64TR-5X1MjH4wF_gmT3l7iMjN9lq98o1IbUw_M9ePxlgU8iIUSKo4TlNjeZ3Dmp8NG8VshMuGkKoa8egsY7Sh0u_OM2WTykii_MCkZZLfpfUxhzf8Oq0wcQ&key=AIzaSyAFdGKDcfeyuuwUDuZfrAOVSxrWWW3gu0s"
-    ]
-  },
-  {
-    "name": "Hotel Estrela da Glória",
-    "address": "R. Pôrto Carreiro, 1581 - Centro, Corumbá - MS, 79332-090, Brazil",
-    "phone_number": "(67) 3231-5147",
-    "rating": 4.2,
-    "user_ratings_total": 204,
-    "coordinates": {
-      "lat": -19.012246,
-      "lng": -57.654535
-    },
-    "photos": [
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AUc7tXUgULWEwsq8y2xJdR7PyaeUjLb7oUuEz20SipMn0tMHh8l2dTjHLKvLfeOy8p4M-FnlAoQnT9MnQRrrof7c7fYmOKs626ebyXlmoAMPowiLSOz9mIUYbWMmg4HOK3xRoYUL2uC88ZfPWLOG9smKCTOBgsooi9nsGuMGkbeqfW1lk2W1&key=AIzaSyAFdGKDcfeyuuwUDuZfrAOVSxrWWW3gu0s",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AUc7tXXUAg_oXtnwI1EzyTaTW6jRjWrceac9yZTQcQ_tY33B13r9WEhFXIPlhR6NL2xScHqo4RgGpya9ZbnvfzBw9NvyKMmoQGzvGHd386QQqgWIGiXFm1uOnbhhC6jU23quLzF8EcRjy63lXltPty6Mg_VVSI8KyPG0_PSLDm16japhL2oH&key=AIzaSyAFdGKDcfeyuuwUDuZfrAOVSxrWWW3gu0s"
-    ]
-  },
-  {
-    "name": "Airbnb & Pousada em Corumbá Centro",
-    "address": "Portão Telado Cinza Grafite - R. Treze de Junho, 576 - Centro, Corumbá - MS, 79302-030, Brazil",
-    "phone_number": "(67) 99617-9696",
+    "name": "Pousada do Ronildo, Corumbá, MS",
+    "address": "R. São Carlos, 3 - Maria Leite, Corumbá - MS, 79310-100, Brazil",
+    "phone_number": "(67) 3231-5373",
     "rating": 4.3,
-    "user_ratings_total": 59,
+    "user_ratings_total": 249,
     "coordinates": {
-      "lat": -18.9989522,
-      "lng": -57.64901829999999
+      "lat": -19.0120093,
+      "lng": -57.6305326
     },
     "photos": [
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AUc7tXXurLtUt-DeRAMbKBhFPNFa723JkURCzzsy2qvMX-Hv2VueaYir5Bnwc1Edwr_SW3lIVa0H8IAhjv4fxTuCj4LYEWnn9hIemUJAiBM3n6aYDsBYmljOm-koQK-fNlkC-Jlcqc9dUE27Fre1_ZDCpaGMZ1Fhp2ffbYXNnxv3fIYiTc1D&key=AIzaSyAFdGKDcfeyuuwUDuZfrAOVSxrWWW3gu0s",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AUc7tXXntom7CeKpjItmnUGJdBwAfkmp7xIu1Rrin173ZChSE5UmT1m0oG4oJtN_-gTnjEZgRz0f8rSS46E2qN0XxFbFN23WX1bAx-A9Jx3LpidoK2LxUMUB1rfExvxQAO7WGmzblfsyVZPAno2lko-TUC4sU7nYj1E8C8fPjcqwWbFTp0WK&key=AIzaSyAFdGKDcfeyuuwUDuZfrAOVSxrWWW3gu0s"
-    ]
-  },
-  {
-    "name": "Hotel Cuiabá",
-    "address": "R. Antônio Maria Coelho - Centro, Corumbá - MS, 79301-000, Brazil",
-    "phone_number": "(67) 99969-0180",
-    "rating": 3.7,
-    "user_ratings_total": 15,
-    "coordinates": {
-      "lat": -18.9985527,
-      "lng": -57.65168749999999
-    },
-    "photos": [
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AUc7tXWJvMPVS3uSbC0RndqbR7db5G_H2V7jl4-GgW7O_ndzccx8OFQlJfVtS2N4UABYkm1cBMqd1E_9Er_XTDt6jhWAerww6OcHkihii507jcdJtAYMw543mugSkgkev4qtmgUL0VhHP30pSRXJOyEr8koHOIlw0BFxsB78ywpDvfQF7-eg&key=AIzaSyAFdGKDcfeyuuwUDuZfrAOVSxrWWW3gu0s",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AUc7tXWdW1yimVMXvAzp_YR3KPgLRtI0P1Zu5WLKqX_VqMLNpvXPkL3u-EM3pws5BX3Fz9bxJT534HYp5lR21PnyqNLi6ep_tmM4sJdEIHeNxlVhBl3AbFqv_Wlz_lFx8O0-n3OdiTYnJ2MAnggj9wYYmzHLuTSlE8fsF9QNNCXeM8tvFq14&key=AIzaSyAFdGKDcfeyuuwUDuZfrAOVSxrWWW3gu0s"
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AXCi2Q7zv81WrWSuBH0mxUX2pOj5iv3Y8dqUhps9eQTU8uwKmAJvHcsS_3mTcAOScnVoguYP2ffOhZvsZX52qffBHkqTe3LISvQKp3zrkk3y70xnSlGLaNs5HbxwL3TxYQ5zaM7JVPhhuJniqtnMziSXIP_aBFy79qPINk-kY70E2J47rSOh&key=AIzaSyDFPbuwWq40jOmxYyoNdbIfF4Jj7HGuekU",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=AXCi2Q5A3CjwhEP7ypoMZgq0kbxX11TG25hBa2NaG-Tf7IGQIOVpvlh-nHQozyPFLycFqB6bAUrXZHsmxZpovmoGq4kVxkR-QcgirW6CfAkM3hygCkqFdICxY9x8VBIlpjmgSPvD-ygTaQ-OYPL-3sopwjYqNxBKP8g9d10sGHeTCbP5KFfP&key=AIzaSyDFPbuwWq40jOmxYyoNdbIfF4Jj7HGuekU"
     ]
   }
 ]

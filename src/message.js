@@ -18,7 +18,7 @@ const userState = {};
  */
 function loadLogMessages() {
   try {
-    const logMessagesData = fs.readFileSync('./src/interactions/log_messages.json', 'utf8');
+    const logMessagesData = fs.readFileSync('./interactions/log_messages.json', 'utf8');
     return JSON.parse(logMessagesData);
   } catch (error) {
     console.error('Error loading log messages:', error);
@@ -117,7 +117,7 @@ const handleMessage = async (client) => {
  */
 const loadMenu = (language) => {
   try {
-    const menuPath = `./src/menu/menu.json`;
+    const menuPath = `./menu/menu.json`;
     const menuData = fs.readFileSync(menuPath, 'utf8');
     const menu = JSON.parse(menuData);
     return menu[language] || [];
@@ -885,6 +885,7 @@ const sendDetails = async (client, phoneNumber, userState, userChoice) => {
  * @param {string} phoneNumber - The phone number of the user receiving the details.
  * @param {Object} selectedItem - The selected item object containing details to be displayed.
  * @param {string} selectedItem.name - The name of the selected item.
+ * @param {string} selectedItem.phone - The phone of the selected item.
  * @param {string} selectedItem.address - The address of the selected item.
  * @param {number} selectedItem.rating - The rating of the selected item.
  * @param {number} selectedItem.user_ratings_total - The total number of ratings for the selected item.
@@ -912,7 +913,7 @@ const showItemDetails = async (client, phoneNumber, selectedItem) => {
     /**
      * @description - Assembles the item details to be sent to the user.
      */
-    const itemDetails = `${itemDetailsMessages.receiveDetails}\n${itemDetailsMessages.name}: ${selectedItem.name}\n${itemDetailsMessages.address}: ${selectedItem.address}\n${itemDetailsMessages.rating}: ${selectedItem.rating}\n${itemDetailsMessages.totalRatings}: ${selectedItem.user_ratings_total}\n${itemDetailsMessages.location}: ${location}`;
+    const itemDetails = `${itemDetailsMessages.receiveDetails}\n${itemDetailsMessages.name}: ${selectedItem.name}\n${itemDetailsMessages.phone_number}: ${selectedItem.phone_number}\n${itemDetailsMessages.address}: ${selectedItem.address}\n${itemDetailsMessages.rating}: ${selectedItem.rating}\n${itemDetailsMessages.totalRatings}: ${selectedItem.user_ratings_total}\n${itemDetailsMessages.location}: ${location}`;
 
     /**
      * @description - Sends the item details to the user.
