@@ -87,7 +87,7 @@ A documentação gerada automaticamente se encontra no diretório /src/docs, voc
 
 ## ✒️ Autores
 
-- **Carlos Augusto Moreira da Silva** - _Dev Engenheiro de software_ - [Augusto99MK](https://github.com/Augusto99MK)
+- **Carlos Augusto Moreira da Silva** - _Dev Analista de Sistemas_ - [Augusto99MK](https://github.com/Augusto99MK)
 
 ---
 
